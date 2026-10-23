@@ -42,6 +42,39 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
+p, li, label, input, textarea, button, a {
+  font-family: var(--brand-font-body);
+}
+
+.page-title {
+  color: var(--brand-primary);
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+}
+
+.page-copy {
+  color: var(--brand-text);
+  font-family: var(--brand-font-body);
+}
+
+.section-label {
+  color: var(--brand-accent);
+  font-family: var(--brand-font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  color: var(--brand-primary);
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+}
+
+.card-copy {
+  color: var(--brand-text);
+  font-family: var(--brand-font-body);
+}
+
 /* Reusable component styles */
 .brand-header,
 .brand-footer {
