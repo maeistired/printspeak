@@ -82,6 +82,36 @@ p, li, label, input, textarea, button, a {
   border-color: #e5e5e5;
 }
 
+.brand-panel-dark {
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+
+.brand-panel-light {
+  background-color: #fff;
+  color: var(--brand-text);
+}
+
+.brand-accent-block {
+  background-color: var(--brand-accent);
+}
+
+.brand-form-label {
+  color: var(--brand-primary);
+}
+
+.brand-form-control {
+  border: 1px solid #cbd5e1;
+  color: var(--brand-text);
+  background-color: #fff;
+}
+
+.brand-form-control:focus {
+  border-color: var(--brand-accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(15, 163, 177, 0.2);
+}
+
 .brand-pill {
   background-color: var(--brand-accent);
   color: #fff;
