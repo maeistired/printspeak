@@ -1,0 +1,60 @@
+/*
+  Brand Design Tokens
+  -------------------------------------------------------------
+  Update these CSS variables to quickly change the brand look.
+  Tailwind utility classes are used for layout/spacing/typography,
+  while these tokens keep brand decisions centralized.
+*/
+:root {
+  /* Core brand colors */
+  --brand-primary: #1f2937;   /* slate-800 */
+  --brand-accent: #4f46e5;    /* indigo-600 */
+  --brand-highlight: #e0e7ff; /* indigo-100 */
+  --brand-surface: #f8fafc;   /* slate-50 */
+  --brand-text: #0f172a;      /* slate-900 */
+
+  /* Font families (easy to replace) */
+  --brand-font-heading: "Inter", "Segoe UI", sans-serif;
+  --brand-font-body: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Base typography */
+body {
+  font-family: var(--brand-font-body);
+  color: var(--brand-text);
+  background-color: var(--brand-surface);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--brand-font-heading);
+}
+
+/* Reusable component styles */
+.brand-header,
+.brand-footer {
+  background-color: white;
+  border-color: #e2e8f0;
+}
+
+.brand-pill {
+  background-color: var(--brand-highlight);
+  color: var(--brand-accent);
+}
+
+.brand-button {
+  background-color: var(--brand-accent);
+  color: white;
+}
+
+.brand-button:hover {
+  filter: brightness(0.95);
+}
+
+.brand-link {
+  color: var(--brand-primary);
+}
+
+.brand-link:hover,
+.brand-link.active {
+  color: var(--brand-accent);
+}

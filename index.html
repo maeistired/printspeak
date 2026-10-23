@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrintSpeak | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="brand-header border-b">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="./index.html" class="text-xl font-semibold" style="color: var(--brand-primary);">PrintSpeak</a>
+      <div class="flex gap-5 text-sm font-medium">
+        <a class="brand-link active" href="./index.html">Home</a>
+        <a class="brand-link" href="./about.html">About</a>
+        <a class="brand-link" href="./team.html">Team</a>
+        <a class="brand-link" href="./blog.html">Blog</a>
+        <a class="brand-link" href="./contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2 md:items-center">
+      <div>
+        <span class="brand-pill inline-flex rounded-full px-3 py-1 text-xs font-semibold">Simple Brand Website</span>
+        <h1 class="mt-4 text-4xl font-bold leading-tight md:text-5xl">Bring your brand voice to every page.</h1>
+        <p class="mt-4 text-base text-slate-600">
+          PrintSpeak helps teams present a consistent story with simple and editable design guidelines.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="./about.html" class="brand-button rounded-lg px-5 py-3 text-sm font-semibold">Learn More</a>
+          <a href="./blog.html" class="rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700">Read Blog</a>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-xl font-semibold">Brand Essentials</h2>
+        <ul class="mt-4 space-y-3 text-sm text-slate-600">
+          <li>• Clear typography and color token setup</li>
+          <li>• Reusable page structure across key sections</li>
+          <li>• Tailwind-first classes for fast updates</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer border-t">
+    <div class="mx-auto flex max-w-6xl justify-between px-6 py-5 text-sm text-slate-500">
+      <p>© 2026 PrintSpeak</p>
+      <p>Built with HTML, CSS and Tailwind</p>
+    </div>
+  </footer>
+</body>
+</html>
