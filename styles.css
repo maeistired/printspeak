@@ -6,8 +6,7 @@
   while these tokens keep brand decisions centralized.
 */
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
+@import "tailwindcss";
 
 :root {
   /* Core brand colors */
@@ -22,8 +21,8 @@
   --brand-secondary: #72B01D; /* Lime Moss */
 
   /* Font families (easy to replace) */
-  --brand-font-heading: "Inter", "Segoe UI", sans-serif;
-  --brand-font-body: "Inter", "Segoe UI", sans-serif;
+  --brand-font-heading: 'Atkinson Hyperlegible', Arial, sans-serif;
+  --brand-font-body: 'Lexend', Arial, sans-serif;
 }
 
 /* Base typography */
@@ -34,10 +33,13 @@ body {
   font-family: var(--brand-font-body);
   color: var(--brand-text);
   background-color: var(--brand-neutral-bg);
+  font-feature-settings: "ss01";
 }
 
 h1, h2, h3, h4 {
   font-family: var(--brand-font-heading);
+  letter-spacing: -0.01em;
+  font-weight: 700;
 }
 
 /* Reusable component styles */
@@ -73,13 +75,24 @@ h1, h2, h3, h4 {
 .brand-link:hover,
 .brand-link.active {
   color: var(--brand-accent);
-  text-decoration: underline;
 }
 
 /* Top navigation bar */
 nav {
-    @apply fixed top-0 left-0 right-0 h-16 z-20 border-b px-4 flex items-center;
-    background-color: var(--current-neutral);
-    border-color: var(--current-primary);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  min-width: 100vw;
+  height: 4rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border-bottom: 1px solid var(--brand-primary);
+  background-color: var(--brand-neutral-bg);
+  border-color: var(--brand-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
 }
