@@ -5,56 +5,127 @@
   Tailwind utility classes are used for layout/spacing/typography,
   while these tokens keep brand decisions centralized.
 */
+
+@import "tailwindcss";
+
 :root {
   /* Core brand colors */
-  --brand-primary: #1f2937;   /* slate-800 */
-  --brand-accent: #4f46e5;    /* indigo-600 */
-  --brand-highlight: #e0e7ff; /* indigo-100 */
-  --brand-surface: #f8fafc;   /* slate-50 */
-  --brand-text: #0f172a;      /* slate-900 */
+  --brand-primary: #112250;   /* Space Indigo */
+  --brand-accent: #0FA3B1;    /* Pacific Blue */
+  --brand-neutral-bg: #FAFAFA; /* Soft neutral background */
+  --brand-text: #112250;      /* Space Indigo for text */
+
+  /* Optional highlight/secondary colors for future use */
+  --brand-highlight: #B5E2FA; /* Icy Blue */
+  --brand-surface: #D2F898;   /* Lime Cream */
+  --brand-secondary: #72B01D; /* Lime Moss */
 
   /* Font families (easy to replace) */
-  --brand-font-heading: "Inter", "Segoe UI", sans-serif;
-  --brand-font-body: "Inter", "Segoe UI", sans-serif;
+  --brand-font-heading: 'Atkinson Hyperlegible', Arial, sans-serif;
+  --brand-font-body: 'Lexend', Arial, sans-serif;
 }
 
 /* Base typography */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--brand-font-body);
   color: var(--brand-text);
-  background-color: var(--brand-surface);
+  background-color: var(--brand-neutral-bg);
+  font-feature-settings: "ss01";
 }
 
 h1, h2, h3, h4 {
   font-family: var(--brand-font-heading);
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+p, li, label, input, textarea, button, a {
+  font-family: var(--brand-font-body);
+}
+
+.page-title {
+  color: var(--brand-primary);
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+}
+
+.page-copy {
+  color: var(--brand-text);
+  font-family: var(--brand-font-body);
+}
+
+.section-label {
+  color: var(--brand-accent);
+  font-family: var(--brand-font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  color: var(--brand-primary);
+  font-family: var(--brand-font-heading);
+  font-weight: 700;
+}
+
+.card-copy {
+  color: var(--brand-text);
+  font-family: var(--brand-font-body);
 }
 
 /* Reusable component styles */
 .brand-header,
 .brand-footer {
-  background-color: white;
-  border-color: #e2e8f0;
+  background-color: #fff;
+  border-color: #e5e5e5;
 }
 
 .brand-pill {
-  background-color: var(--brand-highlight);
-  color: var(--brand-accent);
+  background-color: var(--brand-accent);
+  color: #fff;
 }
 
 .brand-button {
   background-color: var(--brand-accent);
-  color: white;
+  color: #fff;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
 .brand-button:hover {
-  filter: brightness(0.95);
+  background-color: var(--brand-primary);
+  color: #fff;
 }
 
 .brand-link {
   color: var(--brand-primary);
+  text-underline-offset: 2px;
+  transition: color 0.2s;
 }
 
 .brand-link:hover,
 .brand-link.active {
   color: var(--brand-accent);
+}
+
+/* Top navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  min-width: 100vw;
+  height: 4rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border-bottom: 1px solid var(--brand-primary);
+  background-color: var(--brand-neutral-bg);
+  border-color: var(--brand-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
 }
