@@ -25,6 +25,28 @@
   --brand-font-body: 'Lexend', Arial, sans-serif;
 }
 
+@theme inline {
+  --color-primary: var(--brand-primary);
+  --color-accent: var(--brand-accent);
+  --color-neutral-bg: var(--brand-neutral-bg);
+  --color-ink: var(--brand-text);
+  --color-highlight: var(--brand-highlight);
+  --color-surface: var(--brand-surface);
+  --color-secondary: var(--brand-secondary);
+  --font-heading: var(--brand-font-heading);
+  --font-body: var(--brand-font-body);
+}
+
+@layer base {
+  body {
+    @apply bg-neutral-bg font-body text-ink;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+}
+
 /* Base typography */
 html {
   scroll-behavior: smooth;
@@ -36,14 +58,11 @@ body {
   font-feature-settings: "ss01";
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--brand-font-heading);
-  letter-spacing: -0.01em;
-  font-weight: 700;
-}
+h1, h2, h3, h4 { letter-spacing: -0.01em; font-weight: 700; }
 
-p, li, label, input, textarea, button, a {
-  font-family: var(--brand-font-body);
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 3px;
 }
 
 .page-title {
@@ -139,6 +158,93 @@ p, li, label, input, textarea, button, a {
 .brand-link.active {
   color: var(--brand-accent);
 }
+
+@layer components {
+  .card {
+    @apply rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgb(17 34 80 / 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .tag {
+    @apply inline-flex rounded-full bg-surface px-3 py-1 text-sm font-bold text-primary;
+    display: inline-flex;
+    border-radius: 9999px;
+    background: var(--brand-surface);
+    padding: 0.25rem 0.75rem;
+    color: var(--brand-primary);
+  }
+
+  .btn {
+    @apply inline-flex items-center rounded-lg bg-accent px-5 py-3 font-bold text-white transition hover:bg-primary;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    background: var(--brand-accent);
+    padding: 0.75rem 1.25rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .post-body {
+    @apply text-lg leading-8 text-ink;
+    color: var(--brand-text);
+    font-size: 1.125rem;
+    line-height: 2;
+  }
+
+  .post-body h2 {
+    @apply mb-4 mt-12 text-3xl text-primary;
+  }
+
+  .post-body h3 {
+    @apply mb-3 mt-8 text-2xl text-primary;
+  }
+
+  .post-body p, .post-body ul, .post-body blockquote {
+    @apply mb-6;
+  }
+
+  .post-body ul {
+    @apply list-disc pl-6;
+  }
+
+  .post-body blockquote {
+    @apply border-l-4 border-highlight pl-5 font-bold;
+  }
+
+  .post-body a {
+    @apply font-bold text-accent underline underline-offset-4;
+  }
+
+  .post-body img {
+    @apply my-8 rounded-xl;
+  }
+}
+
+.card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 25px rgb(17 34 80 / 0.12);
+}
+
+.btn:hover {
+  background: var(--brand-primary);
+}
+
+/* Fallbacks keep the static GitHub Pages CDN setup working without a local build. */
+.bg-primary { background-color: var(--brand-primary); }
+.bg-accent { background-color: var(--brand-accent); }
+.bg-neutral-bg { background-color: var(--brand-neutral-bg); }
+.bg-surface { background-color: var(--brand-surface); }
+.text-primary { color: var(--brand-primary); }
+.text-accent { color: var(--brand-accent); }
+.text-ink { color: var(--brand-text); }
+.border-highlight { border-color: var(--brand-highlight); }
+.font-heading { font-family: var(--brand-font-heading); }
+.font-body { font-family: var(--brand-font-body); }
 
 /* Top navigation bar */
 nav {
