@@ -155,7 +155,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .brand-link:hover,
-.brand-link.active {
+.brand-link[aria-current="page"] {
   color: var(--brand-accent);
 }
 
@@ -234,6 +234,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--brand-primary);
 }
 
+.form-input {
+  @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-ink;
+}
+
+.form-input:focus {
+  border-color: var(--brand-accent);
+}
+
 /* Fallbacks keep the static GitHub Pages CDN setup working without a local build. */
 .bg-primary { background-color: var(--brand-primary); }
 .bg-accent { background-color: var(--brand-accent); }
@@ -264,4 +272,18 @@ nav {
   border-color: var(--brand-primary);
   transition: background-color 0.3s ease, border-color 0.3s ease;
   box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  nav > a {
+    font-size: 1.125rem;
+  }
+
+  nav .flex {
+    gap: 0.5rem;
+  }
+
+  nav .flex a {
+    font-size: 0.75rem;
+  }
 }

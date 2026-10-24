@@ -13,40 +13,43 @@
 <body>
   <header class="brand-header border-b">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="./index.html" class="text-xl font-semibold" style="color: var(--brand-primary);">PrintSpeak</a>
+      <a href="./index.html" class="text-xl font-semibold text-primary">PrintSpeak</a>
       <div class="flex gap-5 text-sm font-medium">
         <a class="brand-link" href="./index.html">Home</a>
         <a class="brand-link" href="./about.html">About</a>
         <a class="brand-link" href="./team.html">Team</a>
         <a class="brand-link" href="./blog.html">Blog</a>
-        <a class="brand-link active" href="./contact.html">Contact</a>
+        <a class="brand-link" href="./contact.html" aria-current="page">Contact</a>
       </div>
     </nav>
   </header>
 
-  <main class="mx-auto max-w-3xl px-6 py-16">
-    <h1 class="text-4xl page-title">Contact</h1>
-    <p class="mt-4 page-copy">Need support or want to discuss your next brand page? We would love to hear from you.</p>
+  <main class="mx-auto max-w-3xl px-6 py-24">
+    <h1 class="text-4xl text-primary md:text-5xl">Contact</h1>
+    <p class="mt-5 text-lg">Need support or want to discuss your next brand page? We would love to hear from you.</p>
 
-    <form class="mt-8 space-y-4 rounded-xl border border-slate-200 bg-white p-6">
+    <form class="card mt-12 space-y-4">
       <div>
-        <label class="mb-1 block text-sm font-medium text-slate-700" for="name">Name</label>
-        <input id="name" type="text" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none" />
+        <label class="mb-1 block font-bold text-primary" for="name">Name</label>
+        <input id="name" type="text" class="form-input" />
       </div>
       <div>
-        <label class="mb-1 block text-sm font-medium text-slate-700" for="email">Email</label>
-        <input id="email" type="email" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none" />
+        <label class="mb-1 block font-bold text-primary" for="email">Email</label>
+        <input id="email" type="email" class="form-input" />
       </div>
       <div>
-        <label class="mb-1 block text-sm font-medium text-slate-700" for="message">Message</label>
-        <textarea id="message" rows="4" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none"></textarea>
+        <label class="mb-1 block font-bold text-primary" for="message">Message</label>
+        <textarea id="message" rows="4" class="form-input"></textarea>
       </div>
-      <button type="submit" class="brand-button rounded-lg px-5 py-2 text-sm font-semibold">Send Message</button>
+      <button type="submit" class="btn">Send Message</button>
     </form>
   </main>
 
   <footer class="brand-footer border-t">
-    <div class="mx-auto max-w-6xl px-6 py-5 text-sm text-slate-500">© 2026 PrintSpeak</div>
+    <div class="mx-auto flex max-w-6xl justify-between px-6 py-5 text-sm text-slate-500">
+      <p>© 2026 PrintSpeak</p>
+      <p>Built with HTML, CSS and Tailwind</p>
+    </div>
   </footer>
 </body>
 </html>
