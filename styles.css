@@ -25,25 +25,15 @@
   --brand-font-body: 'Lexend', Arial, sans-serif;
 }
 
-@theme inline {
-  --color-primary: var(--brand-primary);
-  --color-accent: var(--brand-accent);
-  --color-neutral-bg: var(--brand-neutral-bg);
-  --color-ink: var(--brand-text);
-  --color-highlight: var(--brand-highlight);
-  --color-surface: var(--brand-surface);
-  --color-secondary: var(--brand-secondary);
-  --font-heading: var(--brand-font-heading);
-  --font-body: var(--brand-font-body);
-}
-
 @layer base {
   body {
-    @apply bg-neutral-bg font-body text-ink;
+    background-color: var(--brand-neutral-bg);
+    font-family: var(--brand-font-body);
+    color: var(--brand-text);
   }
 
   h1, h2, h3, h4 {
-    @apply font-heading;
+    font-family: var(--brand-font-heading);
   }
 }
 
@@ -161,7 +151,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @layer components {
   .card {
-    @apply rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
     border-radius: 0.75rem;
     background: #fff;
     padding: 1.5rem;
@@ -170,16 +159,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
 
   .tag {
-    @apply inline-flex rounded-full bg-surface px-3 py-1 text-sm font-bold text-primary;
     display: inline-flex;
     border-radius: 9999px;
     background: var(--brand-surface);
     padding: 0.25rem 0.75rem;
     color: var(--brand-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
   }
 
   .btn {
-    @apply inline-flex items-center rounded-lg bg-accent px-5 py-3 font-bold text-white transition hover:bg-primary;
     display: inline-flex;
     align-items: center;
     border-radius: 0.5rem;
@@ -187,43 +176,137 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     padding: 0.75rem 1.25rem;
     color: #fff;
     font-weight: 700;
+    transition: background-color 0.2s ease;
   }
 
+}
+
+.card-soon {
+  @apply text-slate-500 cursor-default;
+  color: #64748b;
+  cursor: default;
+  transform: none;
+}
+
+.card-soon:hover {
+  @apply transform-none shadow-sm;
+  box-shadow: 0 1px 3px rgb(17 34 80 / 0.08);
+  transform: none;
+}
+
+.card-soon-placeholder {
+  background-color: var(--brand-highlight);
+}
+
   .post-body {
-    @apply text-lg leading-8 text-ink;
+    max-width: 65ch;
     color: var(--brand-text);
+    font-family: var(--brand-font-body);
     font-size: 1.125rem;
-    line-height: 2;
+    font-weight: 400;
+    line-height: 1.625;
+    text-align: left;
   }
 
   .post-body h2 {
-    @apply mb-4 mt-12 text-3xl text-primary;
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+    color: var(--brand-primary);
+    font-family: var(--brand-font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  @media (min-width: 768px) {
+    .post-body h2 {
+      font-size: 1.875rem;
+    }
   }
 
   .post-body h3 {
-    @apply mb-3 mt-8 text-2xl text-primary;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    color: var(--brand-primary);
+    font-family: var(--brand-font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
   }
 
-  .post-body p, .post-body ul, .post-body blockquote {
-    @apply mb-6;
+  @media (min-width: 768px) {
+    .post-body h3 {
+      font-size: 1.5rem;
+    }
   }
 
-  .post-body ul {
-    @apply list-disc pl-6;
+  .post-body > :first-child {
+    margin-top: 0;
+  }
+
+  .post-body p {
+    margin-bottom: 1.5em;
+    color: var(--brand-text);
+    font-family: var(--brand-font-body);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.625;
+    text-align: left;
+  }
+
+  .post-body ul,
+  .post-body ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.625;
+    list-style-position: outside;
+  }
+
+  .post-body li + li {
+    margin-top: 0.5rem;
   }
 
   .post-body blockquote {
-    @apply border-l-4 border-highlight pl-5 font-bold;
+    margin-bottom: 1.5em;
+    border-left: 0.25rem solid var(--brand-secondary);
+    padding-left: 1.25rem;
   }
 
   .post-body a {
-    @apply font-bold text-accent underline underline-offset-4;
+    overflow-wrap: break-word;
+    color: var(--brand-accent);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+  }
+
+  .post-body a:focus-visible {
+    outline: 0.1875rem solid var(--brand-accent);
+    outline-offset: 0.1875rem;
+  }
+
+  .post-body h2 + *,
+  .post-body h3 + * {
+    margin-top: 0;
+  }
+
+  .post-body h2 + ol,
+  .post-body h2 + ul {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .post-body h2:last-of-type + ol,
+  .post-body h2:last-of-type + ul {
+    margin-top: 0;
   }
 
   .post-body img {
-    @apply my-8 rounded-xl;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.75rem;
   }
-}
 
 .card:hover {
   transform: translateY(-0.25rem);
@@ -235,7 +318,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .form-input {
-  @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-ink;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  padding: 0.75rem 1rem;
+  color: var(--brand-text);
 }
 
 .form-input:focus {
