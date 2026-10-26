@@ -151,11 +151,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @layer components {
   .card {
+    @apply relative cursor-pointer;
+    position: relative;
+    cursor: pointer;
     border-radius: 0.75rem;
     background: #fff;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgb(17 34 80 / 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:focus-within {
+    @apply ring-2 ring-accent ring-offset-2;
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 2px;
+  }
+
+  .card-link::after {
+    @apply absolute inset-0;
+    content: "";
+    position: absolute;
+    inset: 0;
   }
 
   .tag {
