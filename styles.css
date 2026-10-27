@@ -411,7 +411,7 @@ textarea:focus-visible {
 .site-nav-logo {
   color: var(--brand-primary);
   font-family: var(--brand-font-heading);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -423,7 +423,7 @@ textarea:focus-visible {
 .site-nav-link {
   color: var(--brand-primary);
   font-family: var(--brand-font-body);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   text-underline-offset: 2px;
   transition: color 0.2s ease;
