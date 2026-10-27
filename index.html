@@ -24,9 +24,14 @@
   </header>
 
   <main>
-<section class="hero flex w-full flex-col items-center justify-center bg-accent text-center gap-10">
+<section class="hero flex w-full flex-col items-center justify-center bg-accent text-center gap-12">
   <img src="img/logoPrimaryClear.png" alt="PrintSpeak Logo" class="object-contain" />
   <h1 class="text-3xl font-normal text-white">Where Print Comes Alive</h1>
+  <a href="#blog" class="hero-scroll" aria-label="Scroll to blog posts">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="m5 9 9 9 9-9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </a>
 </section>
 
 <!-- <section id="advantages" class="mx-auto max-w-6xl px-6 py-24">
@@ -80,7 +85,7 @@
   </div>
 </section> -->
 
-<section class="mx-auto max-w-6xl px-6 py-24">
+<section id="blog" class="mx-auto max-w-6xl px-6 py-16">
   <h2 class="mb-10 text-center text-5xl text-primary">Our Blog</h2>
   <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
     <article class="card">
@@ -96,7 +101,7 @@
       <p class="mt-2">Coming soon</p>
     </article>
   </div>
-</section>s
+</section>
 
 <section class="w-full bg-primary py-24 text-white">
   <div class="mx-auto max-w-3xl px-6">
@@ -114,7 +119,7 @@
         <label class="mb-1 block font-bold text-primary" for="message">Message</label>
         <textarea id="message" rows="4" class="form-input"></textarea>
       </div>
-      <button type="submit" class="btn">Send Message</button>
+      <!-- <button type="submit" class="btn">Send Message</button> -->
     </form>
   </div>
 </section>

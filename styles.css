@@ -24,7 +24,12 @@
 
 html {
   background-color: var(--brand-neutral-bg);
-  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -312,15 +317,69 @@ textarea:focus-visible {
   border-color: var(--brand-accent);
 }
 
-/* === HERO: edit hero sizing here; affects the home page === */
+/* === HERO: edit hero sizing and hero scroll arrow here; affects the home page === */
 .hero {
+  position: relative;
+  box-sizing: border-box;
   min-height: calc(100svh - var(--nav-height));
+  padding-bottom: 4rem;
 }
 
 .hero img {
   width: 100%;
   max-width: 36rem;
   height: auto;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: var(--brand-white);
+  opacity: 0.75;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.hero-scroll:hover {
+  opacity: 1;
+}
+
+.hero-scroll:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+.hero-scroll svg {
+  width: 2rem;
+  height: 2rem;
+  stroke-width: 2;
+}
+
+#blog {
+  scroll-margin-top: var(--nav-height);
+}
+
+@keyframes hero-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-scroll svg {
+    animation: hero-scroll-bounce 2.5s ease-in-out infinite;
+  }
 }
 
 /* === NAV: edit nav appearance here; affects every page === */
