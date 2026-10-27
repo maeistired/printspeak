@@ -394,7 +394,7 @@ textarea:focus-visible {
 .site-nav {
   height: var(--nav-height);
   box-sizing: border-box;
-  border-bottom: 1px solid var(--brand-primary);
+  border-bottom: 1px solid var(--brand-border);
   background-color: var(--brand-neutral-bg);
 }
 
@@ -405,26 +405,29 @@ textarea:focus-visible {
   height: 100%;
   max-width: 72rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
 .site-nav-logo {
   color: var(--brand-primary);
   font-family: var(--brand-font-heading);
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 550;
+}
+
+.site-nav-logo:hover {
+  color: var(--brand-accent);
 }
 
 .site-nav-links {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.75rem;
 }
 
 .site-nav-link {
   color: var(--brand-primary);
   font-family: var(--brand-font-body);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 400;
   text-underline-offset: 2px;
   transition: color 0.2s ease;
 }
