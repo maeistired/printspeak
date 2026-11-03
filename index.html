@@ -108,20 +108,35 @@
 <section class="w-full bg-primary py-24 text-white">
   <div class="mx-auto max-w-3xl px-6">
     <h2 class="mb-6 text-center text-5xl">Contact Us</h2>
-    <form class="card space-y-4">
+    <p class="mb-8 text-lg">
+      Prefer email?
+      <a class="font-bold text-white underline underline-offset-4" data-site-email href="mailto:">
+        <span data-site-email-text></span>
+      </a>
+    </p>
+    <noscript>
+      <p class="mb-8">Email us at <a href="mailto:official.printspeak&#64;gmail.com">official.printspeak&#64;gmail.com</a>.</p>
+    </noscript>
+    <p class="form-status mb-8 text-white" data-form-status role="status" hidden>Thanks! Your message has been sent.</p>
+    <form class="card contact-form space-y-4" method="POST" data-site-form>
+      <input type="hidden" name="_subject" value="New message from printspeak.ca" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="" />
+      <input class="visually-hidden" type="text" name="_honey" tabindex="-1" autocomplete="off" />
       <div>
         <label class="mb-1 block font-bold text-primary" for="name">Name</label>
-        <input id="name" type="text" class="form-input" />
+        <input id="name" name="name" type="text" class="form-input" required />
       </div>
       <div>
         <label class="mb-1 block font-bold text-primary" for="email">Email</label>
-        <input id="email" type="email" class="form-input" />
+        <input id="email" name="email" type="email" class="form-input" required />
       </div>
       <div>
         <label class="mb-1 block font-bold text-primary" for="message">Message</label>
-        <textarea id="message" rows="4" class="form-input"></textarea>
+        <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
       </div>
-      <!-- <button type="submit" class="btn">Send Message</button> -->
+      <button type="submit" class="btn">Send message</button>
     </form>
   </div>
 </section>

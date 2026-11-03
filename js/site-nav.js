@@ -36,7 +36,8 @@ const FOOTER = {
   },
 
   // Contact details
-  email: "",
+  // Brand email (footer, contact page, form destination): js/site-nav.js FOOTER.email.
+  email: "official.printspeak@gmail.com",
   location: "Toronto, ON",
   projectLine: "A GCM 375 student project, Toronto Metropolitan University",
 
@@ -167,4 +168,30 @@ if (nav) {
 const footer = document.getElementById("site-footer");
 if (footer) {
   footer.innerHTML = createFooterMarkup(pathPrefix);
+}
+
+window.SITE_EMAIL = FOOTER.email;
+
+// CONTACT: fills email links and form action from FOOTER.email.
+document.querySelectorAll("[data-site-email]").forEach((emailElement) => {
+  emailElement.href = `mailto:${FOOTER.email}`;
+  const emailText = emailElement.querySelector("[data-site-email-text]");
+  if (emailText) {
+    emailText.textContent = FOOTER.email;
+  }
+});
+
+document.querySelectorAll("[data-site-form]").forEach((form) => {
+  form.action = `https://formsubmit.co/${FOOTER.email}`;
+
+  const nextUrl = new URL("./contact.html?sent=1", window.location.href);
+  const nextField = form.querySelector('[name="_next"]');
+  if (nextField) {
+    nextField.value = nextUrl.href;
+  }
+});
+
+const formStatus = document.querySelector("[data-form-status]");
+if (formStatus && new URLSearchParams(window.location.search).get("sent") === "1") {
+  formStatus.hidden = false;
 }

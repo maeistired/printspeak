@@ -318,6 +318,23 @@ textarea:focus-visible {
   border-color: var(--brand-accent);
 }
 
+.form-status {
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* === HERO: edit hero sizing and hero scroll arrow here; affects the home page === */
 .hero {
   position: relative;
@@ -646,6 +663,11 @@ textarea:focus-visible {
 
   .site-nav-link {
     font-size: 0.875rem;
+  }
+
+  .contact-form .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
