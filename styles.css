@@ -1132,7 +1132,7 @@ textarea:focus-visible {
 .statement-quote {
   font-family: var(--brand-font-heading);
   font-size: 2.5rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
 }
 
