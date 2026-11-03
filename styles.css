@@ -379,7 +379,8 @@ textarea:focus-visible {
   stroke-width: 2;
 }
 
-#blog {
+#blog,
+#about-preview {
   scroll-margin-top: var(--nav-height);
 }
 
