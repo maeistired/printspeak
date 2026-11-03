@@ -829,6 +829,10 @@ textarea:focus-visible {
   text-align: center;
 }
 
+.statement .eyebrow {
+  color: var(--brand-surface);
+}
+
 .statement-rule {
   width: 4rem;
   height: 0.25rem;
