@@ -46,12 +46,52 @@ const FOOTER = {
     { title: "What Are Talking Labels?", href: "blog/talking-labels.html", date: "" }
   ],
 
-  // Social links
-  socials: [],
+  // Editing map: Social links (footer + contact panels): js/site-nav.js FOOTER.socials.
+  // Icons: SOCIAL_ICONS in this file.
+  socials: [
+    { label: "Instagram", handle: "@printspeak_gcm375", href: "https://www.instagram.com/printspeak_gcm375/", icon: "instagram" },
+    { label: "LinkedIn", handle: "PrintSpeak", href: "https://www.linkedin.com/in/print-speak-676414446/", icon: "linkedin" }
+  ],
 
   // Bottom bar
   copyright: "All rights reserved.",
   backToTopLabel: "Back to top"
+};
+
+// EDIT CONTACT SECTION HERE: affects contact.html and index.html
+// Editing map: Contact section (both pages): js/site-nav.js CONTACT object + FOOTER email/location/socials.
+// Compact copy: CONTACT.compactIntro. Layout: styles.css /* === CONTACT === */.
+// Variants: data-variant="full" on contact.html and data-variant="compact" on index.html.
+const CONTACT = {
+  heading: "Contact Us",
+  intro: "",
+  compactIntro: "Questions, ideas, or partnerships? We'd love to hear from you.",
+  image: "",
+  imageAlt: ""
+};
+
+const SOCIAL_ICONS = {
+  instagram: `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2" />
+      <circle cx="12" cy="12" r="4" stroke-width="2" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  `,
+  linkedin: `
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M5.2 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM3.5 9h3.4v11.5H3.5V9Zm5.5 0h3.2v1.6h.1c.4-.8 1.5-2 3.6-2 3.8 0 4.5 2.5 4.5 5.7v6.2H17v-5.5c0-1.3 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.6H9V9Z" />
+    </svg>
+  `
+};
+
+const createSocialIconMarkup = (icon, className) => {
+  const iconMarkup = SOCIAL_ICONS[icon];
+  return iconMarkup.replace("<svg ", `<svg class="${className}" `);
+};
+
+const createEmailTextMarkup = () => {
+  return FOOTER.email;
 };
 
 const createFooterBrandMarkup = (pathPrefix) => `
@@ -59,6 +99,16 @@ const createFooterBrandMarkup = (pathPrefix) => `
     <a href="${pathPrefix}index.html" class="site-footer-logo">${FOOTER.brandName}</a>
     ${FOOTER.tagline ? `<p class="site-footer-tagline">${FOOTER.tagline}</p>` : ""}
     ${FOOTER.about ? `<p class="site-footer-about">${FOOTER.about}</p>` : ""}
+    ${FOOTER.location ? `
+      <p class="site-footer-contact-line">
+        <svg class="site-footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+          <circle cx="12" cy="10" r="2.5" stroke-width="2" />
+        </svg>
+        <span>${FOOTER.location}</span>
+      </p>
+    ` : ""}
+    ${FOOTER.projectLine ? `<p class="site-footer-project">${FOOTER.projectLine}</p>` : ""}
   </div>
 `;
 
@@ -92,36 +142,123 @@ const createFooterContactMarkup = () => `
     <h2 class="site-footer-heading">${FOOTER.headings.contact}</h2>
     <div class="site-footer-contact">
       ${FOOTER.email ? `
-        <a class="site-footer-link site-footer-contact-line" href="mailto:${FOOTER.email}">
+        <a class="site-footer-link site-footer-contact-line email-link" href="mailto:${FOOTER.email}">
           <svg class="site-footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18v14H3z M3 5l9 7 9-7" />
           </svg>
-          <span>${FOOTER.email}</span>
+          <span>${createEmailTextMarkup()}</span>
         </a>
       ` : ""}
-      ${FOOTER.location ? `
-        <p class="site-footer-contact-line">
-          <svg class="site-footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
-            <circle cx="12" cy="10" r="2.5" stroke-width="2" />
-          </svg>
-          <span>${FOOTER.location}</span>
-        </p>
-      ` : ""}
-      ${FOOTER.projectLine ? `<p class="site-footer-project">${FOOTER.projectLine}</p>` : ""}
     </div>
   </div>
 `;
 
 const createFooterSocialsMarkup = () => FOOTER.socials.length ? `
   <div class="site-footer-socials">
-    ${FOOTER.socials.map(({ label, href }) => `
-      <a class="site-footer-social" href="${href}" aria-label="${label}" target="_blank" rel="noopener">
-        <span aria-hidden="true">${label.slice(0, 1)}</span>
+    ${FOOTER.socials.map(({ label, href, icon }) => `
+      <a class="site-footer-social" href="${href}" aria-label="PrintSpeak on ${label}" target="_blank" rel="noopener">
+        ${createSocialIconMarkup(icon, "site-footer-social-icon")}
       </a>
     `).join("")}
   </div>
 ` : "";
+
+const createContactFormMarkup = (variant) => {
+  const fields = variant === "compact"
+    ? [
+      { id: "email", label: "Email", type: "email" },
+      { id: "message", label: "Message", type: "textarea", rows: 3 }
+    ]
+    : [
+      { id: "name", label: "Name", type: "text" },
+      { id: "email", label: "Email", type: "email" },
+      { id: "message", label: "Message", type: "textarea", rows: 4 }
+    ];
+
+  return `
+  <form class="contact-form" method="POST" data-site-form="${variant}">
+    <input type="hidden" name="_subject" value="New message from printspeak.ca" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="" />
+    <input class="visually-hidden" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+    ${fields.map(({ id, label, type, rows }) => `
+      <div class="contact-field">
+        <label for="${variant}-${id}">${label} <span>(required)</span></label>
+        ${type === "textarea"
+          ? `<textarea id="${variant}-${id}" name="${id}" rows="${rows}" class="form-input" required></textarea>`
+          : `<input id="${variant}-${id}" name="${id}" type="${type}" class="form-input" required />`}
+      </div>
+    `).join("")}
+    <button type="submit" class="btn btn-pill">Send message</button>
+  </form>
+  `;
+};
+
+const createContactMarkup = (contactElement) => {
+  const headingLevel = contactElement.dataset.headingLevel === "1" ? "h1" : "h2";
+  const variant = contactElement.dataset.variant === "compact" ? "compact" : "full";
+  contactElement.classList.add(`contact--${variant}`);
+  const imageMarkup = CONTACT.image
+    ? `<img class="contact-image" src="${CONTACT.image}" alt="${CONTACT.imageAlt}" />`
+    : `
+      <div class="img-placeholder contact-image" role="img" aria-label="Photo coming soon">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 5h16v14H4zM8 9h.01M4 16l4-4 3 3 2-2 7 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+        </svg>
+        <span>Photo coming soon</span>
+      </div>
+    `;
+
+  const detailsMarkup = `
+    <div class="contact-details">
+      <div class="contact-detail">
+        <h3>Email</h3>
+        <a class="email-link" data-site-email href="mailto:"><span data-site-email-text></span></a>
+      </div>
+      <div class="contact-detail">
+        <h3>Based in</h3>
+        <p>${FOOTER.location}</p>
+      </div>
+      <div class="contact-socials">
+        ${FOOTER.socials.map(({ label, href, icon }) => `
+          <a href="${href}" aria-label="PrintSpeak on ${label}" target="_blank" rel="noopener">
+            ${createSocialIconMarkup(icon, "contact-social-icon")}
+          </a>
+        `).join("")}
+      </div>
+    </div>
+  `;
+
+  if (variant === "compact") {
+    return `
+      <div class="contact-content contact--compact">
+        <div class="contact-copy-column">
+          <${headingLevel} id="contact-heading">Get in touch</${headingLevel}>
+          <p class="contact-intro">${CONTACT.compactIntro}</p>
+          <a class="contact-page-link" href="${pathPrefix}contact.html">More ways to reach us →</a>
+        </div>
+        <div class="contact-form-column">
+          <p class="form-status" data-form-status role="status" hidden>Thanks! Your message has been sent.</p>
+          ${createContactFormMarkup(variant)}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="contact-content contact--full">
+      <div class="contact-image-wrap">${imageMarkup}</div>
+      <div class="contact-form-column">
+        <${headingLevel} id="contact-heading">${CONTACT.heading}</${headingLevel}>
+        ${CONTACT.intro ? `<p class="contact-intro">${CONTACT.intro}</p>` : ""}
+        <p class="form-status" data-form-status role="status" hidden>Thanks! Your message has been sent.</p>
+        ${createContactFormMarkup(variant)}
+      </div>
+      ${detailsMarkup}
+    </div>
+  `;
+};
 
 const createFooterMarkup = (pathPrefix) => `
   <div class="site-footer-container">
@@ -170,21 +307,27 @@ if (footer) {
   footer.innerHTML = createFooterMarkup(pathPrefix);
 }
 
+document.querySelectorAll("[data-site-contact]").forEach((contactElement) => {
+  contactElement.innerHTML = createContactMarkup(contactElement);
+});
+
 window.SITE_EMAIL = FOOTER.email;
 
-// CONTACT: fills email links and form action from FOOTER.email.
+// CONTACT: fills email links and form action from FOOTER.
 document.querySelectorAll("[data-site-email]").forEach((emailElement) => {
   emailElement.href = `mailto:${FOOTER.email}`;
   const emailText = emailElement.querySelector("[data-site-email-text]");
   if (emailText) {
-    emailText.textContent = FOOTER.email;
+    emailText.innerHTML = createEmailTextMarkup();
   }
 });
 
 document.querySelectorAll("[data-site-form]").forEach((form) => {
   form.action = `https://formsubmit.co/${FOOTER.email}`;
 
-  const nextUrl = new URL("./contact.html?sent=1", window.location.href);
+  const nextUrl = form.dataset.siteForm === "compact"
+    ? new URL("./index.html?sent=1#contact", window.location.href)
+    : new URL("./contact.html?sent=1", window.location.href);
   const nextField = form.querySelector('[name="_next"]');
   if (nextField) {
     nextField.value = nextUrl.href;
