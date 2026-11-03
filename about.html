@@ -24,21 +24,145 @@
     </noscript>
   </header>
 
-  <main class="mx-auto max-w-6xl px-6 py-24">
-    <h1 class="text-4xl text-primary md:text-5xl">About PrintSpeak</h1>
-    <p class="mt-5 text-lg">
-      tdb
-    </p>
-    <div class="mt-12 grid gap-8 md:grid-cols-2">
-      <article class="card">
-        <h2 class="text-2xl text-primary">Our Mission</h2>
-        <p class="mt-3 text-lg">tdb</p>
-      </article>
-      <article class="card">
-        <h2 class="text-2xl text-primary">Our Values</h2>
-        <p class="mt-3 text-lg">tbd</p>
-      </article>
-    </div>
+  <main>
+    <section id="about-hero" class="about-hero" aria-labelledby="about-hero-heading">
+      <div class="mx-auto max-w-6xl px-6">
+        <!-- EDIT: hero eyebrow -->
+        <p class="eyebrow">About PrintSpeak</p>
+        <!-- EDIT: hero heading -->
+        <h1 id="about-hero-heading">Where Print Comes Alive</h1>
+        <!-- EDIT: hero subline -->
+        <p class="about-hero-subline">A student-led initiative using NFC and talking labels to make product information accessible to everyone.</p>
+        <div class="about-hero-actions">
+          <!-- EDIT: hero primary link -->
+          <a class="btn" href="blog.html">Read our blog</a>
+          <!-- EDIT: hero outline link -->
+          <a class="btn btn-outline" href="contact.html">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="about-section" aria-labelledby="problem-heading">
+      <div class="split mx-auto max-w-6xl px-6">
+        <div>
+          <!-- EDIT: problem eyebrow -->
+          <p class="eyebrow">The Problem</p>
+          <!-- EDIT: problem heading -->
+          <h2 id="problem-heading">Labels shouldn't leave anyone guessing</h2>
+          <!-- EDIT: problem paragraph 1 -->
+          <p>Have you or someone you know ever struggled to read a product label? Maybe your medicine bottles look almost identical, or the shelves of canned goods are so visually loud that one is hard to tell from the next.</p>
+          <!-- EDIT: problem paragraph 2 -->
+          <p>Whether it's the fonts, the colours, or the amount of information, many people with visual impairments or reduced eyesight find traditional flat labels difficult to read, because products offer so little variety in their visual information. Standard labels make it nearly impossible for many individuals to manage daily life independently.</p>
+        </div>
+        <div>
+          <!-- EDIT: when the photo is ready, replace the div below with:
+               <img src="img/about/problem.webp" alt="Close-up of similar-looking medication bottles on a shelf." width="1200" height="900" loading="lazy" class="about-img"> -->
+          <div class="img-placeholder" role="img" aria-label="Medication bottles photo coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 5h16v14H4zM8 9h.01M4 16l4-4 3 3 2-2 7 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+            </svg>
+            <span>Medication bottles photo coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="statement" aria-labelledby="mission-heading">
+      <div class="mx-auto max-w-3xl px-6">
+        <div class="statement-rule" aria-hidden="true"></div>
+        <!-- EDIT: mission statement -->
+        <p id="mission-heading" class="statement-quote">Accessibility should be the standard, not an afterthought.</p>
+        <!-- EDIT: mission supporting line -->
+        <p class="statement-support">We're here to change that.</p>
+      </div>
+    </section>
+
+    <section id="who-we-are" class="about-section" aria-labelledby="who-we-are-heading">
+      <div class="split split-reverse mx-auto max-w-6xl px-6">
+        <div>
+          <!-- EDIT: who we are eyebrow -->
+          <p class="eyebrow">Who We Are</p>
+          <!-- EDIT: who we are heading -->
+          <h2 id="who-we-are-heading">A student-led initiative</h2>
+          <!-- EDIT: who we are paragraph 1 -->
+          <p>PrintSpeak is a GCM student-led initiative at Toronto Metropolitan University, focused on using NFC and talking labels to improve accessibility in product labelling and design.</p>
+          <!-- EDIT: who we are paragraph 2 -->
+          <p>We help organizations branch out into NFC and talking-label technology to improve accessibility and daily operations, removing barriers for people with visual impairments and showing that smart technology can be a tool for human independence.</p>
+        </div>
+        <div>
+          <!-- EDIT: group photo, replace placeholder with <img> (see comment) -->
+          <!-- EDIT: when the photo is ready, replace the div below with:
+               <img src="img/about/team-group.webp" alt="The PrintSpeak team." width="1200" height="900" loading="lazy" class="about-img"> -->
+          <div class="img-placeholder" role="img" aria-label="Group photo coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 5h16v14H4zM8 9h.01M4 16l4-4 3 3 2-2 7 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+            </svg>
+            <span>Group photo coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-we-do" class="about-section" aria-labelledby="what-we-do-heading">
+      <div class="mx-auto max-w-6xl px-6">
+        <!-- EDIT: what we do eyebrow -->
+        <p class="eyebrow">What We Do</p>
+        <!-- EDIT: what we do heading -->
+        <h2 id="what-we-do-heading">More than research</h2>
+        <!-- EDIT: what we do intro -->
+        <p class="about-intro">We don't just study the problem. Through real-world field studies, insider data, and extensive research, we show how interactive talking labels can transform the way people interact with physical products.</p>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- EDIT: Educate card -->
+          <article class="card card-static">
+            <svg class="about-card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 5h16v12H4zM8 21h8M12 17v4M8 9h8M8 12h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+            </svg>
+            <h3>Educate</h3>
+            <p>We share what talking labels are and why accessible packaging matters.</p>
+          </article>
+          <!-- EDIT: Survey card -->
+          <article class="card card-static">
+            <svg class="about-card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+            </svg>
+            <h3>Survey</h3>
+            <p>We gather insight directly from the people who rely on accessible labels.</p>
+          </article>
+          <!-- EDIT: Research card -->
+          <article class="card card-static">
+            <svg class="about-card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="10.5" cy="10.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <path d="m15 15 5 5M8 10.5h5M10.5 8v5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" />
+            </svg>
+            <h3>Research</h3>
+            <p>We study the technology, the barriers, and what it takes to adopt it.</p>
+          </article>
+          <!-- EDIT: Advocate card -->
+          <article class="card card-static">
+            <svg class="about-card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 11h4l8-4v10l-8-4H5zM9 15l1.5 4H8l-1.5-4M19 9a4 4 0 0 1 0 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+            </svg>
+            <h3>Advocate</h3>
+            <p>We help organizations see accessibility as standard practice, not an add-on.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="get-involved" class="cta-band" aria-labelledby="get-involved-heading">
+      <div class="mx-auto max-w-3xl px-6">
+        <!-- EDIT: CTA heading -->
+        <h2 id="get-involved-heading">Follow along as we bring print to life</h2>
+        <!-- EDIT: CTA supporting line -->
+        <p>Read our latest findings or reach out to work with us.</p>
+        <div class="cta-actions">
+          <!-- EDIT: CTA blog link -->
+          <a class="btn" href="blog.html">Read the blog</a>
+          <!-- EDIT: CTA contact link -->
+          <a class="btn btn-outline" href="contact.html">Contact us</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer id="site-footer">

@@ -671,6 +671,257 @@ textarea:focus-visible {
   }
 }
 
+/* === ABOUT PAGE === */
+.about-hero {
+  background-color: var(--brand-primary);
+  color: var(--brand-white);
+  padding: 5rem 0;
+}
+
+.about-hero h1 {
+  max-width: 42rem;
+  margin-top: 0.75rem;
+  color: var(--brand-white);
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.about-hero .eyebrow {
+  color: var(--brand-surface);
+}
+
+.about-hero-subline {
+  max-width: 42rem;
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.about-hero-actions,
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-outline {
+  border: 2px solid currentColor;
+  background-color: transparent;
+  color: inherit;
+}
+
+.btn-outline:hover {
+  background-color: var(--brand-white);
+  color: var(--brand-primary);
+}
+
+.about-hero .btn {
+  background-color: var(--brand-surface);
+  color: var(--brand-primary);
+}
+
+.about-hero .btn:hover {
+  background-color: var(--brand-white);
+}
+
+.about-hero .btn-outline {
+  background-color: transparent;
+  color: var(--brand-white);
+}
+
+.about-hero .btn-outline:hover {
+  background-color: var(--brand-white);
+  color: var(--brand-primary);
+}
+
+.about-section {
+  padding: 6rem 0;
+}
+
+.eyebrow {
+  color: var(--brand-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.about-section h2,
+.cta-band h2 {
+  margin-top: 0.75rem;
+  color: var(--brand-primary);
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+
+.about-section h2 + p,
+.split div > p + p {
+  margin-top: 1.25rem;
+}
+
+.split {
+  display: grid;
+  align-items: center;
+  gap: 3rem;
+}
+
+.split > div:first-child {
+  order: 1;
+}
+
+.split > div:last-child {
+  order: 2;
+}
+
+.split-reverse > div:first-child {
+  order: 2;
+}
+
+.split-reverse > div:last-child {
+  order: 1;
+}
+
+.split p,
+.about-intro,
+.card-static p,
+.cta-band p {
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.img-placeholder,
+.about-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.75rem;
+}
+
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: var(--brand-highlight);
+  color: var(--brand-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.img-placeholder svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.about-img {
+  display: block;
+  object-fit: cover;
+}
+
+.statement {
+  background-color: var(--brand-primary);
+  padding: 6rem 0;
+  color: var(--brand-white);
+  text-align: center;
+}
+
+.statement-rule {
+  width: 4rem;
+  height: 0.25rem;
+  margin: 0 auto 1.5rem;
+  background-color: var(--brand-surface);
+}
+
+.statement-quote {
+  font-family: var(--brand-font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.statement-support {
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+}
+
+.about-intro {
+  max-width: 48rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.card-static {
+  cursor: default;
+}
+
+.card-static:hover {
+  transform: none;
+  box-shadow: 0 1px 3px rgb(17 34 80 / 8%);
+}
+
+.about-card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--brand-accent);
+}
+
+.card-static h3 {
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+}
+
+.card-static p {
+  margin-top: 0.75rem;
+}
+
+.cta-band {
+  background-color: var(--brand-highlight);
+  padding: 5rem 0;
+  color: var(--brand-primary);
+}
+
+.cta-band h2 {
+  margin-top: 0;
+}
+
+.cta-band .btn {
+  background-color: var(--brand-primary);
+  color: var(--brand-white);
+}
+
+.cta-band .btn:hover {
+  background-color: var(--brand-accent);
+}
+
+.cta-band .btn-outline {
+  background-color: transparent;
+  color: var(--brand-primary);
+}
+
+.cta-band .btn-outline:hover {
+  background-color: var(--brand-primary);
+  color: var(--brand-white);
+}
+
+#site-footer .site-footer-contact-line span {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  .split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .split > div:first-child,
+  .split > div:last-child {
+    order: initial;
+  }
+}
+
 @media (min-width: 768px) {
   .post-body h2 {
     font-size: 1.875rem;
