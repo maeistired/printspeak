@@ -843,7 +843,7 @@ textarea:focus-visible {
 .statement-quote {
   font-family: var(--brand-font-heading);
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.15;
 }
 
