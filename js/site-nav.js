@@ -43,6 +43,7 @@ const FOOTER = {
 
   // Blog content
   latestPosts: [
+    { title: "Making Accessibility Standard Practice: Why Aren't Talking Labels on Every Product?", href: "blog/accessibility-standard-practice.html", date: "" },
     { title: "What Are Talking Labels?", href: "blog/talking-labels.html", date: "" }
   ],
 
