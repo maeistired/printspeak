@@ -28,25 +28,30 @@
     </noscript>
   </header>
 
-  <main class="mx-auto max-w-6xl px-6 py-24">
-    <h1 class="text-4xl text-primary md:text-5xl">Our Team</h1>
-    <p class="mt-5 max-w-3xl text-lg">A small and focused team helping brands build trust through design and communication.</p>
-
-    <section class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <article class="card">
-        <h2 class="text-2xl text-primary">name</h2>
-        <p class="mt-2 text-lg">Project Manager</p>
-      </article>
-      <article class="card">
-        <h2 class="text-2xl text-primary">name</h2>
-        <p class="mt-2 text-lg">Project Manager</p>
-      </article>
-      <article class="card">
-        <h2 class="text-2xl text-primary">name</h2>
-        <p class="mt-2 text-lg">Creative Director</p>
-      </article>
-    </section>
+  <main class="team-page mx-auto max-w-6xl px-6 py-24">
+    <header class="team-intro">
+      <p class="section-label">The team</p>
+      <h1 class="page-title mt-3 text-4xl md:text-5xl">Meet the people behind PrintSpeak.</h1>
+      <p class="page-copy mt-5 max-w-3xl text-lg">We're a team of Graphic Communications Management students at Toronto Metropolitan University working to make printed information accessible to everyone.</p>
+    </header>
+    <div id="team-groups"></div>
   </main>
+
+  <dialog id="team-dialog" class="team-dialog" aria-labelledby="team-dialog-name">
+    <div class="team-dialog__content">
+      <button type="button" class="team-dialog__close" aria-label="Close">×</button>
+      <div class="team-dialog__media"></div>
+      <div class="team-dialog__details">
+        <h2 id="team-dialog-name"></h2>
+        <p class="team-dialog__role"></p>
+        <div class="team-dialog__tags"></div>
+        <p class="team-dialog__bio"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="./js/team-data.js" defer></script>
+  <script src="./js/team.js" defer></script>
 
   <footer id="site-footer">
     <noscript>
