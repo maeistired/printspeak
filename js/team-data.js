@@ -36,7 +36,7 @@ const TEAM_GROUPS = [
         pronouns: "She/Her",
         mbti: "INFP",
         bio: "Hi! My name is Hilary, and I'm PrintSpeak's Research and Writing Director! I'm a third year at the GCM program and currently minoring in Curatorial Studies. I wish to work in a cultural institution one day. Thank you everyone for watching our project grow and I'll see you for the next blog!",
-        photo: "img/team_imgs/ind_research/GCM375-Hilary.jpg",
+        photo: "img/team_imgs/ind_Research/GCM375-Hilary.jpg",
         alt: "Portrait of Hilary Nguyen"
       },
       {
@@ -45,7 +45,7 @@ const TEAM_GROUPS = [
         pronouns: "She/Her",
         mbti: "ISTP",
         bio: "Hi!! My names Nicole and I'm a 3rd year GCM student, working towards a minor in communication design! I'm very interested in graphic design and any visual media, I mostly enjoy creating illustrations, experimenting with different types of mediums and generally any hands on work. My current hobbies are frolicking around hobby stores and collecting trinkets, especially artist made items!! I also like to read webnovels or edit in my free time :)",
-        photo: "img/team_imgs/ind_research/GCM375-Nicole.jpg",
+        photo: "img/team_imgs/ind_Research/GCM375-Nicole.jpg",
         alt: "Portrait of Nicole Luo"
       },
       {
@@ -54,7 +54,7 @@ const TEAM_GROUPS = [
         pronouns: "He/Him",
         mbti: "ISTP",
         bio: "Hi! I'm Richard, a 3rd year student at TMU studying Graphic Communication Management. I'm a member of Print Speak Research/Writing Team. I enjoy talking about anime, playing board games, and hanging out with friends. These interests help improve my collaboration skills, gain more unique perspectives, and a more focused look on the finer details of things. Through this project, I hope to apply my skills, gain new experiences, and contribute to the team's overall success.",
-        photo: "img/team_imgs/ind_research/GCM375-Richard.jpg",
+        photo: "img/team_imgs/ind_Research/GCM375-Richard.jpg",
         alt: "Portrait of Richard Gao"
       },
       {
@@ -63,7 +63,7 @@ const TEAM_GROUPS = [
         pronouns: "She/Her",
         mbti: "INFP",
         bio: "Hi! My name is Melody, I'm a third year GCM student. I'm a part of the research team and I'm excited to be exploring and writing about the world of Talking Labels!",
-        photo: "img/team_imgs/ind_research/GCM375-Melody.jpg",
+        photo: "img/team_imgs/ind_Research/GCM375-Melody.jpg",
         alt: "Portrait of Melody Bayudan"
       }
     ]
@@ -77,7 +77,7 @@ const TEAM_GROUPS = [
         pronouns: "She/Her",
         mbti: "INFJ",
         bio: "Hello everyone! My name is Marva Saqib. I am a third-year Graphic Communications Management (GCM) student with a minor in marketing and am pursuing a concentration in publishing and packaging. I am the Creative Director for PrintSpeak. I am incredibly passionate about accessibility and merging it with tangible products and services. Aside from that, I love both traditional and digital art mediums, am a bookworm at heart, and a major sleep enthusiast. I love exploring new places that fuel my creativity, and I am passionate about using my skills to help others in the future :)",
-        photo: "img/team_imgs/ind_creative/GCM375-Marva.jpg",
+        photo: "img/team_imgs/ind_Creative/GCM375-Marva.jpg",
         alt: "Portrait of Marva Saqib"
       },
       {
@@ -86,7 +86,7 @@ const TEAM_GROUPS = [
         pronouns: "She/Her",
         mbti: "INFP",
         bio: "Hello! I am Vivien. I am a Chinese-Canadian creative who is passionate about digital illustration, graphic design and layout design. I love eating cup noodles and I like to create illustrations, make character designs and write short stories in my free time. Currently I am a student at TMU (formerly Ryerson) majoring in Graphic Communications Management.",
-        photo: "img/team_imgs/ind_creative/GCM375-Vivien.jpg",
+        photo: "img/team_imgs/ind_Creative/GCM375-Vivien.jpg",
         alt: "Portrait of Vivien Lin"
       },
       {
@@ -95,7 +95,7 @@ const TEAM_GROUPS = [
         pronouns: "She/Her",
         mbti: "INFJ",
         bio: "Hi, my name is Nisma, and I am a third year Graphic Communication Management student at TMU! I'm one of the Creative Associate for the team, with a passion for creating visuals and exploring meaningful ideas. I'm super excited to contribute to the team, collaborate with others and showcase my creativity throughout this project!",
-        photo: "img/team_imgs/ind_creative/GCM375-Nisma.jpg",
+        photo: "img/team_imgs/ind_Creative/GCM375-Nisma.jpg",
         alt: "Portrait of Nisma Naveed"
       },
       {
