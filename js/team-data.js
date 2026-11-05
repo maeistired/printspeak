@@ -18,7 +18,7 @@ const TEAM_GROUPS = [
       },
       {
         name: "Edi Zhytenyov",
-        role: "Project Manager & Acting Research Assistant",
+        role: "Project Manager",
         pronouns: "He/Him",
         mbti: "ENFJ",
         bio: "Hi, I'm Edi! I'm SUPER EXCITED to introduce myself as the Project Manager and Acting Research Assistant for Print Speak. I have the opportunity to work alongside a spectacular team, contribute to research, and help ensure Print Speak is a success. I'm looking forward to sharing more about our work and accomplishments :3.",
@@ -115,12 +115,7 @@ const TEAM_GROUPS = [
         bio: "Hi everyone! My name is Robin. I am a 3rd-year Graphic Communications Management student at TMU and I am Print Speaks' Multimedia Associate. I can't wait to get started on this journey with you all!",
         photo: "img/team/robin-allison.webp",
         alt: "Portrait of Robin Allison"
-      }
-    ]
-  },
-  {
-    title: "Web",
-    members: [
+      },
       {
         name: "Mae Cacao",
         role: "Web Manager",
