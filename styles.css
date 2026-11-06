@@ -224,6 +224,26 @@ textarea:focus-visible {
   text-align: left;
 }
 
+.post-meta,
+.post-byline {
+  color: var(--brand-text-muted);
+  font-size: 1rem;
+}
+
+.post-byline a {
+  color: var(--brand-accent);
+}
+
+.post-byline a:hover {
+  text-decoration: underline;
+}
+
+.post-byline a:focus-visible {
+  border-radius: 0.125rem;
+  box-shadow: 0 0 0 3px var(--brand-accent);
+  outline: none;
+}
+
 .post-body h2 {
   margin-top: 2.5em;
   margin-bottom: 0.75em;
@@ -798,11 +818,25 @@ textarea:focus-visible {
   text-align: left;
   box-shadow: 0 1px 3px rgb(17 34 80 / 8%);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 .team-card:hover {
   transform: translateY(-0.25rem);
   box-shadow: 0 10px 25px rgb(17 34 80 / 12%);
+}
+
+.team-card--hash-highlight {
+  animation: team-card-hash-highlight 2s ease-out;
+}
+
+@keyframes team-card-hash-highlight {
+  from {
+    box-shadow: 0 0 0 4px var(--brand-accent);
+  }
+  to {
+    box-shadow: 0 1px 3px rgb(17 34 80 / 8%);
+  }
 }
 
 .team-card__photo,
@@ -940,6 +974,12 @@ textarea:focus-visible {
 @media (prefers-reduced-motion: no-preference) {
   .team-dialog[open] {
     animation: team-dialog-in 0.2s ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card--hash-highlight {
+    animation: none;
   }
 }
 

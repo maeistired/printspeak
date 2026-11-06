@@ -2,6 +2,7 @@ const teamGroups = document.getElementById("team-groups");
 const teamDialog = document.getElementById("team-dialog");
 
 const getInitials = (name) => name.split(" ").map((part) => part[0]).join("").slice(0, 2);
+const slugify = (name) => name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, "-");
 
 const createPhotoMarkup = (member, className, tint) => {
   const imageAttributes = className === "team-card__photo"
@@ -18,7 +19,7 @@ const createPhotoMarkup = (member, className, tint) => {
 const createCardMarkup = (member, index) => {
   const tints = ["surface", "highlight", "neutral"];
   return `
-    <button type="button" class="team-card" data-member-index="${index}" aria-label="View details for ${member.name}">
+    <button type="button" id="${slugify(member.name)}" class="team-card" data-member-index="${index}" aria-label="View details for ${member.name}">
       ${createPhotoMarkup(member, "team-card__photo", tints[index % tints.length])}
       <span class="team-card__name">${member.name}</span>
       <span class="team-card__role">${member.role}</span>
@@ -69,6 +70,14 @@ document.querySelectorAll(".team-card").forEach((card) => {
   setImageFallback(card.querySelector(".team-card__photo"));
   card.addEventListener("click", () => openMember(findMember(card.dataset.memberIndex), card));
 });
+
+const hashCard = document.getElementById(window.location.hash.slice(1));
+if (hashCard) {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  hashCard.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+  hashCard.focus({ preventScroll: true });
+  hashCard.classList.add("team-card--hash-highlight");
+}
 
 teamDialog.querySelector(".team-dialog__close").addEventListener("click", () => teamDialog.close());
 teamDialog.addEventListener("keydown", (event) => {
