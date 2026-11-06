@@ -21,6 +21,14 @@
   --brand-font-body: 'Lexend', Arial, sans-serif;
   --section-space: 4rem;
   --section-space-sm: 2rem;
+  /* Hero logo size: min = smallest phones, scale = % of screen width, max = desktop cap. Edit these only. */
+  --hero-logo-min: 14rem;
+  --hero-logo-scale: 70vw;
+  --hero-logo-max: 32rem;
+  /* Hero subtitle size: min = smallest phones, scale = grows with screen width, max = desktop cap. Edit these only. */
+  --hero-subtitle-min: 1.25rem;
+  --hero-subtitle-scale: 5vw;
+  --hero-subtitle-max: 2.25rem;
   /* Nav height: used by the nav and the hero. Change here only. */
   --nav-height: 4rem;
 }
@@ -340,18 +348,26 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
+/* Editing map: Hero logo size: styles.css :root --hero-logo-min / --hero-logo-scale / --hero-logo-max. */
+/* Editing map: Hero subtitle size: styles.css :root --hero-subtitle-min / --hero-subtitle-scale / --hero-subtitle-max. */
 /* === HERO: edit hero sizing and hero scroll arrow here; affects the home page === */
 .hero {
   position: relative;
   box-sizing: border-box;
   min-height: calc(100svh - var(--nav-height));
+  padding-inline: 1.5rem;
   padding-bottom: 4rem;
 }
 
 .hero img {
-  width: 100%;
-  max-width: 36rem;
+  width: clamp(var(--hero-logo-min), var(--hero-logo-scale), var(--hero-logo-max));
+  max-width: 100%;
   height: auto;
+}
+
+.hero h1 {
+  font-size: clamp(var(--hero-subtitle-min), var(--hero-subtitle-scale), var(--hero-subtitle-max));
+  line-height: 1.2;
 }
 
 .hero-scroll {
