@@ -1,4 +1,6 @@
 // EDIT NAV LINKS HERE: affects every page
+// Editing map: Mobile menu breakpoint, button, and panel appearance: styles.css /* === NAV === */.
+// Menu behavior: js/site-nav.js.
 const navLinks = [
   { page: "home", label: "Home", file: "index.html" },
   { page: "about", label: "About", file: "about.html" },
@@ -11,7 +13,14 @@ const createNavMarkup = (pathPrefix) => `
   <nav id="top" class="site-nav" aria-label="Primary">
     <div class="site-nav-container">
       <a href="${pathPrefix}index.html" class="site-nav-logo">PrintSpeak</a>
-      <div class="site-nav-links">
+      <button type="button" class="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-menu" aria-label="Open menu">
+        <svg class="site-nav-toggle-icon" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <div id="site-nav-menu" class="site-nav-links">
         ${navLinks.map(({ page, label, file }) => `
           <a class="site-nav-link" data-page="${page}" href="${pathPrefix}${file}">${label}</a>
         `).join("")}
@@ -138,22 +147,6 @@ const createFooterBlogMarkup = (pathPrefix) => `
   </div>
 `;
 
-const createFooterContactMarkup = () => `
-  <div class="site-footer-column">
-    <h2 class="site-footer-heading">${FOOTER.headings.contact}</h2>
-    <div class="site-footer-contact">
-      ${FOOTER.email ? `
-        <a class="site-footer-link site-footer-contact-line email-link" href="mailto:${FOOTER.email}">
-          <svg class="site-footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18v14H3z M3 5l9 7 9-7" />
-          </svg>
-          <span>${createEmailTextMarkup()}</span>
-        </a>
-      ` : ""}
-    </div>
-  </div>
-`;
-
 const createFooterSocialsMarkup = () => FOOTER.socials.length ? `
   <div class="site-footer-socials">
     ${FOOTER.socials.map(({ label, href, icon }) => `
@@ -268,7 +261,6 @@ const createFooterMarkup = (pathPrefix) => `
       <div class="site-footer-columns">
         ${createFooterPagesMarkup(pathPrefix)}
         ${createFooterBlogMarkup(pathPrefix)}
-        ${createFooterContactMarkup()}
       </div>
     </div>
     <div class="site-footer-bottom">
@@ -300,6 +292,57 @@ if (nav) {
   const currentLink = nav.querySelector(`[data-page="${pageName}"]`);
   if (currentLink) {
     currentLink.setAttribute("aria-current", "page");
+  }
+
+  const navToggle = nav.querySelector(".site-nav-toggle");
+  const navMenu = nav.querySelector("#site-nav-menu");
+  const desktopNavQuery = window.matchMedia("(min-width: 768px)");
+
+  if (navToggle && navMenu) {
+    const setMenuOpen = (isOpen, restoreFocus = false) => {
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      navToggle.classList.toggle("is-open", isOpen);
+      navMenu.classList.toggle("is-open", isOpen);
+
+      if (restoreFocus) {
+        navToggle.focus();
+      }
+    };
+
+    navToggle.addEventListener("click", () => {
+      setMenuOpen(navToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navMenu.addEventListener("click", (event) => {
+      if (event.target instanceof Element && event.target.closest(".site-nav-link")) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (event.target instanceof Node && !nav.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+        setMenuOpen(false, true);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (desktopNavQuery.matches) {
+        setMenuOpen(false);
+      }
+    });
+
+    desktopNavQuery.addEventListener("change", (event) => {
+      if (event.matches) {
+        setMenuOpen(false);
+      }
+    });
   }
 }
 

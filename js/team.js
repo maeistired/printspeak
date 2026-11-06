@@ -3,12 +3,17 @@ const teamDialog = document.getElementById("team-dialog");
 
 const getInitials = (name) => name.split(" ").map((part) => part[0]).join("").slice(0, 2);
 
-const createPhotoMarkup = (member, className, tint) => `
+const createPhotoMarkup = (member, className, tint) => {
+  const imageAttributes = className === "team-card__photo"
+    ? 'loading="lazy" decoding="async"'
+    : 'decoding="async"';
+  return `
   <span class="${className} ${className}--${tint}">
-    <img src="${member.photo}" alt="${member.alt}" loading="lazy" width="640" height="640">
+    <img src="${member.photo}" alt="${member.alt}" ${imageAttributes} width="800" height="1079">
     <span class="${className}__fallback" aria-hidden="true" hidden>${getInitials(member.name)}</span>
   </span>
-`;
+  `;
+};
 
 const createCardMarkup = (member, index) => {
   const tints = ["surface", "highlight", "neutral"];
