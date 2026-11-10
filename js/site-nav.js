@@ -175,7 +175,10 @@ const createContactFormMarkup = (variant) => {
     <input type="hidden" name="_template" value="table" />
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_next" value="" />
-    <input class="visually-hidden" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+    <div class="visually-hidden" aria-hidden="true">
+      <label for="${variant}-honey">Leave this field empty</label>
+      <input id="${variant}-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+    </div>
     ${fields.map(({ id, label, type, rows }) => `
       <div class="contact-field">
         <label for="${variant}-${id}">${label} <span>(required)</span></label>
@@ -191,6 +194,7 @@ const createContactFormMarkup = (variant) => {
 
 const createContactMarkup = (contactElement) => {
   const headingLevel = contactElement.dataset.headingLevel === "1" ? "h1" : "h2";
+  const detailHeadingLevel = headingLevel === "h1" ? "h2" : "h3";
   const variant = contactElement.dataset.variant === "compact" ? "compact" : "full";
   contactElement.classList.add(`contact--${variant}`);
   const imageMarkup = CONTACT.image
@@ -207,11 +211,11 @@ const createContactMarkup = (contactElement) => {
   const detailsMarkup = `
     <div class="contact-details">
       <div class="contact-detail">
-        <h3>Email</h3>
+        <${detailHeadingLevel}>Email</${detailHeadingLevel}>
         <a class="email-link" data-site-email href="mailto:"><span data-site-email-text></span></a>
       </div>
       <div class="contact-detail">
-        <h3>Based in</h3>
+        <${detailHeadingLevel}>Based in</${detailHeadingLevel}>
         <p>${FOOTER.location}</p>
       </div>
       <div class="contact-socials">
@@ -286,9 +290,18 @@ const pageName = isBlogPost || currentFile === "blog.html"
     ? "home"
     : currentFile.replace(".html", "");
 
+const mainContent = document.querySelector("main");
+if (mainContent) {
+  mainContent.id = mainContent.id || "main-content";
+  mainContent.tabIndex = -1;
+}
+
 const nav = document.getElementById("site-nav");
 if (nav) {
   nav.innerHTML = createNavMarkup(pathPrefix);
+  if (mainContent) {
+    nav.insertAdjacentHTML("afterbegin", `<a class="skip-link" href="#${mainContent.id}">Skip to main content</a>`);
+  }
   const currentLink = nav.querySelector(`[data-page="${pageName}"]`);
   if (currentLink) {
     currentLink.setAttribute("aria-current", "page");

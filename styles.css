@@ -7,6 +7,8 @@
 :root {
   --brand-primary: #112250;
   --brand-accent: #0FA3B1;
+  /* Darker accent for text and for backgrounds behind white text (4.7:1+ contrast). */
+  --brand-accent-text: #0A7C87;
   --brand-neutral-bg: #FAFAFA;
   --brand-text: #112250;
   --brand-highlight: #B5E2FA;
@@ -79,7 +81,7 @@ textarea:focus-visible {
 }
 
 .section-label {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
   font-family: var(--brand-font-body);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -128,12 +130,12 @@ textarea:focus-visible {
 }
 
 .brand-pill {
-  background-color: var(--brand-accent);
+  background-color: var(--brand-accent-text);
   color: var(--brand-white);
 }
 
 .brand-button {
-  background-color: var(--brand-accent);
+  background-color: var(--brand-accent-text);
   border-radius: 0.375rem;
   color: var(--brand-white);
   transition: background 0.2s;
@@ -202,7 +204,7 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   border-radius: 0.5rem;
-  background: var(--brand-accent);
+  background: var(--brand-accent-text);
   padding: 0.75rem 1.25rem;
   color: var(--brand-white);
   font-weight: 700;
@@ -231,7 +233,7 @@ textarea:focus-visible {
 }
 
 .post-byline a {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
 }
 
 .post-byline a:hover {
@@ -301,7 +303,7 @@ textarea:focus-visible {
 
 .post-body a {
   overflow-wrap: break-word;
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.25rem;
@@ -386,6 +388,7 @@ textarea:focus-visible {
 }
 
 .hero h1 {
+  color: var(--brand-primary);
   font-size: clamp(var(--hero-subtitle-min), var(--hero-subtitle-scale), var(--hero-subtitle-max));
   line-height: 1.2;
 }
@@ -399,8 +402,7 @@ textarea:focus-visible {
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  color: var(--brand-white);
-  opacity: 0.75;
+  color: var(--brand-primary);
   transform: translateX(-50%);
   transition: opacity 0.2s ease;
 }
@@ -410,7 +412,7 @@ textarea:focus-visible {
 }
 
 .hero-scroll:focus-visible {
-  outline: 3px solid var(--brand-accent);
+  outline: 3px solid var(--brand-primary);
   outline-offset: 3px;
 }
 
@@ -477,7 +479,7 @@ textarea:focus-visible {
 }
 
 .site-nav-logo:hover {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
 }
 
 .site-nav-links {
@@ -540,7 +542,7 @@ textarea:focus-visible {
 
 .site-nav-link:hover,
 .site-nav-link[aria-current="page"] {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
 }
 
 .site-nav-link:focus-visible {
@@ -639,7 +641,7 @@ textarea:focus-visible {
 
 .site-footer-logo:hover,
 .site-footer-link:hover {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -655,7 +657,7 @@ textarea:focus-visible {
 
 .site-footer-tagline {
   margin-top: 0.5rem;
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
 }
 
 .site-footer-about {
@@ -700,7 +702,7 @@ textarea:focus-visible {
 
 .site-footer-date {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .site-footer-project {
@@ -775,7 +777,7 @@ textarea:focus-visible {
   width: 2rem;
   height: 2rem;
   color: var(--brand-white);
-  background-color: var(--brand-accent);
+  background-color: var(--brand-accent-text);
   text-decoration: none;
 }
 
@@ -932,6 +934,8 @@ textarea:focus-visible {
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
 }
 
 .team-dialog__photo {
@@ -1114,6 +1118,10 @@ textarea:focus-visible {
   color: var(--brand-white);
 }
 
+.contact--compact .contact-field label span {
+  color: var(--brand-white);
+}
+
 .contact--compact .form-input {
   border: 1px solid var(--brand-white);
   border-radius: 0.375rem;
@@ -1135,7 +1143,7 @@ textarea:focus-visible {
 }
 
 .btn-pill:hover {
-  background-color: var(--brand-accent);
+  background-color: var(--brand-accent-text);
 }
 
 .contact--compact .btn-pill {
@@ -1185,7 +1193,7 @@ textarea:focus-visible {
 }
 
 .contact-detail a:hover {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1206,7 +1214,7 @@ textarea:focus-visible {
 }
 
 .contact-socials a:hover {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
 }
 
 .contact-social-icon {
@@ -1360,7 +1368,7 @@ textarea:focus-visible {
 }
 
 .eyebrow {
-  color: var(--brand-accent);
+  color: var(--brand-accent-text);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1518,7 +1526,7 @@ textarea:focus-visible {
 }
 
 .cta-band .btn:hover {
-  background-color: var(--brand-accent);
+  background-color: var(--brand-accent-text);
 }
 
 .cta-band .btn-outline {
@@ -1553,5 +1561,40 @@ textarea:focus-visible {
 
   .post-body h3 {
     font-size: 1.5rem;
+  }
+}
+
+/* === ACCESSIBILITY: skip link and reduced motion; affects every page === */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background-color: var(--brand-primary);
+  padding: 0.75rem 1.25rem;
+  color: var(--brand-white);
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .team-card:hover {
+    transform: none;
+  }
+
+  .card,
+  .team-card,
+  .btn {
+    transition: none;
   }
 }

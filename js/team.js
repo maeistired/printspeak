@@ -19,9 +19,9 @@ const createPhotoMarkup = (member, className, tint) => {
 const createCardMarkup = (member, index) => {
   const tints = ["surface", "highlight", "neutral"];
   return `
-    <button type="button" id="${slugify(member.name)}" class="team-card" data-member-index="${index}" aria-label="View details for ${member.name}">
+    <button type="button" id="${slugify(member.name)}" class="team-card" data-member-index="${index}">
       ${createPhotoMarkup(member, "team-card__photo", tints[index % tints.length])}
-      <span class="team-card__name">${member.name}</span>
+      <span class="visually-hidden">View details for </span><span class="team-card__name">${member.name}</span>
       <span class="team-card__role">${member.role}</span>
     </button>
   `;

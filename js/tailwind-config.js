@@ -5,6 +5,7 @@ window.tailwind.config = {
       colors: {
         primary: "var(--brand-primary)",
         accent: "var(--brand-accent)",
+        "accent-text": "var(--brand-accent-text)",
         "neutral-bg": "var(--brand-neutral-bg)",
         highlight: "var(--brand-highlight)",
         surface: "var(--brand-surface)",
