@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-13T16:45:04.684Z",
+        "reason": "agent triage: flagged img-placeholder centres its icon+label in a large box, and about-hero/statement/cta-band insets content via an inner px-6 (24px) Tailwind wrapper the static scan doesn't resolve"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "about.html"
+        ],
+        "createdAt": "2026-11-13T16:45:04.697Z",
+        "reason": "agent triage: flagged img-placeholder centres its icon+label in a large box, and about-hero/statement/cta-band insets content via an inner px-6 (24px) Tailwind wrapper the static scan doesn't resolve"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-11-13T16:45:08.528Z",
+        "reason": "agent triage: only hit is .form-input:focus underline on square (border-radius: 0) contact-page fields; rounded compact variant overrides to an even 1px border"
+      }
+    ]
+  }
+}

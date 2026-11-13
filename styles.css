@@ -19,6 +19,8 @@
   --brand-control-border: #cbd5e1;
   --brand-muted: #64748b;
   --brand-text-muted: #52617a;
+  /* Focus ring: Deep Lagoon passes 3:1 on every light ground; dark bands switch it to lime below. */
+  --focus-ring: var(--brand-accent-text);
   --brand-font-heading: 'Atkinson Hyperlegible', Arial, sans-serif;
   --brand-font-body: 'Lexend', Arial, sans-serif;
   --section-space: 4rem;
@@ -52,20 +54,24 @@ body {
   font-feature-settings: "ss01";
 }
 
-h1,
-h2,
-h3,
-h4 {
+/* Doubled specificity so Tailwind's CDN preflight (injected after this file) can't reset heading weight. */
+body :is(h1, h2, h3, h4) {
   font-family: var(--brand-font-heading);
   font-weight: 700;
   letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--brand-accent);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -80,72 +86,6 @@ textarea:focus-visible {
   font-family: var(--brand-font-body);
 }
 
-.section-label {
-  color: var(--brand-accent-text);
-  font-family: var(--brand-font-body);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.card-title {
-  color: var(--brand-primary);
-  font-family: var(--brand-font-heading);
-  font-weight: 700;
-}
-
-.card-copy {
-  color: var(--brand-text);
-  font-family: var(--brand-font-body);
-}
-
-/* === BRAND COMPONENTS: edit reusable component appearance here === */
-.brand-panel-dark {
-  background-color: var(--brand-primary);
-  color: var(--brand-white);
-}
-
-.brand-panel-light {
-  background-color: var(--brand-white);
-  color: var(--brand-text);
-}
-
-.brand-accent-block {
-  background-color: var(--brand-accent);
-}
-
-.brand-form-label {
-  color: var(--brand-primary);
-}
-
-.brand-form-control {
-  background-color: var(--brand-white);
-  border: 1px solid var(--brand-control-border);
-  color: var(--brand-text);
-}
-
-.brand-form-control:focus {
-  border-color: var(--brand-accent);
-  box-shadow: 0 0 0 2px rgb(15 163 177 / 20%);
-  outline: none;
-}
-
-.brand-pill {
-  background-color: var(--brand-accent-text);
-  color: var(--brand-white);
-}
-
-.brand-button {
-  background-color: var(--brand-accent-text);
-  border-radius: 0.375rem;
-  color: var(--brand-white);
-  transition: background 0.2s;
-}
-
-.brand-button:hover {
-  background-color: var(--brand-primary);
-  color: var(--brand-white);
-}
-
 /* === CARD: edit card appearance here; affects every card === */
 .card {
   position: relative;
@@ -158,7 +98,7 @@ textarea:focus-visible {
 }
 
 .card:focus-within {
-  outline: 2px solid var(--brand-accent);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -215,6 +155,11 @@ textarea:focus-visible {
   background: var(--brand-primary);
 }
 
+.btn:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
 /* === POST BODY: edit blog post typography here; affects every post === */
 .post-body {
   max-width: 65ch;
@@ -242,7 +187,7 @@ textarea:focus-visible {
 
 .post-byline a:focus-visible {
   border-radius: 0.125rem;
-  box-shadow: 0 0 0 3px var(--brand-accent);
+  box-shadow: 0 0 0 3px var(--focus-ring);
   outline: none;
 }
 
@@ -310,7 +255,7 @@ textarea:focus-visible {
 }
 
 .post-body a:focus-visible {
-  outline: 0.1875rem solid var(--brand-accent);
+  outline: 0.1875rem solid var(--focus-ring);
   outline-offset: 0.1875rem;
 }
 
@@ -349,7 +294,7 @@ textarea:focus-visible {
 }
 
 .form-input:focus {
-  border-bottom: 3px solid var(--brand-accent);
+  border-bottom: 3px solid var(--focus-ring);
   outline: none;
 }
 
@@ -404,11 +349,6 @@ textarea:focus-visible {
   height: 3rem;
   color: var(--brand-primary);
   transform: translateX(-50%);
-  transition: opacity 0.2s ease;
-}
-
-.hero-scroll:hover {
-  opacity: 1;
 }
 
 .hero-scroll:focus-visible {
@@ -466,16 +406,18 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
   height: 100%;
   max-width: 72rem;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .site-nav-logo {
   color: var(--brand-primary);
   font-family: var(--brand-font-heading);
   font-size: 1.5rem;
-  font-weight: 550;
+  font-weight: 700;
 }
 
 .site-nav-logo:hover {
@@ -501,7 +443,7 @@ textarea:focus-visible {
 }
 
 .site-nav-toggle:focus-visible {
-  outline: 3px solid var(--brand-accent);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -546,13 +488,13 @@ textarea:focus-visible {
 }
 
 .site-nav-link:focus-visible {
-  outline: 2px solid var(--brand-accent);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
 @media (max-width: 767px) {
   .site-nav-container {
-    padding: 0 1rem;
+    padding-right: 0.75rem;
   }
 
   .site-nav-toggle {
@@ -587,7 +529,7 @@ textarea:focus-visible {
   .site-nav-link {
     width: 100%;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
   }
 }
 
@@ -714,6 +656,8 @@ textarea:focus-visible {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+  color: var(--brand-text-muted);
+  font-size: 0.875rem;
 }
 
 .site-footer-icon {
@@ -798,7 +742,8 @@ textarea:focus-visible {
 .team-group__title {
   margin-bottom: 1.5rem;
   color: var(--brand-primary);
-  font-size: 2rem;
+  font-size: 2.25rem;
+  line-height: 1.15;
 }
 
 .team-grid {
@@ -894,6 +839,7 @@ textarea:focus-visible {
   font-family: var(--brand-font-heading);
   font-size: 1.5rem;
   font-weight: 700;
+  line-height: 1.25;
 }
 
 .team-card__role {
@@ -928,14 +874,37 @@ textarea:focus-visible {
   top: 0.75rem;
   right: 0.75rem;
   z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 0;
-  background: transparent;
+  border-radius: 9999px;
+  background: var(--brand-white);
   color: var(--brand-primary);
   cursor: pointer;
-  font-size: 2rem;
-  line-height: 1;
-  min-width: 2.75rem;
-  min-height: 2.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.team-dialog__close:hover {
+  background: var(--brand-highlight);
+}
+
+.team-dialog__close svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.team-dialog__details h2 {
+  padding-right: 2.5rem;
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
 
 .team-dialog__photo {
@@ -1046,7 +1015,7 @@ textarea:focus-visible {
 
 .contact-content {
   display: grid;
-  max-width: 72rem;
+  max-width: 69rem;
   margin: 0 auto;
   gap: 3rem;
 }
@@ -1069,7 +1038,7 @@ textarea:focus-visible {
 .contact-copy-column h2 {
   margin: 0;
   color: var(--brand-primary);
-  font-size: 2.75rem;
+  font-size: 2.25rem;
   line-height: 1.1;
 }
 
@@ -1131,8 +1100,8 @@ textarea:focus-visible {
 }
 
 .contact--compact .form-input:focus {
-  border-color: var(--brand-accent);
-  box-shadow: 0 0 0 3px var(--brand-accent);
+  border: 1px solid var(--focus-ring);
+  box-shadow: 0 0 0 3px var(--focus-ring);
 }
 
 .btn-pill {
@@ -1300,6 +1269,13 @@ textarea:focus-visible {
 }
 
 /* === ABOUT PAGE === */
+/* Navy bands: lime focus ring (12.9:1 on navy). */
+.about-hero,
+.statement,
+.contact--compact {
+  --focus-ring: var(--brand-surface);
+}
+
 .about-hero {
   background-color: var(--brand-primary);
   color: var(--brand-white);
@@ -1308,14 +1284,9 @@ textarea:focus-visible {
 
 .about-hero h1 {
   max-width: 42rem;
-  margin-top: 0.75rem;
   color: var(--brand-white);
-  font-size: 3rem;
+  font-size: 2.25rem;
   line-height: 1.1;
-}
-
-.about-hero .eyebrow {
-  color: var(--brand-surface);
 }
 
 .about-hero-subline {
@@ -1367,18 +1338,8 @@ textarea:focus-visible {
   padding: 6rem 0;
 }
 
-.eyebrow {
-  color: var(--brand-accent-text);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
 .about-section h2,
 .cta-band h2 {
-  margin-top: 0.75rem;
   color: var(--brand-primary);
   font-size: 2.25rem;
   line-height: 1.15;
@@ -1456,10 +1417,6 @@ textarea:focus-visible {
   text-align: center;
 }
 
-.statement .eyebrow {
-  color: var(--brand-surface);
-}
-
 .statement-rule {
   width: 4rem;
   height: 0.25rem;
@@ -1469,9 +1426,10 @@ textarea:focus-visible {
 
 .statement-quote {
   font-family: var(--brand-font-heading);
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 1.875rem;
+  font-weight: 700;
   line-height: 1.15;
+  text-wrap: balance;
 }
 
 .statement-support {
@@ -1504,6 +1462,7 @@ textarea:focus-visible {
 .card-static h3 {
   color: var(--brand-primary);
   font-size: 1.5rem;
+  line-height: 1.25;
 }
 
 .card-static p {
@@ -1514,10 +1473,6 @@ textarea:focus-visible {
   background-color: var(--brand-highlight);
   padding: 5rem 0;
   color: var(--brand-primary);
-}
-
-.cta-band h2 {
-  margin-top: 0;
 }
 
 .cta-band .btn {
@@ -1555,6 +1510,16 @@ textarea:focus-visible {
 }
 
 @media (min-width: 768px) {
+  .about-hero h1,
+  .contact-form-column h1,
+  .contact-copy-column h1 {
+    font-size: 3rem;
+  }
+
+  .statement-quote {
+    font-size: 2.5rem;
+  }
+
   .post-body h2 {
     font-size: 1.875rem;
   }

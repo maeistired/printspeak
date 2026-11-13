@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-13T16:40:09+00:00",
+  "generatedAt": "2026-11-13T16:52:06+00:00",
   "title": "Design System: PrintSpeak",
   "extensions": {
     "colorMeta": {
@@ -188,7 +188,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page H1s: about hero, journal header, post titles."
+        "purpose": "Page H1s and listing headers; 2.25rem below 768px."
       },
       "tagline": {
         "displayName": "Tagline",
@@ -196,7 +196,7 @@
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section H2s; listing headers scale to 3rem."
+        "purpose": "Section H2s, team groups, CTA and contact bands."
       },
       "title": {
         "displayName": "Title",
@@ -212,7 +212,15 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Uppercase tracked eyebrows and section labels."
+        "purpose": "Tags, form labels, UI text; sentence case, never tracked caps."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "Centred pull-quote on a navy band; 1.875rem below 768px."
+      },
+      "article-heading": {
+        "displayName": "Article Heading",
+        "purpose": "In-article H2s at 768px and above."
       }
     },
     "shadows": [
@@ -227,14 +235,9 @@
         "purpose": "Hover on clickable cards only, with translateY(-0.25rem)."
       },
       {
-        "name": "field-focus-halo",
-        "value": "0 0 0 2px rgb(15 163 177 / 20%)",
-        "purpose": "Boxed form control focus on light ground."
-      },
-      {
         "name": "field-focus-on-dark",
-        "value": "0 0 0 3px #0FA3B1",
-        "purpose": "Boxed form control focus on navy band."
+        "value": "0 0 0 3px var(--focus-ring)",
+        "purpose": "Boxed form control focus on navy band (lime ring)."
       },
       {
         "name": "hash-highlight",
@@ -286,7 +289,7 @@
       "refersTo": "button-primary",
       "description": "Default call to action on light ground; settles to navy on hover.",
       "html": "<a class=\"ds-btn\" href=\"#\">Learn more about us</a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.5; background: var(--brand-accent-text, #0A7C87); color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s ease; } .ds-btn:hover { background: var(--brand-primary, #112250); } .ds-btn:focus-visible { outline: 3px solid var(--brand-accent, #0FA3B1); outline-offset: 3px; }"
+      "css": ".ds-btn { display: inline-flex; align-items: center; font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.5; background: var(--brand-accent-text, #0A7C87); color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s ease; } .ds-btn:hover { background: var(--brand-primary, #112250); } .ds-btn:focus-visible { outline: 3px solid var(--focus-ring, #0A7C87); outline-offset: 3px; }"
     },
     {
       "name": "Button on Navy Band",
@@ -294,7 +297,7 @@
       "refersTo": "button-on-dark",
       "description": "Lime primary plus outline pair used on Midnight Harbour bands.",
       "html": "<div class=\"ds-dark\"><a class=\"ds-btn-lime\" href=\"#\">Read our blog</a><a class=\"ds-btn-outline\" href=\"#\">Get in touch</a></div>",
-      "css": ".ds-dark { display: flex; flex-wrap: wrap; gap: 1rem; background: var(--brand-primary, #112250); padding: 2rem; } .ds-btn-lime, .ds-btn-outline { display: inline-flex; align-items: center; font-family: 'Lexend', Arial, sans-serif; font-weight: 700; padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease; } .ds-btn-lime { background: var(--brand-surface, #D2F898); color: var(--brand-primary, #112250); } .ds-btn-lime:hover { background: #fff; } .ds-btn-outline { border: 2px solid currentColor; background: transparent; color: #fff; } .ds-btn-outline:hover { background: #fff; color: var(--brand-primary, #112250); } .ds-btn-lime:focus-visible, .ds-btn-outline:focus-visible { outline: 3px solid var(--brand-accent, #0FA3B1); outline-offset: 3px; }"
+      "css": ".ds-dark { --focus-ring: #D2F898; display: flex; flex-wrap: wrap; gap: 1rem; background: var(--brand-primary, #112250); padding: 2rem; } .ds-btn-lime, .ds-btn-outline { display: inline-flex; align-items: center; font-family: 'Lexend', Arial, sans-serif; font-weight: 700; padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease; } .ds-btn-lime { background: var(--brand-surface, #D2F898); color: var(--brand-primary, #112250); } .ds-btn-lime:hover { background: #fff; } .ds-btn-outline { border: 2px solid currentColor; background: transparent; color: #fff; } .ds-btn-outline:hover { background: #fff; color: var(--brand-primary, #112250); } .ds-btn-lime:focus-visible, .ds-btn-outline:focus-visible { outline: 3px solid var(--focus-ring, #0A7C87); outline-offset: 3px; }"
     },
     {
       "name": "Pill Submit Button",
@@ -302,7 +305,7 @@
       "refersTo": "button-pill",
       "description": "Fully rounded form submit; 44px minimum height.",
       "html": "<button class=\"ds-btn-pill\" type=\"button\">Send message</button>",
-      "css": ".ds-btn-pill { min-height: 2.75rem; padding: 0.75rem 1.5rem; border: 0; border-radius: 9999px; background: var(--brand-primary, #112250); color: #fff; font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-pill:hover { background: var(--brand-accent-text, #0A7C87); } .ds-btn-pill:focus-visible { outline: 3px solid var(--brand-accent, #0FA3B1); outline-offset: 3px; }"
+      "css": ".ds-btn-pill { min-height: 2.75rem; padding: 0.75rem 1.5rem; border: 0; border-radius: 9999px; background: var(--brand-primary, #112250); color: #fff; font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-pill:hover { background: var(--brand-accent-text, #0A7C87); } .ds-btn-pill:focus-visible { outline: 3px solid var(--focus-ring, #0A7C87); outline-offset: 3px; } .ds-btn-pill:disabled { cursor: progress; opacity: 0.75; }"
     },
     {
       "name": "Topic Tag",
@@ -318,7 +321,7 @@
       "refersTo": "card",
       "description": "Whole-card link with image, tag, title, summary; lifts on hover.",
       "html": "<article class=\"ds-card\"><div class=\"ds-card-img\" aria-hidden=\"true\"></div><p class=\"ds-card-tag\"><span>Basics</span></p><h3 class=\"ds-card-title\"><a href=\"#\" class=\"ds-card-link\">What Are Talking Labels?</a></h3><p class=\"ds-card-copy\">Talking labels use RFID and NFC chips to turn written information into spoken audio.</p><span class=\"ds-card-more\">Read more →</span></article>",
-      "css": ".ds-card { position: relative; max-width: 26rem; border-radius: 0.75rem; background: #fff; padding: 1.5rem; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; box-shadow: 0 1px 3px rgb(17 34 80 / 8%); transition: transform 0.2s ease, box-shadow 0.2s ease; } .ds-card:hover { transform: translateY(-0.25rem); box-shadow: 0 10px 25px rgb(17 34 80 / 12%); } .ds-card:focus-within { outline: 2px solid var(--brand-accent, #0FA3B1); outline-offset: 2px; } .ds-card-img { aspect-ratio: 16 / 9; border-radius: 0.5rem; background: var(--brand-highlight, #B5E2FA); } .ds-card-tag { margin: 1.25rem 0 0; } .ds-card-tag span { display: inline-flex; border-radius: 9999px; background: var(--brand-surface, #D2F898); padding: 0.25rem 0.75rem; font-size: 0.875rem; font-weight: 700; } .ds-card-title { margin: 0.75rem 0 0; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 1.5rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; } .ds-card-link { color: inherit; text-decoration: none; } .ds-card-link::after { content: ''; position: absolute; inset: 0; } .ds-card-link:focus-visible { outline: none; } .ds-card-copy { margin: 0.5rem 0 0; font-size: 1.125rem; line-height: 1.625; } .ds-card-more { display: inline-block; margin-top: 1rem; color: var(--brand-accent-text, #0A7C87); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-card { transition: none; } .ds-card:hover { transform: none; } }"
+      "css": ".ds-card { position: relative; max-width: 26rem; border-radius: 0.75rem; background: #fff; padding: 1.5rem; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; box-shadow: 0 1px 3px rgb(17 34 80 / 8%); transition: transform 0.2s ease, box-shadow 0.2s ease; } .ds-card:hover { transform: translateY(-0.25rem); box-shadow: 0 10px 25px rgb(17 34 80 / 12%); } .ds-card:focus-within { outline: 2px solid var(--focus-ring, #0A7C87); outline-offset: 2px; } .ds-card-img { aspect-ratio: 16 / 9; border-radius: 0.5rem; background: var(--brand-highlight, #B5E2FA); } .ds-card-tag { margin: 1.25rem 0 0; } .ds-card-tag span { display: inline-flex; border-radius: 9999px; background: var(--brand-surface, #D2F898); padding: 0.25rem 0.75rem; font-size: 0.875rem; font-weight: 700; } .ds-card-title { margin: 0.75rem 0 0; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 1.5rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; } .ds-card-link { color: inherit; text-decoration: none; } .ds-card-link::after { content: ''; position: absolute; inset: 0; } .ds-card-link:focus-visible { outline: none; } .ds-card-copy { margin: 0.5rem 0 0; font-size: 1.125rem; line-height: 1.625; } .ds-card-more { display: inline-block; margin-top: 1rem; color: var(--brand-accent-text, #0A7C87); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-card { transition: none; } .ds-card:hover { transform: none; } }"
     },
     {
       "name": "Underline Text Field",
@@ -326,7 +329,7 @@
       "refersTo": "input-underline",
       "description": "Contact-page field: navy baseline thickening to teal on focus.",
       "html": "<div class=\"ds-field\"><label for=\"ds-email\">Email <span>(required)</span></label><input id=\"ds-email\" class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\"></div>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 0.25rem; max-width: 24rem; } .ds-field label { color: var(--brand-primary, #112250); font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 0.875rem; font-weight: 700; } .ds-field label span { color: var(--brand-text-muted, #52617A); font-family: 'Lexend', Arial, sans-serif; font-weight: 400; } .ds-input { width: 100%; min-height: 2.75rem; border: 0; border-bottom: 2px solid var(--brand-primary, #112250); border-radius: 0; background: transparent; padding: 0.75rem 0; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; } .ds-input:focus { border-bottom: 3px solid var(--brand-accent, #0FA3B1); outline: none; }"
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 0.25rem; max-width: 24rem; } .ds-field label { color: var(--brand-primary, #112250); font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 0.875rem; font-weight: 700; } .ds-field label span { color: var(--brand-text-muted, #52617A); font-family: 'Lexend', Arial, sans-serif; font-weight: 400; } .ds-input { width: 100%; min-height: 2.75rem; border: 0; border-bottom: 2px solid var(--brand-primary, #112250); border-radius: 0; background: transparent; padding: 0.75rem 0; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; } .ds-input:focus { border-bottom: 3px solid var(--focus-ring, #0A7C87); outline: none; }"
     },
     {
       "name": "Site Navigation",
@@ -334,7 +337,7 @@
       "refersTo": "nav",
       "description": "Sticky Cloud bar with Atkinson wordmark and Lexend links; current page in Deep Lagoon.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a class=\"ds-nav-logo\" href=\"#\">PrintSpeak</a><div class=\"ds-nav-links\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">About</a><a href=\"#\">Team</a><a href=\"#\">Blog</a><a href=\"#\">Contact</a></div></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 4rem; padding: 0 1.5rem; background: var(--brand-neutral-bg, #FAFAFA); border-bottom: 1px solid var(--brand-border, #E5E5E5); } .ds-nav-logo { color: var(--brand-primary, #112250); font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 1.5rem; font-weight: 700; text-decoration: none; } .ds-nav-logo:hover { color: var(--brand-accent-text, #0A7C87); } .ds-nav-links { display: flex; gap: 1.75rem; } .ds-nav-links a { color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 0.875rem; text-decoration: none; transition: color 0.2s ease; } .ds-nav-links a:hover, .ds-nav-links a[aria-current=page] { color: var(--brand-accent-text, #0A7C87); } .ds-nav a:focus-visible { outline: 2px solid var(--brand-accent, #0FA3B1); outline-offset: 2px; }"
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 4rem; padding: 0 1.5rem; background: var(--brand-neutral-bg, #FAFAFA); border-bottom: 1px solid var(--brand-border, #E5E5E5); } .ds-nav-logo { color: var(--brand-primary, #112250); font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 1.5rem; font-weight: 700; text-decoration: none; } .ds-nav-logo:hover { color: var(--brand-accent-text, #0A7C87); } .ds-nav-links { display: flex; gap: 1.75rem; } .ds-nav-links a { color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 0.875rem; text-decoration: none; transition: color 0.2s ease; } .ds-nav-links a:hover, .ds-nav-links a[aria-current=page] { color: var(--brand-accent-text, #0A7C87); } .ds-nav a:focus-visible { outline: 2px solid var(--focus-ring, #0A7C87); outline-offset: 2px; }"
     },
     {
       "name": "Statement Band",
@@ -358,7 +361,7 @@
     "rules": [
       {
         "name": "The Two Teals Rule",
-        "body": "Lagoon Teal fills, outlines and decorates; Deep Lagoon carries text and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.",
+        "body": "Lagoon Teal fills and decorates; Deep Lagoon carries text, focus rings and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.",
         "section": "colors"
       },
       {
@@ -368,17 +371,22 @@
       },
       {
         "name": "The Lime-On-Navy Rule",
-        "body": "On a Midnight Harbour band, emphasis (eyebrows, primary buttons, rules, inline links) moves to Spring Shoot, and secondary copy may use Morning Sky.",
+        "body": "On a Midnight Harbour band, emphasis (primary buttons, rules, inline links) moves to Spring Shoot, and secondary copy may use Morning Sky.",
         "section": "colors"
       },
       {
         "name": "The Bold Heading Rule",
-        "body": "Every Atkinson heading is weight 700 with −0.01em tracking. The single exception is the hero tagline, which is set regular. *Known drift:* Tailwind's CDN preflight is injected after `styles.css` and resets `h1–h6` to `font-weight: inherit`. As a result, most headings currently render at 400, and only `.post-body` subheads, team names, the Team H1 and the statement quote show 700. The fix is to restore 700 in the shipped CSS. Do not adopt regular-weight headings as the pattern.",
+        "body": "Every Atkinson heading is weight 700 with −0.01em tracking and `text-wrap: balance`. The single exception is the hero tagline, which is set regular with `font-normal`. The base heading rule in `styles.css` is written as `body :is(h1, h2, h3, h4)` so that Tailwind's CDN preflight, which loads after it, cannot reset the weight. Keep that selector.",
+        "section": "typography"
+      },
+      {
+        "name": "The Heading Speaks Alone Rule",
+        "body": "Headings carry their sections with no tracked-caps label above them. If a section needs context, put it in the heading or the first sentence.",
         "section": "typography"
       },
       {
         "name": "The Two-Weight Rule",
-        "body": "Use only 400 and 700. Intermediate values in the CSS (550 on the nav wordmark, 600 on the statement quote) resolve to 700 because no other weights are loaded. New work should declare 700.",
+        "body": "Use only 400 and 700, the only weights loaded for each face.",
         "section": "typography"
       },
       {
@@ -395,15 +403,16 @@
     "dos": [
       "Do take every colour from the `--brand-*` custom properties in `styles.css` (exposed to Tailwind as `primary`, `accent`, `accent-text`, `highlight`, `surface`, `secondary`, `neutral-bg`, `ink`), never from hard-coded hex values.",
       "Do use Deep Lagoon (#0A7C87) for any teal text or any teal fill behind white text; keep Lagoon Teal (#0FA3B1) for large fills, outlines and icons.",
-      "Do set Atkinson headings at 700 and make sure the weight survives Tailwind's preflight (add `font-bold` or restore it in shared CSS).",
-      "Do give every interactive element a 3px Lagoon Teal focus outline with 3px offset, and a target of at least 2.75rem (44px).",
+      "Do let headings inherit 700 from the shared `body :is(h1…h4)` rule; only the hero tagline opts out with `font-normal`.",
+      "Do draw every focus outline from `var(--focus-ring)` (3px, 3px offset), and reset that variable to Spring Shoot on any new navy band. Give every target at least 2.75rem (44px).",
       "Do wrap every transform or animation in `prefers-reduced-motion` handling, as the existing nav, cards, hero chevron and dialog already do.",
       "Do mark missing photography with the Morning Sky placeholder (icon plus \"… coming soon\", `role=\"img\"` with a label) until the real image exists.",
       "Do build new sections as single-colour bands with one message, alternating with white or Cloud reading bands."
     ],
     "donts": [
-      "Don't put white or small text on Lagoon Teal, or Lagoon Teal text on white; both fail WCAG AA.",
+      "Don't put white or small text on Lagoon Teal, Lagoon Teal text on white, or a Lagoon Teal focus ring on light ground; all fail WCAG AA.",
       "Don't introduce weights other than 400 and 700, or a third typeface.",
+      "Don't put a small uppercase \"eyebrow\" label above a heading.",
       "Don't make static cards lift on hover; the rise means \"this is clickable\".",
       "Don't add gradients, overlays or shadows to colour bands.",
       "Don't use Fern (#72B01D) for text or fills; it is only for blockquote rules.",

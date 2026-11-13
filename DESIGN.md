@@ -49,12 +49,22 @@ typography:
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.5
+  statement:
+    fontFamily: "'Atkinson Hyperlegible', Arial, sans-serif"
+    fontSize: "2.5rem"
+    fontWeight: 700
+    lineHeight: 1.15
+  article-heading:
+    fontFamily: "'Atkinson Hyperlegible', Arial, sans-serif"
+    fontSize: "1.875rem"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
   label:
     fontFamily: "'Lexend', Arial, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 700
-    lineHeight: 1.4
-    letterSpacing: "0.08em"
+    lineHeight: 1.5
 rounded:
   sm: "0.375rem"
   md: "0.5rem"
@@ -147,11 +157,11 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 - **Midnight Harbour** (`primary`): the voice of the site. All body text, every heading, the nav wordmark, and the full-width dark bands (about hero, statement, compact contact block). On white or Cloud it gives very high contrast, and it is the hover colour that teal buttons settle into.
 
 ### Secondary
-- **Lagoon Teal** (`accent`): the brand teal. The home hero band, every focus outline (3px, offset 3px), footer contact icons and value-card icons. It is too light for white body text or for text on light ground, so it is used only for fills, outlines and icons.
-- **Deep Lagoon** (`accent-text`): the accessible teal. It is darkened from Lagoon Teal to reach at least 4.7:1 against white. Use it for primary button fills, eyebrows and section labels, inline and "Read more" links, the active nav link, the footer tagline and the back-to-top button.
+- **Lagoon Teal** (`accent`): the brand teal. The home hero band, footer contact icons, value-card icons and the team deep-link highlight. It is too light for white text, for text on light ground, or for focus rings (2.9:1 on Cloud), so it is used only for fills and icons.
+- **Deep Lagoon** (`accent-text`): the accessible teal. It is darkened from Lagoon Teal to reach at least 4.7:1 against white. Use it for every focus ring on light ground (at least 3.6:1 on all light surfaces), primary button fills, inline and "Read more" links, the active nav link, the footer tagline and the back-to-top button.
 
 ### Tertiary
-- **Spring Shoot** (`surface`): the lime highlight. Topic tags, buttons and eyebrows that sit on a Midnight Harbour band, the statement's accent rule, and one of the team-photo backdrops. It always sits next to navy, never next to white text.
+- **Spring Shoot** (`surface`): the lime highlight. Topic tags, buttons and links that sit on a Midnight Harbour band, the statement's accent rule, and one of the team-photo backdrops. It always sits next to navy, never next to white text.
 - **Morning Sky** (`highlight`): soft blue wash. The calls-to-action band, image placeholders, "coming soon" card thumbnails, and intro copy inside the compact contact block.
 - **Fern** (`secondary`): leaf green. It is reserved for the 0.25rem blockquote rule in blog posts. The rule is defined in `.post-body` but no published post uses a blockquote yet.
 
@@ -164,11 +174,11 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 - **Slate** (`muted`): text on "coming soon" placeholder cards only.
 
 ### Named Rules
-**The Two Teals Rule.** Lagoon Teal fills, outlines and decorates; Deep Lagoon carries text and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.
+**The Two Teals Rule.** Lagoon Teal fills and decorates; Deep Lagoon carries text, focus rings and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.
 
 **The Navy Voice Rule.** Midnight Harbour is the only text colour for headings and body copy on light ground. Hierarchy comes from size, weight and Dusk Slate, never from extra hues.
 
-**The Lime-On-Navy Rule.** On a Midnight Harbour band, emphasis (eyebrows, primary buttons, rules, inline links) moves to Spring Shoot, and secondary copy may use Morning Sky.
+**The Lime-On-Navy Rule.** On a Midnight Harbour band, emphasis (primary buttons, rules, inline links) moves to Spring Shoot, and secondary copy may use Morning Sky.
 
 ## Typography
 
@@ -178,19 +188,24 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 **Character:** Both faces exist to be read by people who find standard type hard. Atkinson's distinct letterforms give headings a steady, civic plainness, and Lexend's open spacing keeps long explanations unhurried. Only weights 400 and 700 are loaded for each face.
 
 ### Hierarchy
-- **Display** (700, 3rem / 48px, 1.1): page H1s such as the about hero, the journal header and blog post titles. Blog and journal H1s step down to 2.25rem below 768px.
+- **Display** (700, 3rem / 48px, 1.1): page H1s (about hero, journal, team, contact, post titles) and listing headers such as "Our Blog". Every Display heading steps down to 2.25rem below 768px.
 - **Tagline** (400, clamp(1.25rem, 5vw, 2.25rem), 1.2): only the "Where Print Comes Alive" line under the hero logo. It is the one heading that is regular weight by intent.
-- **Statement** (700, 2.5rem, 1.15): the centred pull-quote on a Midnight Harbour band.
-- **Headline** (700, 2.25rem, 1.15): section H2s (about sections, CTA band). Section headers that open a whole listing, such as "Our Blog", go up to 3rem, and the contact heading is 2.75rem.
-- **Title** (700, 1.5rem, 1.25): card titles, team names and values cards. In-article H2s use 1.875rem at 768px and above, and in-article H3s use 1.25–1.5rem.
+- **Statement** (700, 2.5rem, 1.15): the centred pull-quote on a Midnight Harbour band; 1.875rem below 768px.
+- **Headline** (700, 2.25rem, 1.15): section H2s (about sections, values, team groups, CTA band, the compact "Get in touch" band).
+- **Article Heading** (700, 1.875rem, 1.25): in-article H2s at 768px and above; they use Title size below that. In-article H3s run 1.25–1.5rem.
+- **Title** (700, 1.5rem, 1.25): card titles, team names and values cards.
 - **Body Long** (400, 1.125rem, 1.625): blog post bodies (max 65ch), split-section copy, card summaries and hero sublines.
 - **Body** (400, 1rem, 1.5): UI text, meta lines, footer links.
-- **Label** (700, 0.875rem, 0.08em, uppercase): eyebrows and section labels in Deep Lagoon, or Spring Shoot on navy. Topic tags use the same size and weight but in sentence case, without tracking.
+- **Label** (700, 0.875rem, 1.5): topic tags, form labels and button-adjacent UI text. Always sentence case, with no tracked capitals.
 
 ### Named Rules
-**The Bold Heading Rule.** Every Atkinson heading is weight 700 with −0.01em tracking. The single exception is the hero tagline, which is set regular. *Known drift:* Tailwind's CDN preflight is injected after `styles.css` and resets `h1–h6` to `font-weight: inherit`. As a result, most headings currently render at 400, and only `.post-body` subheads, team names, the Team H1 and the statement quote show 700. The fix is to restore 700 in the shipped CSS. Do not adopt regular-weight headings as the pattern.
+**The Bold Heading Rule.** Every Atkinson heading is weight 700 with −0.01em tracking and `text-wrap: balance`. The single exception is the hero tagline, which is set regular with `font-normal`. The base heading rule in `styles.css` is written as `body :is(h1, h2, h3, h4)` so that Tailwind's CDN preflight, which loads after it, cannot reset the weight. Keep that selector.
 
-**The Two-Weight Rule.** Use only 400 and 700. Intermediate values in the CSS (550 on the nav wordmark, 600 on the statement quote) resolve to 700 because no other weights are loaded. New work should declare 700.
+**The Heading Speaks Alone Rule.** Headings carry their sections with no tracked-caps label above them. If a section needs context, put it in the heading or the first sentence.
+
+**The Two-Weight Rule.** Use only 400 and 700, the only weights loaded for each face.
+
+Body paragraphs and list items use `text-wrap: pretty` to avoid one-word last lines.
 
 ## Layout
 
@@ -210,7 +225,7 @@ Depth comes from flat colour. Full-width bands in Midnight Harbour, Lagoon Teal 
 ### Shadow Vocabulary
 - **Card rest** (`box-shadow: 0 1px 3px rgb(17 34 80 / 8%)`): every card and team card at rest. Static cards stay here even on hover.
 - **Card lift** (`box-shadow: 0 10px 25px rgb(17 34 80 / 12%)` + `translateY(-0.25rem)`): hover state of clickable cards only.
-- **Field focus halo** (`box-shadow: 0 0 0 2px rgb(15 163 177 / 20%)`, or `0 0 0 3px #0FA3B1` on dark): boxed form controls on focus.
+- **Field focus halo** (`box-shadow: 0 0 0 3px var(--focus-ring)`): boxed form controls on a navy band; the ring is Spring Shoot there.
 - **Dialog scrim** (`rgb(17 34 80 / 65%)`): the backdrop behind the team-member dialog.
 
 ### Named Rules
@@ -220,7 +235,7 @@ Depth comes from flat colour. Full-width bands in Midnight Harbour, Lagoon Teal 
 
 ## Shapes
 
-Gentle, consistent rounding that reads as friendly without becoming bubbly. Cards, images, dialogs and photo frames use 0.75rem. Buttons and inline imagery inside cards use 0.5rem. Boxed inputs and the older `.brand-button` use 0.375rem. Topic tags and the contact "Send message" button are full pills. Underline-style form fields on the contact page are square, with only a 2px navy baseline that thickens to 3px Lagoon Teal on focus. One deliberate asymmetry exists: the contact-page photo uses `0.5rem 2.5rem 0.5rem 0.5rem`, so one corner is larger, like a peeled label. Borders are rare: hairline Mist Line dividers, a 2px current-colour outline on outline buttons, and a 0.25rem Fern rule on blockquotes.
+Gentle, consistent rounding that reads as friendly without becoming bubbly. Cards, images, dialogs and photo frames use 0.75rem. Buttons and inline imagery inside cards use 0.5rem. Boxed inputs use 0.375rem. The team dialog's close button is a 44px white circle. Topic tags and the contact "Send message" button are full pills. Underline-style form fields on the contact page are square, with only a 2px navy baseline that thickens to a 3px focus-ring line on focus. One deliberate asymmetry exists: the contact-page photo uses `0.5rem 2.5rem 0.5rem 0.5rem`, so one corner is larger, like a peeled label. Borders are rare: hairline Mist Line dividers, a 2px current-colour outline on outline buttons, and a 0.25rem Fern rule on blockquotes.
 
 ## Components
 
@@ -232,7 +247,8 @@ Sturdy and friendly. Bold Lexend labels, obvious fills, and colour that shifts o
 - **On Morning Sky (CTA band):** Midnight Harbour fill with white label; hover to Deep Lagoon.
 - **Outline:** transparent with a 2px current-colour border, inheriting the band's text colour. Hover fills with the opposite colour (white on navy, navy on sky).
 - **Pill:** Midnight Harbour fill, min-height 2.75rem, full radius, used to submit forms. In the compact contact block it becomes Spring Shoot with a navy label, aligned right.
-- **Focus:** 3px Lagoon Teal outline, offset 3px, on every interactive element.
+- **Focus:** 3px outline in `--focus-ring`, offset 3px, on every interactive element. The ring is Deep Lagoon on light ground and Spring Shoot on Midnight Harbour bands (`.about-hero`, `.statement`, `.contact--compact` reset the variable). The hero scroll chevron on Lagoon Teal uses a Midnight Harbour ring.
+- **Pending:** submit buttons disable and read "Sending…" while the form hands off (`.btn:disabled`: 0.75 opacity, progress cursor).
 
 ### Chips
 - **Topic tag:** Spring Shoot pill, Midnight Harbour 0.875rem bold label, 0.25rem × 0.75rem padding. Each card has one tag, naming the post category ("Basics", "Industry").
@@ -244,11 +260,11 @@ Sturdy and friendly. Bold Lexend labels, obvious fills, and colour that shifts o
 - **Border:** none.
 - **Internal Padding:** 1.5rem. Blog cards contain a 16:9 image (0.5rem radius), a tag, a title link whose `::after` stretches over the whole card, a Body Long summary, and an underlined Deep Lagoon "Read more →".
 - **Coming soon:** same card with a Morning Sky 16:9 block, Slate text, no lift, default cursor.
-- **Focus:** `:focus-within` draws a 2px Lagoon Teal outline around the whole card.
+- **Focus:** `:focus-within` draws a 2px focus-ring outline around the whole card.
 
 ### Inputs / Fields
-- **Underline (contact page):** transparent, no box, 2px Midnight Harbour baseline, min-height 2.75rem. On focus the baseline becomes 3px Lagoon Teal.
-- **Boxed on dark (compact contact):** white fill, 0.375rem radius, 0.75rem padding, white label text. On focus: Lagoon Teal border plus a 3px Lagoon Teal halo.
+- **Underline (contact page):** transparent, no box, 2px Midnight Harbour baseline, min-height 2.75rem. On focus the baseline becomes a 3px Deep Lagoon line.
+- **Boxed on dark (compact contact):** white fill, 0.375rem radius, 0.75rem padding, white label text. On focus: a 1px border plus a 3px halo, both Spring Shoot.
 - **Labels:** Atkinson 0.875rem bold in Midnight Harbour. "(required)" sits in regular Lexend in Dusk Slate.
 
 ### Navigation
@@ -274,15 +290,16 @@ White card with a square photo frame (0.75rem radius) whose backdrop rotates thr
 ### Do:
 - **Do** take every colour from the `--brand-*` custom properties in `styles.css` (exposed to Tailwind as `primary`, `accent`, `accent-text`, `highlight`, `surface`, `secondary`, `neutral-bg`, `ink`), never from hard-coded hex values.
 - **Do** use Deep Lagoon (#0A7C87) for any teal text or any teal fill behind white text; keep Lagoon Teal (#0FA3B1) for large fills, outlines and icons.
-- **Do** set Atkinson headings at 700 and make sure the weight survives Tailwind's preflight (add `font-bold` or restore it in shared CSS).
-- **Do** give every interactive element a 3px Lagoon Teal focus outline with 3px offset, and a target of at least 2.75rem (44px).
+- **Do** let headings inherit 700 from the shared `body :is(h1…h4)` rule; only the hero tagline opts out with `font-normal`.
+- **Do** draw every focus outline from `var(--focus-ring)` (3px, 3px offset), and reset that variable to Spring Shoot on any new navy band. Give every target at least 2.75rem (44px).
 - **Do** wrap every transform or animation in `prefers-reduced-motion` handling, as the existing nav, cards, hero chevron and dialog already do.
 - **Do** mark missing photography with the Morning Sky placeholder (icon plus "… coming soon", `role="img"` with a label) until the real image exists.
 - **Do** build new sections as single-colour bands with one message, alternating with white or Cloud reading bands.
 
 ### Don't:
-- **Don't** put white or small text on Lagoon Teal, or Lagoon Teal text on white; both fail WCAG AA.
+- **Don't** put white or small text on Lagoon Teal, Lagoon Teal text on white, or a Lagoon Teal focus ring on light ground; all fail WCAG AA.
 - **Don't** introduce weights other than 400 and 700, or a third typeface.
+- **Don't** put a small uppercase "eyebrow" label above a heading.
 - **Don't** make static cards lift on hover; the rise means "this is clickable".
 - **Don't** add gradients, overlays or shadows to colour bands.
 - **Don't** use Fern (#72B01D) for text or fills; it is only for blockquote rules.

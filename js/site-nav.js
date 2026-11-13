@@ -389,6 +389,21 @@ document.querySelectorAll("[data-site-form]").forEach((form) => {
   if (nextField) {
     nextField.value = nextUrl.href;
   }
+
+  // Pending state: stops double submits while the browser hands off to FormSubmit.
+  const submitButton = form.querySelector('[type="submit"]');
+  if (submitButton) {
+    const idleLabel = submitButton.textContent;
+    form.addEventListener("submit", () => {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending…";
+    });
+    // Reset if the visitor comes back via the browser's back button (bfcache).
+    window.addEventListener("pageshow", () => {
+      submitButton.disabled = false;
+      submitButton.textContent = idleLabel;
+    });
+  }
 });
 
 const formStatus = document.querySelector("[data-form-status]");
