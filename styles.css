@@ -25,6 +25,8 @@
   --brand-font-body: 'Lexend', Arial, sans-serif;
   --section-space: 4rem;
   --section-space-sm: 2rem;
+  /* Long-form about sections: 4rem on phones, 6rem from 1024px. */
+  --section-space-lg: 4rem;
   /* Hero logo size: min = smallest phones, scale = % of screen width, max = desktop cap. Edit these only. */
   --hero-logo-min: 14rem;
   --hero-logo-scale: 70vw;
@@ -748,8 +750,8 @@ textarea:focus-visible {
 
 .team-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .team-card {
@@ -835,15 +837,16 @@ textarea:focus-visible {
 }
 
 .team-card__name {
-  margin: 1.25rem 1.25rem 0;
+  margin: 0.75rem 0.75rem 0;
   font-family: var(--brand-font-heading);
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
 .team-card__role {
-  margin: 0.25rem 1.25rem 1.25rem;
+  margin: 0.25rem 0.75rem 0.75rem;
+  font-size: 0.875rem;
   color: var(--brand-text-muted);
 }
 
@@ -929,7 +932,17 @@ textarea:focus-visible {
 
 @media (min-width: 640px) {
   .team-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .team-card__name {
+    margin: 1.25rem 1.25rem 0;
+    font-size: 1.5rem;
+  }
+
+  .team-card__role {
+    margin: 0.25rem 1.25rem 1.25rem;
+    font-size: 1rem;
   }
 
   .team-dialog__content {
@@ -941,6 +954,13 @@ textarea:focus-visible {
 @media (min-width: 1024px) {
   .team-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Four across on wide screens so the four-person Research group fills one row instead of leaving an orphan. */
+@media (min-width: 1280px) {
+  .team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -1335,7 +1355,12 @@ textarea:focus-visible {
 }
 
 .about-section {
-  padding: 6rem 0;
+  padding: var(--section-space-lg) 0;
+}
+
+/* Consecutive sections on the same ground share one interval instead of stacking two. */
+.about-section + .about-section {
+  padding-top: 0;
 }
 
 .about-section h2,
@@ -1473,6 +1498,59 @@ textarea:focus-visible {
   background-color: var(--brand-highlight);
   padding: 5rem 0;
   color: var(--brand-primary);
+}
+
+.cta-band h2,
+.cta-band p {
+  max-width: 42rem;
+}
+
+.cta-band h2 + p {
+  margin-top: 0.75rem;
+}
+
+/* === WHAT WE DO: open ruled row, deliberately not cards, so it reads apart from the values grid === */
+.activity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem 2rem;
+}
+
+.activity {
+  border-top: 2px solid var(--brand-primary);
+  padding-top: 1.5rem;
+}
+
+.activity .about-card-icon {
+  margin-bottom: 1rem;
+}
+
+.activity h3 {
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.activity p {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-space-lg: 6rem;
+  }
+
+  .activity-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .cta-band .btn {

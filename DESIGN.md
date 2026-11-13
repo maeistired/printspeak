@@ -211,9 +211,12 @@ Body paragraphs and list items use `text-wrap: pretty` to avoid one-word last li
 
 Pages stack full-width bands. Each band contains a centred column of max 72rem (Tailwind `max-w-6xl`) with 1.5rem side gutters. Blog posts narrow to a 48rem column (`max-w-3xl`), and their body text caps at 65ch.
 
-- **Section rhythm:** standard bands use 4rem vertical padding, rising to 5rem at 640px and above. About-page sections use 6rem. Compact bands such as the home contact block use 2rem. Page `main` areas open with 6rem top padding.
+- **Section rhythm:** standard bands use 4rem vertical padding, rising to 5rem at 640px and above. About-page sections use 4rem on phones and 6rem from 1024px. Compact bands such as the home contact block use 2rem. Page `main` areas open with 6rem top padding.
 - **Split sections:** one column on mobile; two equal columns with a 3rem gap at 768px and above, vertically centred. `.split-reverse` swaps the image to the other side on alternate rows.
-- **Card grids:** a 2rem gap. Blog cards: one column, two at 768px. Value cards: one, two (640px) and four (1024px) columns. Team: one, two (640px) and three (1024px) columns with a generous 4rem gap.
+- **Card grids:** a 2rem gap. Blog cards: one column, two at 768px. Value cards: one, two (640px) and four (1024px) columns. Team: two columns from the smallest phones (1rem gap, compact 1.125rem names), 2rem gap and full-size names from 640px, three columns at 1024px, four at 1280px.
+- **Same-ground sections:** consecutive `.about-section` bands on the same ground share one interval (`--section-space-lg`: 4rem on phones, 6rem from 1024px) instead of stacking two.
+- **Ruled row:** "What we do" sits in an open four-up row, each item under a 2px Midnight Harbour rule with no card. It is intentionally different from the values cards above it, so the two lists don't read as one repeated grid.
+- **Bands share the column:** every band's content, including centred-box bands like the CTA, starts on the same 72rem / 1.5rem-gutter edge as the nav and footer.
 - **Hero:** fills the viewport below the nav (`100svh − 4rem`), centred stack with a 3.5rem gap. The logo is clamped to between 14rem and 32rem, at 70vw.
 - **Breakpoints:** 640px (sm), 768px (md; the nav switches to a hamburger below 768px), 1024px (lg).
 - **Sticky nav:** 4rem tall. Anchor targets use `scroll-margin-top: 4rem` so headings clear it.
