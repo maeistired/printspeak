@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T16:40:09+00:00",
+  "title": "Design System: PrintSpeak",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Midnight Harbour",
+        "canonical": "oklch(26.8% 0.088 265)",
+        "tonalRamp": [
+          "#050B18",
+          "#1B263E",
+          "#344468",
+          "#4F6595",
+          "#7388B8",
+          "#9CAED5",
+          "#C3D1EF",
+          "#E4EFFF"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Lagoon Teal",
+        "canonical": "oklch(65.4% 0.110 205)",
+        "tonalRamp": [
+          "#000F13",
+          "#002E35",
+          "#00515A",
+          "#007683",
+          "#2D99A5",
+          "#72BCC5",
+          "#A7DCE3",
+          "#D1F7FB"
+        ]
+      },
+      "accent-text": {
+        "role": "secondary",
+        "displayName": "Deep Lagoon",
+        "canonical": "oklch(53.6% 0.090 205)",
+        "tonalRamp": [
+          "#000F12",
+          "#002D32",
+          "#004F56",
+          "#0E737E",
+          "#4897A0",
+          "#7FBAC1",
+          "#AFDAE0",
+          "#D7F5F9"
+        ]
+      },
+      "highlight": {
+        "role": "tertiary",
+        "displayName": "Morning Sky",
+        "canonical": "oklch(88.9% 0.057 231)",
+        "tonalRamp": [
+          "#030D12",
+          "#162933",
+          "#2C4958",
+          "#456C80",
+          "#6B8FA2",
+          "#96B3C3",
+          "#BFD5E1",
+          "#E1F1FA"
+        ]
+      },
+      "surface": {
+        "role": "tertiary",
+        "displayName": "Spring Shoot",
+        "canonical": "oklch(93.0% 0.128 126)",
+        "tonalRamp": [
+          "#070E00",
+          "#1D2C00",
+          "#384E06",
+          "#547216",
+          "#789546",
+          "#A0B87C",
+          "#C6D9AC",
+          "#E6F5D4"
+        ]
+      },
+      "secondary": {
+        "role": "tertiary",
+        "displayName": "Fern",
+        "canonical": "oklch(68.9% 0.179 131)",
+        "tonalRamp": [
+          "#031000",
+          "#132F00",
+          "#295200",
+          "#417700",
+          "#669B24",
+          "#93BE6A",
+          "#BCDEA0",
+          "#DFF8CB"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Cloud",
+        "canonical": "oklch(98.5% 0.000 89)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Pure White",
+        "canonical": "oklch(100.0% 0.000 89)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Mist Line",
+        "canonical": "oklch(92.2% 0.000 89)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "control-border": {
+        "role": "neutral",
+        "displayName": "Pebble",
+        "canonical": "oklch(86.9% 0.020 252)",
+        "tonalRamp": [
+          "#090B0E",
+          "#23272C",
+          "#40464D",
+          "#5F6771",
+          "#828A94",
+          "#A8AFB6",
+          "#CCD1D8",
+          "#EBEFF3"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "oklch(55.4% 0.041 257)",
+        "tonalRamp": [
+          "#070B11",
+          "#202732",
+          "#3B4655",
+          "#58677C",
+          "#7C8A9F",
+          "#A3AFC0",
+          "#C9D2DF",
+          "#E8EFF9"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Dusk Slate",
+        "canonical": "oklch(49.0% 0.044 260)",
+        "tonalRamp": [
+          "#070B12",
+          "#202733",
+          "#3B4557",
+          "#59677E",
+          "#7C8AA1",
+          "#A3AFC2",
+          "#C9D2E0",
+          "#E8EFFA"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page H1s: about hero, journal header, post titles."
+      },
+      "tagline": {
+        "displayName": "Tagline",
+        "purpose": "Hero 'Where Print Comes Alive' line only; the one regular-weight heading."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s; listing headers scale to 3rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, team names, in-article subheads."
+      },
+      "body-long": {
+        "displayName": "Body Long",
+        "purpose": "Blog bodies (65ch), split-section copy, card summaries."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "UI text, meta, footer."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase tracked eyebrows and section labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 1px 3px rgb(17 34 80 / 8%)",
+        "purpose": "Every card at rest."
+      },
+      {
+        "name": "card-lift",
+        "value": "0 10px 25px rgb(17 34 80 / 12%)",
+        "purpose": "Hover on clickable cards only, with translateY(-0.25rem)."
+      },
+      {
+        "name": "field-focus-halo",
+        "value": "0 0 0 2px rgb(15 163 177 / 20%)",
+        "purpose": "Boxed form control focus on light ground."
+      },
+      {
+        "name": "field-focus-on-dark",
+        "value": "0 0 0 3px #0FA3B1",
+        "purpose": "Boxed form control focus on navy band."
+      },
+      {
+        "name": "hash-highlight",
+        "value": "0 0 0 4px #0FA3B1",
+        "purpose": "Team card deep-link arrival pulse, fades over 2s."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-change",
+        "value": "0.2s ease",
+        "purpose": "Button/link colour and card lift transitions."
+      },
+      {
+        "name": "nav-panel",
+        "value": "0.18s ease",
+        "purpose": "Mobile menu fade/slide and hamburger morph."
+      },
+      {
+        "name": "dialog-in",
+        "value": "0.2s ease-out, scale 0.96→1 + fade",
+        "purpose": "Team dialog entrance."
+      },
+      {
+        "name": "scroll-bob",
+        "value": "2.5s ease-in-out infinite, 6px",
+        "purpose": "Hero scroll chevron; only when motion is allowed."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default call to action on light ground; settles to navy on hover.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Learn more about us</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.5; background: var(--brand-accent-text, #0A7C87); color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s ease; } .ds-btn:hover { background: var(--brand-primary, #112250); } .ds-btn:focus-visible { outline: 3px solid var(--brand-accent, #0FA3B1); outline-offset: 3px; }"
+    },
+    {
+      "name": "Button on Navy Band",
+      "kind": "button",
+      "refersTo": "button-on-dark",
+      "description": "Lime primary plus outline pair used on Midnight Harbour bands.",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn-lime\" href=\"#\">Read our blog</a><a class=\"ds-btn-outline\" href=\"#\">Get in touch</a></div>",
+      "css": ".ds-dark { display: flex; flex-wrap: wrap; gap: 1rem; background: var(--brand-primary, #112250); padding: 2rem; } .ds-btn-lime, .ds-btn-outline { display: inline-flex; align-items: center; font-family: 'Lexend', Arial, sans-serif; font-weight: 700; padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease; } .ds-btn-lime { background: var(--brand-surface, #D2F898); color: var(--brand-primary, #112250); } .ds-btn-lime:hover { background: #fff; } .ds-btn-outline { border: 2px solid currentColor; background: transparent; color: #fff; } .ds-btn-outline:hover { background: #fff; color: var(--brand-primary, #112250); } .ds-btn-lime:focus-visible, .ds-btn-outline:focus-visible { outline: 3px solid var(--brand-accent, #0FA3B1); outline-offset: 3px; }"
+    },
+    {
+      "name": "Pill Submit Button",
+      "kind": "button",
+      "refersTo": "button-pill",
+      "description": "Fully rounded form submit; 44px minimum height.",
+      "html": "<button class=\"ds-btn-pill\" type=\"button\">Send message</button>",
+      "css": ".ds-btn-pill { min-height: 2.75rem; padding: 0.75rem 1.5rem; border: 0; border-radius: 9999px; background: var(--brand-primary, #112250); color: #fff; font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-pill:hover { background: var(--brand-accent-text, #0A7C87); } .ds-btn-pill:focus-visible { outline: 3px solid var(--brand-accent, #0FA3B1); outline-offset: 3px; }"
+    },
+    {
+      "name": "Topic Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Lime pill naming a post's category.",
+      "html": "<span class=\"ds-tag\">Basics</span>",
+      "css": ".ds-tag { display: inline-flex; border-radius: 9999px; background: var(--brand-surface, #D2F898); padding: 0.25rem 0.75rem; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 0.875rem; font-weight: 700; }"
+    },
+    {
+      "name": "Blog Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Whole-card link with image, tag, title, summary; lifts on hover.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-img\" aria-hidden=\"true\"></div><p class=\"ds-card-tag\"><span>Basics</span></p><h3 class=\"ds-card-title\"><a href=\"#\" class=\"ds-card-link\">What Are Talking Labels?</a></h3><p class=\"ds-card-copy\">Talking labels use RFID and NFC chips to turn written information into spoken audio.</p><span class=\"ds-card-more\">Read more →</span></article>",
+      "css": ".ds-card { position: relative; max-width: 26rem; border-radius: 0.75rem; background: #fff; padding: 1.5rem; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; box-shadow: 0 1px 3px rgb(17 34 80 / 8%); transition: transform 0.2s ease, box-shadow 0.2s ease; } .ds-card:hover { transform: translateY(-0.25rem); box-shadow: 0 10px 25px rgb(17 34 80 / 12%); } .ds-card:focus-within { outline: 2px solid var(--brand-accent, #0FA3B1); outline-offset: 2px; } .ds-card-img { aspect-ratio: 16 / 9; border-radius: 0.5rem; background: var(--brand-highlight, #B5E2FA); } .ds-card-tag { margin: 1.25rem 0 0; } .ds-card-tag span { display: inline-flex; border-radius: 9999px; background: var(--brand-surface, #D2F898); padding: 0.25rem 0.75rem; font-size: 0.875rem; font-weight: 700; } .ds-card-title { margin: 0.75rem 0 0; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 1.5rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; } .ds-card-link { color: inherit; text-decoration: none; } .ds-card-link::after { content: ''; position: absolute; inset: 0; } .ds-card-link:focus-visible { outline: none; } .ds-card-copy { margin: 0.5rem 0 0; font-size: 1.125rem; line-height: 1.625; } .ds-card-more { display: inline-block; margin-top: 1rem; color: var(--brand-accent-text, #0A7C87); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-card { transition: none; } .ds-card:hover { transform: none; } }"
+    },
+    {
+      "name": "Underline Text Field",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "Contact-page field: navy baseline thickening to teal on focus.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Email <span>(required)</span></label><input id=\"ds-email\" class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\"></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 0.25rem; max-width: 24rem; } .ds-field label { color: var(--brand-primary, #112250); font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 0.875rem; font-weight: 700; } .ds-field label span { color: var(--brand-text-muted, #52617A); font-family: 'Lexend', Arial, sans-serif; font-weight: 400; } .ds-input { width: 100%; min-height: 2.75rem; border: 0; border-bottom: 2px solid var(--brand-primary, #112250); border-radius: 0; background: transparent; padding: 0.75rem 0; color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 1rem; } .ds-input:focus { border-bottom: 3px solid var(--brand-accent, #0FA3B1); outline: none; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky Cloud bar with Atkinson wordmark and Lexend links; current page in Deep Lagoon.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a class=\"ds-nav-logo\" href=\"#\">PrintSpeak</a><div class=\"ds-nav-links\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">About</a><a href=\"#\">Team</a><a href=\"#\">Blog</a><a href=\"#\">Contact</a></div></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 4rem; padding: 0 1.5rem; background: var(--brand-neutral-bg, #FAFAFA); border-bottom: 1px solid var(--brand-border, #E5E5E5); } .ds-nav-logo { color: var(--brand-primary, #112250); font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 1.5rem; font-weight: 700; text-decoration: none; } .ds-nav-logo:hover { color: var(--brand-accent-text, #0A7C87); } .ds-nav-links { display: flex; gap: 1.75rem; } .ds-nav-links a { color: var(--brand-primary, #112250); font-family: 'Lexend', Arial, sans-serif; font-size: 0.875rem; text-decoration: none; transition: color 0.2s ease; } .ds-nav-links a:hover, .ds-nav-links a[aria-current=page] { color: var(--brand-accent-text, #0A7C87); } .ds-nav a:focus-visible { outline: 2px solid var(--brand-accent, #0FA3B1); outline-offset: 2px; }"
+    },
+    {
+      "name": "Statement Band",
+      "kind": "custom",
+      "refersTo": "statement",
+      "description": "Signature navy band: lime rule over a bold centred pull-quote.",
+      "html": "<section class=\"ds-statement\"><div class=\"ds-statement-rule\"></div><p class=\"ds-statement-quote\">Accessibility should be the standard, not an afterthought.</p><p class=\"ds-statement-support\">We're here to change that.</p></section>",
+      "css": ".ds-statement { background: var(--brand-primary, #112250); color: #fff; text-align: center; padding: 4rem 1.5rem; } .ds-statement-rule { width: 4rem; height: 0.25rem; margin: 0 auto 1.5rem; background: var(--brand-surface, #D2F898); } .ds-statement-quote { margin: 0; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; font-size: 2.5rem; font-weight: 700; line-height: 1.15; } .ds-statement-support { margin: 1.25rem 0 0; font-family: 'Lexend', Arial, sans-serif; font-size: 1.125rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Living Label",
+    "overview": "PrintSpeak's site should read the way a good product label ought to: you can see straight away what it is, what matters, and where to go next. Its look is calm, trustworthy and plain-spoken. It has the honesty of careful course work, and its colour comes from the subject itself: water-and-leaf greens and blues on a deep harbour navy. Every page has one dominant message and keeps its content close to the reader, and colour blocks do the work of separating sections.\n\nLegibility is the identity. The two typefaces were chosen because they were designed for low-vision and dyslexic readers: Atkinson Hyperlegible for headings and Lexend for reading. The site argues for accessible labelling, so it has to pass its own test. That means high contrast, large tap targets, a visible focus state on everything interactive, and motion that stops when a visitor asks it to. Imagery is real or honestly marked as a placeholder. No stock-photo filler stands in for research that does not exist yet.\n\nPages are built from full-width bands of colour (Lagoon Teal hero, Midnight Harbour statements, Morning Sky calls to action) with plain white or Cloud bands of reading content between them. Inside those bands, white cards with gentle rounding hold discrete items such as posts, values and team members.",
+    "keyCharacteristics": [
+      "Full-width colour bands set the rhythm; content sits in a 72rem column with 1.5rem gutters.",
+      "Two legibility-first typefaces: Atkinson Hyperlegible for headings, Lexend for body and UI.",
+      "Midnight Harbour navy carries text and authority; Lagoon/Deep Lagoon teal marks action; Spring Shoot lime marks emphasis on dark ground.",
+      "Flat colour does the layering; shadows stay faint and grow only when a clickable card is hovered.",
+      "Sturdy, friendly components: bold labels, 44px+ targets, gentle 6–12px rounding."
+    ],
+    "rules": [
+      {
+        "name": "The Two Teals Rule",
+        "body": "Lagoon Teal fills, outlines and decorates; Deep Lagoon carries text and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Navy Voice Rule",
+        "body": "Midnight Harbour is the only text colour for headings and body copy on light ground. Hierarchy comes from size, weight and Dusk Slate, never from extra hues.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lime-On-Navy Rule",
+        "body": "On a Midnight Harbour band, emphasis (eyebrows, primary buttons, rules, inline links) moves to Spring Shoot, and secondary copy may use Morning Sky.",
+        "section": "colors"
+      },
+      {
+        "name": "The Bold Heading Rule",
+        "body": "Every Atkinson heading is weight 700 with −0.01em tracking. The single exception is the hero tagline, which is set regular. *Known drift:* Tailwind's CDN preflight is injected after `styles.css` and resets `h1–h6` to `font-weight: inherit`. As a result, most headings currently render at 400, and only `.post-body` subheads, team names, the Team H1 and the statement quote show 700. The fix is to restore 700 in the shipped CSS. Do not adopt regular-weight headings as the pattern.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two-Weight Rule",
+        "body": "Use only 400 and 700. Intermediate values in the CSS (550 on the nav wordmark, 600 on the statement quote) resolve to 700 because no other weights are loaded. New work should declare 700.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift Means Click Rule",
+        "body": "A card rises only if the whole card is a link or button. Static information cards (values, \"what we do\", \"coming soon\") stay flat at rest shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Flat Band Rule",
+        "body": "Coloured bands never carry shadows, gradients or overlays. A change of colour is the separation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do take every colour from the `--brand-*` custom properties in `styles.css` (exposed to Tailwind as `primary`, `accent`, `accent-text`, `highlight`, `surface`, `secondary`, `neutral-bg`, `ink`), never from hard-coded hex values.",
+      "Do use Deep Lagoon (#0A7C87) for any teal text or any teal fill behind white text; keep Lagoon Teal (#0FA3B1) for large fills, outlines and icons.",
+      "Do set Atkinson headings at 700 and make sure the weight survives Tailwind's preflight (add `font-bold` or restore it in shared CSS).",
+      "Do give every interactive element a 3px Lagoon Teal focus outline with 3px offset, and a target of at least 2.75rem (44px).",
+      "Do wrap every transform or animation in `prefers-reduced-motion` handling, as the existing nav, cards, hero chevron and dialog already do.",
+      "Do mark missing photography with the Morning Sky placeholder (icon plus \"… coming soon\", `role=\"img\"` with a label) until the real image exists.",
+      "Do build new sections as single-colour bands with one message, alternating with white or Cloud reading bands."
+    ],
+    "donts": [
+      "Don't put white or small text on Lagoon Teal, or Lagoon Teal text on white; both fail WCAG AA.",
+      "Don't introduce weights other than 400 and 700, or a third typeface.",
+      "Don't make static cards lift on hover; the rise means \"this is clickable\".",
+      "Don't add gradients, overlays or shadows to colour bands.",
+      "Don't use Fern (#72B01D) for text or fills; it is only for blockquote rules.",
+      "Don't replace placeholders with stock or AI imagery that implies field research, participants or partners that do not exist."
+    ]
+  }
+}
