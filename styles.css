@@ -27,14 +27,9 @@
   --section-space-sm: 2rem;
   /* Long-form about sections: 4rem on phones, 6rem from 1024px. */
   --section-space-lg: 4rem;
-  /* Hero logo size: min = smallest phones, scale = % of screen width, max = desktop cap. Edit these only. */
-  --hero-logo-min: 14rem;
-  --hero-logo-scale: 70vw;
-  --hero-logo-max: 32rem;
-  /* Hero subtitle size: min = smallest phones, scale = grows with screen width, max = desktop cap. Edit these only. */
-  --hero-subtitle-min: 1.25rem;
-  --hero-subtitle-scale: 5vw;
-  --hero-subtitle-max: 2.25rem;
+  /* Hero headline sizes (home and about). Edit these only. */
+  --display-xl: clamp(2.75rem, 6vw, 4.75rem);
+  --display-hero: clamp(2.5rem, 5vw, 4rem);
   /* Nav height: used by the nav and the hero. Change here only. */
   --nav-height: 4rem;
 }
@@ -364,73 +359,108 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
-/* Editing map: Hero logo size: styles.css :root --hero-logo-min / --hero-logo-scale / --hero-logo-max. */
-/* Editing map: Hero subtitle size: styles.css :root --hero-subtitle-min / --hero-subtitle-scale / --hero-subtitle-max. */
-/* === HERO: edit hero sizing and hero scroll arrow here; affects the home page === */
+/* Editing map: Hero headline size: styles.css :root --display-hero. Hero photo: index.html #hero <img>. */
+/* === HERO: the team photo fills the first screen; a solid navy panel carries the message. Home page only. === */
 .hero {
+  --focus-ring: var(--brand-surface);
   position: relative;
-  box-sizing: border-box;
-  min-height: calc(100svh - var(--nav-height));
+  overflow: clip;
+  background-color: var(--brand-primary);
+}
+
+.hero-media {
+  aspect-ratio: 4 / 3;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+.hero-panel {
+  background-color: var(--brand-primary);
+  padding: 2.5rem 1.5rem 3rem;
+  color: var(--brand-white);
+}
+
+.hero-panel h1 {
+  color: var(--brand-white);
+  font-size: var(--display-hero);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.hero-lead {
+  max-width: 36ch;
+  margin-top: 1.5rem;
+  color: var(--brand-highlight);
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.hero-actions .btn {
+  min-height: 3rem;
   padding-inline: 1.5rem;
-  padding-bottom: 4rem;
 }
 
-.hero img {
-  width: clamp(var(--hero-logo-min), var(--hero-logo-scale), var(--hero-logo-max));
-  max-width: 100%;
-  height: auto;
-}
-
-.hero h1 {
+.hero .btn {
+  background-color: var(--brand-surface);
   color: var(--brand-primary);
-  font-size: clamp(var(--hero-subtitle-min), var(--hero-subtitle-scale), var(--hero-subtitle-max));
-  line-height: 1.2;
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
+.hero .btn:hover {
+  background-color: var(--brand-white);
+}
+
+.hero .btn-outline {
+  background-color: transparent;
+  color: var(--brand-white);
+}
+
+.hero .btn-outline:hover {
+  background-color: var(--brand-white);
   color: var(--brand-primary);
-  transform: translateX(-50%);
 }
 
-.hero-scroll:focus-visible {
-  outline: 3px solid var(--brand-primary);
-  outline-offset: 3px;
-}
+/* From 900px the photo fills the screen and the panel floats over its lower left. */
+@media (min-width: 900px) {
+  .hero {
+    display: grid;
+    min-height: calc(100svh - var(--nav-height));
+    align-items: end;
+  }
 
-.hero-scroll svg {
-  width: 2rem;
-  height: 2rem;
-  stroke-width: 2;
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto;
+  }
+
+  .hero-inner {
+    position: relative;
+    width: 100%;
+    padding: 0 1.5rem 3rem;
+  }
+
+  .hero-panel {
+    max-width: 38rem;
+    border-radius: 1rem;
+    padding: 2.5rem;
+  }
 }
 
 #blog,
 #about-preview {
   scroll-margin-top: var(--nav-height);
-}
-
-@keyframes hero-scroll-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hero-scroll svg {
-    animation: hero-scroll-bounce 2.5s ease-in-out infinite;
-  }
 }
 
 /* === NAV: edit nav appearance here; affects every page === */
@@ -789,6 +819,7 @@ textarea:focus-visible {
 }
 
 .team-group__title {
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
   margin-bottom: 1.5rem;
   color: var(--brand-primary);
   font-size: 2.25rem;
@@ -1337,30 +1368,97 @@ textarea:focus-visible {
 
 /* === ABOUT PAGE === */
 /* Navy bands: lime focus ring (12.9:1 on navy). */
-.about-hero,
 .statement,
 .contact--compact {
   --focus-ring: var(--brand-surface);
 }
 
+/* About hero: light editorial opening, headline left, intro right, team photo below. */
 .about-hero {
-  background-color: var(--brand-primary);
-  color: var(--brand-white);
-  padding: 5rem 0;
+  padding: 5rem 0 0;
+}
+
+.about-hero-row {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
 }
 
 .about-hero h1 {
-  max-width: 42rem;
-  color: var(--brand-white);
-  font-size: 2.25rem;
-  line-height: 1.1;
+  max-width: 16ch;
+  color: var(--brand-primary);
+  font-size: var(--display-xl);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
 }
 
 .about-hero-subline {
-  max-width: 42rem;
-  margin-top: 1.5rem;
-  font-size: 1.125rem;
-  line-height: 1.625;
+  max-width: 36ch;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.about-hero .about-hero-actions {
+  margin-top: 2rem;
+}
+
+.about-hero .btn-outline:hover {
+  background-color: var(--brand-primary);
+  color: var(--brand-white);
+}
+
+.about-hero-photo {
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.about-hero-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.about-hero-photo .photo-chip {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+/* Photo caption chip: navy pill with the logo's three sound strokes in lime. */
+.photo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--brand-primary);
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  color: var(--brand-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.photo-chip svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  color: var(--brand-surface);
+}
+
+@media (min-width: 768px) {
+  .about-hero-photo img {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-hero-row {
+    grid-template-columns: 7fr 5fr;
+    gap: 4rem;
+  }
 }
 
 .about-hero-actions,
@@ -1382,23 +1480,142 @@ textarea:focus-visible {
   color: var(--brand-primary);
 }
 
-.about-hero .btn {
-  background-color: var(--brand-surface);
+
+/* Who we are: heading and intro side by side, then one ruled row per subteam. */
+.who-intro {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.about-section .who-intro p {
+  margin-top: 0;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 1024px) {
+  .who-intro {
+    grid-template-columns: 7fr 5fr;
+    gap: 4rem;
+  }
+}
+
+.team-rows {
+  margin-top: 3rem;
+}
+
+.team-row {
+  display: grid;
+  gap: 1.5rem 4rem;
+  align-items: center;
+  border-top: 1px solid var(--brand-border);
+  padding: 2.5rem 0;
+}
+
+.team-row-media {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 1rem;
+}
+
+.team-row-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Project Management has no group photo: two headshots share one frame. */
+.team-row-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--brand-highlight);
+}
+
+.team-row-duo img {
+  object-position: 50% 15%;
+}
+
+.about-section .team-row h3 {
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.team-row dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.375rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.team-row dt {
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.team-row dd {
+  color: var(--brand-text-muted);
+}
+
+.team-row-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  margin-top: 0.75rem;
+  color: var(--brand-accent-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.team-row-link:hover {
   color: var(--brand-primary);
 }
 
-.about-hero .btn:hover {
-  background-color: var(--brand-white);
+.team-row-link:focus-visible {
+  border-radius: 0.25rem;
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
-.about-hero .btn-outline {
-  background-color: transparent;
-  color: var(--brand-white);
+.team-row-link svg {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
 }
 
-.about-hero .btn-outline:hover {
-  background-color: var(--brand-white);
-  color: var(--brand-primary);
+@media (min-width: 768px) {
+  .about-section .team-row h3 {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .team-row {
+    grid-template-columns: 7fr 5fr;
+  }
+
+  .team-row:nth-child(even) {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .team-row:nth-child(even) .team-row-media {
+    order: 2;
+  }
+}
+
+@media (max-width: 479px) {
+  .team-row dl {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .team-row dd {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .about-section {
@@ -1635,7 +1852,6 @@ textarea:focus-visible {
 }
 
 @media (min-width: 768px) {
-  .about-hero h1,
   .contact-form-column h1,
   .contact-copy-column h1 {
     font-size: 3rem;

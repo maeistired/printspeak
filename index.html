@@ -25,14 +25,24 @@
   </header>
 
   <main>
-    <section id="hero" class="hero flex w-full flex-col items-center justify-center bg-accent text-center gap-14">
-      <img src="img/logoPrimaryClear.png" alt="PrintSpeak Logo" />
-      <h1 class="font-normal">Where Print Comes Alive</h1>
-      <a href="#about-preview" class="hero-scroll" aria-label="Scroll to About Us">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="m5 9 9 9 9-9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>  
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-media">
+        <!-- EDIT: hero photo (keep the alt text in step with the photo) -->
+        <img src="img/team_imgs/web/team-2400.jpg" srcset="img/team_imgs/web/team-1200.jpg 1200w, img/team_imgs/web/team-2400.jpg 2400w" sizes="100vw" alt="The PrintSpeak team, a group of Graphic Communications Management students, standing together against a light wall." width="2400" height="1331" fetchpriority="high" />
+      </div>
+      <div class="hero-inner mx-auto max-w-6xl">
+        <div class="hero-panel">
+          <!-- EDIT: hero heading -->
+          <h1 id="hero-heading">Where Print Comes Alive</h1>
+          <!-- EDIT: hero subline -->
+          <p class="hero-lead">A student-led initiative using NFC and talking labels to make product information accessible to everyone.</p>
+          <div class="hero-actions">
+            <!-- EDIT: hero links -->
+            <a class="btn" href="blog.html">Read our blog</a>
+            <a class="btn btn-outline" href="team.html">Meet the team</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="about-preview" class="about-section bg-white" aria-labelledby="about-preview-heading">

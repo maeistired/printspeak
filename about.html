@@ -31,15 +31,24 @@
   <main>
     <section id="about-hero" class="about-hero" aria-labelledby="about-hero-heading">
       <div class="mx-auto max-w-6xl px-6">
-        <h1 id="about-hero-heading">Where Print Comes Alive</h1>
-        <!-- EDIT: hero subline -->
-        <p class="about-hero-subline">A student-led initiative using NFC and talking labels to make product information accessible to everyone.</p>
-        <div class="about-hero-actions">
-          <!-- EDIT: hero primary link -->
-          <a class="btn" href="blog.html">Read our blog</a>
-          <!-- EDIT: hero outline link -->
-          <a class="btn btn-outline" href="contact.html">Get in touch</a>
+        <div class="about-hero-row">
+          <h1 id="about-hero-heading">Where Print Comes Alive</h1>
+          <div>
+            <!-- EDIT: hero subline -->
+            <p class="about-hero-subline">A student-led initiative using NFC and talking labels to make product information accessible to everyone.</p>
+            <div class="about-hero-actions">
+              <!-- EDIT: hero primary link -->
+              <a class="btn" href="blog.html">Read our blog</a>
+              <!-- EDIT: hero outline link -->
+              <a class="btn btn-outline" href="contact.html">Get in touch</a>
+            </div>
+          </div>
         </div>
+        <!-- EDIT: team photo -->
+        <figure class="about-hero-photo">
+          <img src="img/team_imgs/web/team-2400.jpg" srcset="img/team_imgs/web/team-1200.jpg 1200w, img/team_imgs/web/team-2400.jpg 2400w" sizes="(min-width: 1152px) 72rem, 100vw" alt="The PrintSpeak team, a group of Graphic Communications Management students, standing together against a light wall." width="2400" height="1331" fetchpriority="high" />
+          <figcaption class="photo-chip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 11 13 5M8 15l11-3M8 19.5l7 1.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" /></svg>The PrintSpeak team, GCM 375</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -77,22 +86,61 @@
     </section>
 
     <section id="who-we-are" class="about-section" aria-labelledby="who-we-are-heading">
-      <div class="split split-reverse mx-auto max-w-6xl px-6">
-        <div>
-          <!-- EDIT: when the photo is ready, replace the div below with:
-               <img src="img/about/team-group.webp" alt="The PrintSpeak team." width="1200" height="900" loading="lazy" class="about-img"> -->
-          <div class="img-placeholder" role="img" aria-label="Group photo coming soon">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M4 5h16v14H4zM8 9h.01M4 16l4-4 3 3 2-2 7 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
-            </svg>
-            <span>Group photo coming soon</span>
-          </div>
-        </div>
-        <div>
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="who-intro">
           <!-- EDIT: who we are heading -->
           <h2 id="who-we-are-heading">PrintSpeak breathes life into print.</h2>
           <!-- EDIT: official About paragraph -->
           <p>Born from a Project Management course in Toronto, ON, we are a student-led organization, redefining how businesses perceive accessible design. By fostering innovation and building connections, we inspire a new wave of creativity that transforms ideas into impactful, tangible experiences.</p>
+        </div>
+        <!-- EDIT: subteams. Names and roles mirror js/team-data.js; update both together. Links jump to each group on the Team page. -->
+        <div class="team-rows">
+          <article class="team-row" aria-labelledby="team-group-0-row">
+            <div class="team-row-media team-row-duo">
+              <img src="img/team_imgs/ind_pm/GCM375-Sadiyah.webp" alt="Sadiyah Khan." loading="lazy" />
+              <img src="img/team_imgs/ind_pm/GCM375-Edi.webp" alt="Edi Zhytenyov." loading="lazy" />
+            </div>
+            <div>
+              <h3 id="team-group-0-row">Project Management</h3>
+              <dl>
+                <dt>Sadiyah Khan</dt><dd>Project Manager</dd>
+                <dt>Edi Zhytenyov</dt><dd>Project Manager</dd>
+              </dl>
+              <a class="team-row-link" href="team.html#team-group-0">Meet Project Management<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            </div>
+          </article>
+          <article class="team-row" aria-labelledby="team-group-1-row">
+            <div class="team-row-media">
+              <img src="img/team_imgs/web/research-1600.jpg" srcset="img/team_imgs/web/research-900.jpg 900w, img/team_imgs/web/research-1600.jpg 1600w" sizes="(min-width: 900px) 40rem, 100vw" alt="The four members of the Research and Writing team." width="1600" height="990" loading="lazy" />
+            </div>
+            <div>
+              <h3 id="team-group-1-row">Research &amp; Writing</h3>
+              <dl>
+                <dt>Hilary Nguyen</dt><dd>Research/Writing Director</dd>
+                <dt>Nicole Luo</dt><dd>Research Associate</dd>
+                <dt>Richard Gao</dt><dd>Research Associate</dd>
+                <dt>Melody Bayudan</dt><dd>Research Associate</dd>
+              </dl>
+              <a class="team-row-link" href="team.html#team-group-1">Meet Research &amp; Writing<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            </div>
+          </article>
+          <article class="team-row" aria-labelledby="team-group-2-row">
+            <div class="team-row-media">
+              <img src="img/team_imgs/web/creative-1600.jpg" srcset="img/team_imgs/web/creative-900.jpg 900w, img/team_imgs/web/creative-1600.jpg 1600w" sizes="(min-width: 900px) 40rem, 100vw" alt="The six members of the Creative and Brand team." width="1600" height="989" loading="lazy" />
+            </div>
+            <div>
+              <h3 id="team-group-2-row">Creative &amp; Brand</h3>
+              <dl>
+                <dt>Marva Saqib</dt><dd>Creative Director</dd>
+                <dt>Vivien Lin</dt><dd>Brand Associate</dd>
+                <dt>Nisma Naveed</dt><dd>Creative Associate</dd>
+                <dt>Antonia Chen</dt><dd>Creative Associate</dd>
+                <dt>Robin Allison</dt><dd>Multimedia Associate</dd>
+                <dt>Mae Cacao</dt><dd>Web Manager</dd>
+              </dl>
+              <a class="team-row-link" href="team.html#team-group-2">Meet Creative &amp; Brand<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
