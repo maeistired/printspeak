@@ -29,7 +29,7 @@ typography:
     letterSpacing: "-0.01em"
   display-hero:
     fontFamily: "'Atkinson Hyperlegible', Arial, sans-serif"
-    fontSize: "clamp(2.5rem, 5vw, 4rem)"
+    fontSize: "clamp(2rem, 3vw, 2.75rem)"
     fontWeight: 700
     lineHeight: 1.04
     letterSpacing: "-0.02em"
@@ -195,7 +195,7 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 
 ### Hierarchy
 - **Display XL** (700, clamp 2.75–4.75rem, 1.02, −0.02em): the About page H1, the largest type on the site.
-- **Display Hero** (700, clamp 2.5–4rem, 1.04, −0.02em): the home H1 inside the navy hero panel.
+- **Display Hero** (700, clamp 2–2.75rem, 1.04, −0.02em): slide headings in the home hero carousel panel. Long post titles step down to clamp 1.625–2.125rem (`.hero-title-long`).
 - **Display** (700, 3rem / 48px, 1.1): page H1s (journal, team, contact, post titles) and listing headers such as "Our Blog". Every Display heading steps down to 2.25rem below 768px.
 - **Statement** (700, 2.5rem, 1.15): the centred pull-quote on a Midnight Harbour band; 1.875rem below 768px.
 - **Headline** (700, 2.25rem, 1.15): section H2s (about sections, values, team groups, CTA band, the compact "Get in touch" band).
@@ -224,7 +224,7 @@ Pages stack full-width bands. Each band contains a centred column of max 72rem (
 - **Same-ground sections:** consecutive `.about-section` bands on the same ground share one interval (`--section-space-lg`: 4rem on phones, 6rem from 1024px) instead of stacking two.
 - **Ruled row:** "What we do" sits in an open four-up row, each item under a 2px Midnight Harbour rule with no card. It is intentionally different from the values cards above it, so the two lists don't read as one repeated grid.
 - **Bands share the column:** every band's content, including centred-box bands like the CTA, starts on the same 72rem / 1.5rem-gutter edge as the nav and footer.
-- **Home hero:** from 900px the team photo fills the viewport below the nav (`100svh − 4rem`) and a navy panel (max 38rem) sits on the column edge, 3rem above the bottom. Below 900px the photo is a 4:3 block with the navy panel stacked under it, full width.
+- **Home hero (carousel):** one rounded frame (1rem radius) in the content column, lined up with the nav logo and links, with the photo at 16:9 at every size. From 1024px the navy panel (max 38rem, 0.75rem radius) and the controls pill sit inside the photo's bottom corners, 1rem in, on a shared baseline. Nothing hangs outside the frame, and the whole hero fits the first screen at 1366×768. Below 1024px the frame becomes one card: photo on top, navy band joined underneath, filled to the tallest slide. On tablets the buttons sit at the band's foot level with the controls on the right; on phones the buttons follow the text and the controls sit at the foot. All slides share one grid cell, so the hero never jumps.
 - **About hero:** Cloud ground. Headline and intro sit side by side from 1024px (7fr / 5fr, bottom-aligned), with the team photo underneath at 21:9 (4:3 on phones), 3.5rem below.
 - **Subteam rows (About, "who we are"):** one row per subteam, separated by Mist Line hairlines, photo and names at 7fr / 5fr from 900px, alternating sides. Names and roles are a two-column list that stacks below 480px.
 - **Breakpoints:** 640px (sm), 768px (md; the nav switches to a hamburger below 768px), 1024px (lg).
@@ -243,7 +243,7 @@ Depth comes from flat colour. Full-width bands in Midnight Harbour, Lagoon Teal 
 ### Named Rules
 **The Lift Means Click Rule.** A card rises only if the whole card is a link or button. Static information cards (values, "what we do", "coming soon") stay flat at rest shadow.
 
-**The Flat Band Rule.** Coloured bands never carry shadows, gradients or overlays. A change of colour is the separation. The home hero panel follows it too: a solid navy block over the photo with no shadow, so text never sits on the photo directly.
+**The Flat Band Rule.** Coloured bands never carry shadows, gradients or overlays. A change of colour is the separation. The home hero panel follows it too: a solid navy block inside the photo frame with no shadow, so text never sits on the photo directly.
 
 ## Shapes
 
@@ -290,10 +290,17 @@ Cloud ground with a Midnight Harbour top rule. Wordmark, Deep Lagoon tagline, sh
 
 ### Colour Band Sections (signature)
 The site's signature unit is a full-width band of a single brand colour carrying one message:
-- **Home hero:** full-bleed team photo with a Midnight Harbour panel carrying the H1, a Morning Sky subline and two buttons (Spring Shoot primary, white outline).
+- **Home hero carousel:** five slides (team, two blog posts, two subteams), each a photo plus a Midnight Harbour panel with an H2 and only the copy it needs: slide 1 carries the subline and two buttons, the rest a single Spring Shoot button. The page H1 is visually hidden above the carousel.
 - **Statement band:** Midnight Harbour, centred, a 4rem × 0.25rem Spring Shoot rule above a bold pull-quote.
 - **CTA band:** Morning Sky, a navy headline and a pair of buttons.
 - **Compact contact band:** Midnight Harbour, heading and intro on the left, boxed form on the right from 1024px.
+
+### Hero Carousel
+Script: `js/hero-carousel.js`. Markup: `index.html #hero`. Tests: `tests/e2e/hero-carousel.spec.js`.
+- **Faces stay clear.** Every slide image carries `data-protect` (face or subject boxes as `x y w h` percentages of the original photo) and a `--hero-pos` object-position. The test maps the boxes through `object-fit: cover` at seven screen sizes from 1920×1080 to 390×844 and fails if the panel or the controls touch one, if either leaves the frame, or if the frame runs past the first screen at 1024px and wider. Slide 1 is the tightest: the front-left face ends at about 53% of the photo's height, which is why the desktop panel is compact. When a photo changes, update both attributes and run the tests.
+- **Controls:** a white pill (focus ring drawn inside each button): previous, dots, next, pause/play (44px buttons; dots are 24px targets). The current dot stretches into a bar that fills over the 7s interval (`--hero-interval`); that fill animation is the timer.
+- **Motion:** slides cross-fade over 0.7s with an exponential ease-out. Rotation holds on mouse hover, on keyboard focus inside the hero and in a hidden tab; the pause button stops it until Play is pressed. With reduced motion there is no autoplay and no fade.
+- **Accessibility:** `aria-roledescription` carousel/slide, slides labelled "N of 5", inactive slides `inert`, the slide region announces politely only while stopped. Without JavaScript the first slide shows and the controls stay hidden.
 
 ### Team Card & Dialog
 White card with a square photo frame (0.75rem radius) whose backdrop rotates through Spring Shoot, Morning Sky and Cloud. If the photo is missing, the frame shows the member's initials in large Atkinson 3rem bold. Clicking opens a 40rem dialog with a navy scrim, scaling in from 96% over 0.2s, with the photo and bio side by side from 640px. Deep links pulse a 4px Lagoon Teal ring on arrival.

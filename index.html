@@ -39,6 +39,7 @@
   <script src="./js/tailwind-config.js"></script>
   <link rel="stylesheet" href="./styles.css" />
   <script src="./js/site-nav.js" defer></script>
+  <script src="./js/hero-carousel.js" defer></script>
 </head>
 <body>
   <header id="site-nav">
@@ -52,21 +53,103 @@
   </header>
 
   <main>
-    <section id="hero" class="hero" aria-labelledby="hero-heading">
-      <div class="hero-media">
-        <!-- EDIT: hero photo (keep the alt text in step with the photo) -->
-        <img src="img/team_imgs/web/team-2400.jpg" srcset="img/team_imgs/web/team-1200.jpg 1200w, img/team_imgs/web/team-2400.jpg 2400w" sizes="100vw" alt="The PrintSpeak team, a group of Graphic Communications Management students, standing together against a light wall." width="2400" height="1331" fetchpriority="high" />
-      </div>
-      <div class="hero-inner mx-auto max-w-6xl">
-        <div class="hero-panel">
-          <!-- EDIT: hero heading -->
-          <h1 id="hero-heading">Where Print Comes Alive</h1>
-          <!-- EDIT: hero subline -->
-          <p class="hero-lead">A student-led initiative using NFC and talking labels to make product information accessible to everyone.</p>
-          <div class="hero-actions">
-            <!-- EDIT: hero links -->
-            <a class="btn" href="blog.html">Read our blog</a>
-            <a class="btn btn-outline" href="team.html">Meet the team</a>
+    <!-- Hero carousel: js/hero-carousel.js. Each slide's <img> carries data-protect, the face (or subject) boxes
+         as "x y width height" percentages of the original photo. tests/e2e/hero-carousel.spec.js fails if the
+         navy panel or the controls ever cover one. When swapping a photo, update data-protect and the slide's
+         --hero-pos (object-position) together, then run npx playwright test. -->
+    <section id="hero" class="hero" aria-roledescription="carousel" aria-labelledby="hero-heading" data-carousel>
+      <h1 id="hero-heading" class="visually-hidden">PrintSpeak: Where Print Comes Alive</h1>
+      <div class="hero-stage">
+        <div class="hero-controls" hidden>
+          <button type="button" class="hero-btn" data-hero-prev aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+          <div class="hero-dots" role="group" aria-label="Choose a slide"></div>
+          <button type="button" class="hero-btn" data-hero-next aria-label="Next slide">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+          <button type="button" class="hero-btn" data-hero-toggle aria-label="Pause slideshow">
+            <svg class="hero-icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12" /></svg>
+            <svg class="hero-icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10.5-6.5z" /></svg>
+          </button>
+        </div>
+
+        <div class="hero-slides" aria-live="off">
+          <!-- EDIT: slide 1 (team) -->
+          <div class="hero-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 5" style="--hero-pos: 50% 20%">
+            <div class="hero-media">
+              <img src="img/team_imgs/web/team-2400.jpg" srcset="img/team_imgs/web/team-1200.jpg 1200w, img/team_imgs/web/team-2400.jpg 2400w" sizes="(min-width: 1440px) 90rem, 100vw" alt="The PrintSpeak team, a group of Graphic Communications Management students, standing together against a light wall." width="2400" height="1331" fetchpriority="high" data-protect="0 8 100 47" />
+            </div>
+            <div class="hero-inner">
+              <div class="hero-panel">
+                <h2>Where Print Comes Alive</h2>
+                <p class="hero-lead">A student-led initiative using NFC and talking labels to make product information accessible to everyone.</p>
+                <div class="hero-actions">
+                  <a class="btn" href="blog.html">Read our blog</a>
+                  <a class="btn btn-outline" href="team.html">Meet the team</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT: slide 2 (blog post) -->
+          <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5" style="--hero-pos: 50% 0%">
+            <div class="hero-media">
+              <img src="img/hero/talking-labels-2400.jpg" srcset="img/hero/talking-labels-1200.jpg 1200w, img/hero/talking-labels-2400.jpg 2400w" sizes="(min-width: 1440px) 90rem, 100vw" alt="A person holding a medication bottle with a label, tapping it with a smartphone." width="2400" height="1600" fetchpriority="low" data-protect="49 36 35 19" />
+            </div>
+            <div class="hero-inner">
+              <div class="hero-panel">
+                <h2>What Are Talking Labels?</h2>
+                <div class="hero-actions">
+                  <a class="btn" href="blog/talking-labels.html">Read the post</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT: slide 3 (blog post) -->
+          <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5" style="--hero-pos: 50% 100%">
+            <div class="hero-media">
+              <img src="img/hero/braille-2400.jpg" srcset="img/hero/braille-1200.jpg 1200w, img/hero/braille-2400.jpg 2400w" sizes="(min-width: 1440px) 90rem, 100vw" alt="Fingertips reading a page of embossed braille." width="2400" height="1600" fetchpriority="low" data-protect="27 49 10 10" />
+            </div>
+            <div class="hero-inner">
+              <div class="hero-panel">
+                <h2 class="hero-title-long">How talking labels help blind and visually impaired individuals access product information</h2>
+                <div class="hero-actions">
+                  <a class="btn" href="blog/talking-labels-access.html">Read the post</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT: slide 4 (subteam) -->
+          <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5" style="--hero-pos: 50% 9%">
+            <div class="hero-media">
+              <img src="img/team_imgs/web/research-2400.jpg" srcset="img/team_imgs/web/research-1600.jpg 1600w, img/team_imgs/web/research-2400.jpg 2400w" sizes="(min-width: 1440px) 90rem, 100vw" alt="The four members of the Research and Writing team." width="2400" height="1485" fetchpriority="low" data-protect="0 6 100 53" />
+            </div>
+            <div class="hero-inner">
+              <div class="hero-panel">
+                <h2>Research &amp; Writing</h2>
+                <div class="hero-actions">
+                  <a class="btn" href="team.html#team-group-1">Meet the team</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EDIT: slide 5 (subteam) -->
+          <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5" style="--hero-pos: 50% 15%">
+            <div class="hero-media">
+              <img src="img/team_imgs/web/creative-2400.jpg" srcset="img/team_imgs/web/creative-1600.jpg 1600w, img/team_imgs/web/creative-2400.jpg 2400w" sizes="(min-width: 1440px) 90rem, 100vw" alt="The six members of the Creative and Brand team." width="2400" height="1484" fetchpriority="low" data-protect="0 6 100 38" />
+            </div>
+            <div class="hero-inner">
+              <div class="hero-panel">
+                <h2>Creative &amp; Brand</h2>
+                <div class="hero-actions">
+                  <a class="btn" href="team.html#team-group-2">Meet the team</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
