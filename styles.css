@@ -283,6 +283,53 @@ textarea:focus-visible {
   border-radius: 0.75rem;
 }
 
+/* Photo credits: a figure keeps the image and its caption together. */
+.post-body figure {
+  margin: 2rem 0;
+}
+
+.post-body figure img {
+  margin: 0;
+}
+
+.post-cover figcaption,
+.post-body figcaption {
+  margin-top: 0.5rem;
+  color: var(--brand-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.post-cover figcaption a,
+.post-body figcaption a {
+  color: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.post-cover figcaption a:focus-visible {
+  outline: 0.1875rem solid var(--focus-ring);
+  outline-offset: 0.1875rem;
+}
+
+/* Aside within a post (e.g. "Fun fact!"): flat Morning Sky panel. */
+.post-body .post-callout {
+  margin: 2.5rem 0;
+  border-radius: 0.75rem;
+  background-color: var(--brand-highlight);
+  padding: 1.5rem;
+}
+
+.post-body .post-callout h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.post-body .post-callout p {
+  margin-bottom: 0;
+}
+
 /* === FORM: edit form control appearance here; affects every form === */
 .form-input {
   width: 100%;

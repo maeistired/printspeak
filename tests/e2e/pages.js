@@ -5,5 +5,6 @@ module.exports = [
   { path: "/blog.html", title: "PrintSpeak | Blog" },
   { path: "/contact.html", title: "PrintSpeak | Contact" },
   { path: "/blog/talking-labels.html" },
-  { path: "/blog/accessibility-standard-practice.html" }
+  { path: "/blog/accessibility-standard-practice.html" },
+  { path: "/blog/talking-labels-access.html" }
 ];
