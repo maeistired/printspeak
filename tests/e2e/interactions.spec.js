@@ -1,5 +1,6 @@
 // @ts-check
 const { test, expect } = require("@playwright/test");
+const pages = require("./pages");
 
 test("current page is marked in the navigation", async ({ page }) => {
   await page.goto("/about.html");
@@ -24,7 +25,7 @@ test("navigation links reach every page", async ({ page, isMobile }) => {
   for (const name of ["About", "Team", "Blog", "Contact"]) {
     if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
     await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name }).click();
-    await expect(page).toHaveTitle(`PrintSpeak | ${name}`);
+    await expect(page).toHaveTitle(pages.find((p) => p.nav === name).title);
   }
 });
 

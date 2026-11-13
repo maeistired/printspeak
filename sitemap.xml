@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- EDIT: add a <url> entry for each new blog post, and update <lastmod> when a page changes. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://printspeak.ca/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/about.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/team.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/blog.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/contact.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/blog/talking-labels.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/blog/accessibility-standard-practice.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://printspeak.ca/blog/talking-labels-access.html</loc><lastmod>2026-11-13</lastmod></url>
+</urlset>
