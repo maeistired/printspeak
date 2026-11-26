@@ -110,21 +110,6 @@ textarea:focus-visible {
   box-shadow: 0 10px 25px rgb(17 34 80 / 12%);
 }
 
-.card-soon {
-  color: var(--brand-muted);
-  cursor: default;
-  transform: none;
-}
-
-.card-soon:hover {
-  box-shadow: 0 1px 3px rgb(17 34 80 / 8%);
-  transform: none;
-}
-
-.card-soon-placeholder {
-  background-color: var(--brand-highlight);
-}
-
 /* === TAG: edit tag appearance here; affects every tag === */
 .tag {
   display: inline-flex;
@@ -1553,8 +1538,12 @@ textarea:focus-visible {
     padding-top: 5.5rem;
   }
 
-  .contact--full {
+  .contact--full.contact--has-image {
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) max-content;
+  }
+
+  .contact--full:not(.contact--has-image) {
+    column-gap: 6rem;
   }
 }
 
@@ -1733,6 +1722,21 @@ textarea:focus-visible {
   }
 }
 
+/* Text-only sections: heading on the left, copy beside it, tops aligned. */
+.who-intro.intro-pair {
+  align-items: start;
+}
+
+.about-section .intro-pair p + p {
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .who-intro.intro-pair {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
 .team-rows {
   margin-top: 3rem;
 }
@@ -1899,36 +1903,6 @@ textarea:focus-visible {
 .cta-band p {
   font-size: 1.125rem;
   line-height: 1.625;
-}
-
-.img-placeholder,
-.about-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 0.75rem;
-}
-
-.img-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.75rem;
-  background-color: var(--brand-highlight);
-  color: var(--brand-primary);
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.img-placeholder svg {
-  width: 3rem;
-  height: 3rem;
-}
-
-.about-img {
-  display: block;
-  object-fit: cover;
 }
 
 .statement {

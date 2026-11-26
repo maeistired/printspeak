@@ -197,16 +197,10 @@ const createContactMarkup = (contactElement) => {
   const detailHeadingLevel = headingLevel === "h1" ? "h2" : "h3";
   const variant = contactElement.dataset.variant === "compact" ? "compact" : "full";
   contactElement.classList.add(`contact--${variant}`);
+  // The image column only renders when CONTACT.image is set; otherwise the form and details share the row.
   const imageMarkup = CONTACT.image
-    ? `<img class="contact-image" src="${CONTACT.image}" alt="${CONTACT.imageAlt}" />`
-    : `
-      <div class="img-placeholder contact-image" role="img" aria-label="Photo coming soon">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M4 5h16v14H4zM8 9h.01M4 16l4-4 3 3 2-2 7 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
-        </svg>
-        <span>Photo coming soon</span>
-      </div>
-    `;
+    ? `<div class="contact-image-wrap"><img class="contact-image" src="${CONTACT.image}" alt="${CONTACT.imageAlt}" /></div>`
+    : "";
 
   const detailsMarkup = `
     <div class="contact-details">
@@ -245,8 +239,8 @@ const createContactMarkup = (contactElement) => {
   }
 
   return `
-    <div class="contact-content contact--full">
-      <div class="contact-image-wrap">${imageMarkup}</div>
+    <div class="contact-content contact--full${CONTACT.image ? " contact--has-image" : ""}">
+      ${imageMarkup}
       <div class="contact-form-column">
         <${headingLevel} id="contact-heading">${CONTACT.heading}</${headingLevel}>
         ${CONTACT.intro ? `<p class="contact-intro">${CONTACT.intro}</p>` : ""}

@@ -144,7 +144,7 @@ components:
 
 PrintSpeak's site should read the way a good product label ought to: you can see straight away what it is, what matters, and where to go next. Its look is calm, trustworthy and plain-spoken. It has the honesty of careful course work, and its colour comes from the subject itself: water-and-leaf greens and blues on a deep harbour navy. Every page has one dominant message and keeps its content close to the reader, and colour blocks do the work of separating sections.
 
-Legibility is the identity. The two typefaces were chosen because they were designed for low-vision and dyslexic readers: Atkinson Hyperlegible for headings and Lexend for reading. The site argues for accessible labelling, so it has to pass its own test. That means high contrast, large tap targets, a visible focus state on everything interactive, and motion that stops when a visitor asks it to. Imagery is real or honestly marked as a placeholder. No stock-photo filler stands in for research that does not exist yet.
+Legibility is the identity. The two typefaces were chosen because they were designed for low-vision and dyslexic readers: Atkinson Hyperlegible for headings and Lexend for reading. The site argues for accessible labelling, so it has to pass its own test. That means high contrast, large tap targets, a visible focus state on everything interactive, and motion that stops when a visitor asks it to. Imagery is real, or the section is laid out as text alone. No stock-photo filler stands in for research that does not exist yet.
 
 The team leads: both openings put the real group photo first, the home page full-bleed under a navy message panel and the About page as a wide framed photo. Below the opening, pages are built from full-width bands of colour (Midnight Harbour statements, Morning Sky calls to action) with plain white or Cloud bands of reading content between them. Inside those bands, white cards with gentle rounding hold discrete items such as posts, values and team members.
 
@@ -168,7 +168,7 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 
 ### Tertiary
 - **Spring Shoot** (`surface`): the lime highlight. Topic tags, buttons and links that sit on a Midnight Harbour band, the statement's accent rule, and one of the team-photo backdrops. It always sits next to navy, never next to white text.
-- **Morning Sky** (`highlight`): soft blue wash. The calls-to-action band, image placeholders, "coming soon" card thumbnails, and intro copy inside the compact contact block.
+- **Morning Sky** (`highlight`): soft blue wash. The calls-to-action band, the team-row photo backdrop, and intro copy inside the compact contact block.
 - **Fern** (`secondary`): leaf green. It is reserved for the 0.25rem blockquote rule in blog posts. The rule is defined in `.post-body` but no published post uses a blockquote yet.
 
 ### Neutral
@@ -177,7 +177,7 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 - **Mist Line** (`border`): hairline dividers under the nav, above the contact section and in the footer bottom bar.
 - **Pebble** (`control-border`): 1px outline on boxed form controls.
 - **Dusk Slate** (`text-muted`): secondary text such as post meta, bylines, team roles and footer small print.
-- **Slate** (`muted`): text on "coming soon" placeholder cards only.
+- **Slate** (`muted`): reserved for de-emphasised supporting text.
 
 ### Named Rules
 **The Two Teals Rule.** Lagoon Teal fills and decorates; Deep Lagoon carries text, focus rings and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.
@@ -241,7 +241,7 @@ Depth comes from flat colour. Full-width bands in Midnight Harbour, Lagoon Teal 
 - **Dialog scrim** (`rgb(17 34 80 / 65%)`): the backdrop behind the team-member dialog.
 
 ### Named Rules
-**The Lift Means Click Rule.** A card rises only if the whole card is a link or button. Static information cards (values, "what we do", "coming soon") stay flat at rest shadow.
+**The Lift Means Click Rule.** A card rises only if the whole card is a link or button. Static information cards (values, "what we do") stay flat at rest shadow.
 
 **The Flat Band Rule.** Coloured bands never carry shadows, gradients or overlays. A change of colour is the separation. The home hero panel follows it too: a solid navy block inside the photo frame with no shadow, so text never sits on the photo directly.
 
@@ -272,7 +272,6 @@ Sturdy and friendly. Bold Lexend labels, obvious fills, and colour that shifts o
 - **Shadow Strategy:** card rest; card lift on hover only when clickable (see Elevation & Depth).
 - **Border:** none.
 - **Internal Padding:** 1.5rem. Blog cards contain a 16:9 image (0.5rem radius), a tag, a title link whose `::after` stretches over the whole card, a Body Long summary, and an underlined Deep Lagoon "Read more →".
-- **Coming soon:** same card with a Morning Sky 16:9 block, Slate text, no lift, default cursor.
 - **Focus:** `:focus-within` draws a 2px focus-ring outline around the whole card.
 
 ### Inputs / Fields
@@ -314,7 +313,7 @@ White card with a square photo frame (0.75rem radius) whose backdrop rotates thr
 - **Do** draw every focus outline from `var(--focus-ring)` (3px, 3px offset), and reset that variable to Spring Shoot on any new navy band. Give every target at least 2.75rem (44px).
 - **Do** wrap every transform or animation in `prefers-reduced-motion` handling, as the existing nav, cards and dialog already do.
 - **Do** use the web copies in `img/team_imgs/web/` (with `srcset`) for group photos, never the multi-megabyte originals.
-- **Do** mark missing photography with the Morning Sky placeholder (icon plus "… coming soon", `role="img"` with a label) until the real image exists.
+- **Do** lay a section out as text alone (heading beside copy, `.who-intro.intro-pair`) when it has no real photograph, rather than shipping an empty image slot.
 - **Do** build new sections as single-colour bands with one message, alternating with white or Cloud reading bands.
 
 ### Don't:
@@ -324,4 +323,4 @@ White card with a square photo frame (0.75rem radius) whose backdrop rotates thr
 - **Don't** make static cards lift on hover; the rise means "this is clickable".
 - **Don't** add gradients, overlays or shadows to colour bands.
 - **Don't** use Fern (#72B01D) for text or fills; it is only for blockquote rules.
-- **Don't** replace placeholders with stock or AI imagery that implies field research, participants or partners that do not exist.
+- **Don't** fill missing photography with stock or AI imagery that implies field research, participants or partners that do not exist.

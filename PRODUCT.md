@@ -27,7 +27,7 @@ A student team treating accessible packaging as a project-management problem. Th
 ## Operating Context
 
 - A static multi-page site at printspeak.ca, hosted on GitHub Pages: Home, About, Team, Blog (Journal), Contact.
-- The blog is the main content channel. New posts are made by copying `blog/talking-labels.html` and editing its EDIT regions. The blog index has placeholder "coming soon" slots for upcoming posts.
+- The blog is the main content channel. New posts are made by copying `blog/talking-labels.html` and editing its EDIT regions. New posts get a card at the top of the blog index grid.
 - Team: a PM group, a Creative team, and a Research team. Their photos are in `img/team_imgs/`, and their data is in `js/team-data.js`.
 - Contact goes through email (official.printspeak@gmail.com), Instagram, and LinkedIn. There's no form or backend.
 
@@ -35,7 +35,7 @@ A student team treating accessible packaging as a project-management problem. Th
 
 - Stack: plain static HTML with Tailwind (`js/tailwind-config.js`), `styles.css`, and small vanilla JS. Node is used only for the Playwright and axe end-to-end tests, not for building.
 - Terminology: "talking labels", "NFC", "RFID", "print comes alive".
-- Some content is unfinished: a group photo and a medication-bottles photo are placeholders.
+- Sections without real photography are laid out as text-only; no image placeholders ship.
 
 ## Brand Commitments
 
