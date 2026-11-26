@@ -199,7 +199,7 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 - **Title** (700, 1.5rem, 1.25): card titles, team names and values cards.
 - **Body Long** (400, 1.125rem, 1.625): blog post bodies (max 65ch), copy beside section headings, card summaries and hero sublines.
 - **Body** (400, 1rem, 1.5): UI text, meta lines, footer links.
-- **Label** (700, 0.875rem, 1.5): topic tags, form labels and button-adjacent UI text. Always sentence case, with no tracked capitals.
+- **Label** (700, 0.875rem, 1.5): topic tags and button-adjacent UI text. Form labels and nav links use 1rem so low-vision readers get full-size UI text. Always sentence case, with no tracked capitals.
 
 ### Named Rules
 **The Bold Heading Rule.** Every Atkinson heading is weight 700 with −0.01em tracking (−0.02em at the two hero display sizes) and `text-wrap: balance`. The base heading rule in `styles.css` is written as `body :is(h1, h2, h3, h4)` so that Tailwind's CDN preflight, which loads after it, cannot reset the weight. Keep that selector.
@@ -274,10 +274,10 @@ Sturdy and friendly. Bold Lexend labels, obvious fills, and colour that shifts o
 ### Inputs / Fields
 - **Underline (contact page):** transparent, no box, 2px Midnight Harbour baseline, min-height 2.75rem. On focus the baseline becomes a 3px Deep Lagoon line.
 - **Boxed on dark (compact contact):** white fill, 0.375rem radius, 0.75rem padding, white label text. On focus: a 1px border plus a 3px halo, both Spring Shoot.
-- **Labels:** Atkinson 0.875rem bold in Midnight Harbour. "(required)" sits in regular Lexend in Dusk Slate.
+- **Labels:** Atkinson 1rem bold in Midnight Harbour. "(required)" sits in regular Lexend in Dusk Slate.
 
 ### Navigation
-- **Bar:** sticky, 4rem, Cloud fill, Mist Line hairline beneath. Atkinson wordmark "PrintSpeak" on the left in Midnight Harbour (hover Deep Lagoon); links on the right in Lexend 0.875rem, with a 1.75rem gap.
+- **Bar:** sticky, 4rem, Cloud fill, Mist Line hairline beneath. Atkinson wordmark "PrintSpeak" on the left in Midnight Harbour (hover Deep Lagoon); links on the right in Lexend 1rem, with a 1.75rem gap.
 - **States:** hover and `aria-current="page"` both turn the link Deep Lagoon.
 - **Mobile (< 768px):** 44px hamburger whose lines morph into an ×. The panel drops down full-width with 1rem-padded rows, fading and sliding 0.5rem over 0.18s. With reduced motion there is no transition.
 
@@ -297,6 +297,9 @@ Script: `js/hero-carousel.js`. Markup: `index.html #hero`. Tests: `tests/e2e/her
 - **Controls:** a white pill (focus ring drawn inside each button): previous, dots, next, pause/play (44px buttons; dots are 24px targets). The current dot stretches into a bar that fills over the 7s interval (`--hero-interval`); that fill animation is the timer.
 - **Motion:** slides cross-fade over 0.7s with an exponential ease-out. Rotation holds on mouse hover, on keyboard focus inside the hero and in a hidden tab; the pause button stops it until Play is pressed. With reduced motion there is no autoplay and no fade.
 - **Accessibility:** `aria-roledescription` carousel/slide, slides labelled "N of 5", inactive slides `inert`, the slide region announces politely only while stopped. Without JavaScript the first slide shows and the controls stay hidden.
+
+### Post Ending
+Every post closes, after its references, with a Mist Line hairline (4rem above, 2.5rem below), a small Dusk Slate "Keep reading" heading, the next post's title as a large underlined Atkinson link (1.5rem, Midnight Harbour, hover Deep Lagoon) and one Body Long line inviting the reader to get in touch. Posts link forward by date; the newest links back to the first.
 
 ### Team Card & Dialog
 White card with a square photo frame (0.75rem radius) whose backdrop rotates through Spring Shoot, Morning Sky and Cloud. If the photo is missing, the frame shows the member's initials in large Atkinson 3rem bold. Clicking opens a 40rem dialog with a navy scrim, scaling in from 96% over 0.2s, with the photo and bio side by side from 640px. Deep links pulse a 4px Lagoon Teal ring on arrival.

@@ -10,7 +10,7 @@ const createPhotoMarkup = (member, className, tint) => {
     : 'decoding="async"';
   return `
   <span class="${className} ${className}--${tint}">
-    <img src="${member.photo}" alt="${member.alt}" ${imageAttributes} width="800" height="1079">
+    <img src="${member.photo}" alt="${className === "team-card__photo" ? "" : member.alt}" ${imageAttributes} width="800" height="1079">
     <span class="${className}__fallback" aria-hidden="true" hidden>${getInitials(member.name)}</span>
   </span>
   `;

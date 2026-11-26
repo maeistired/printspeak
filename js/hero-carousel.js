@@ -61,7 +61,17 @@
   root.addEventListener("pointerenter", (event) => {
     if (event.pointerType === "mouse") { hovering = true; updateHold(); }
   });
-  root.addEventListener("pointerleave", () => { hovering = false; updateHold(); });
+  root.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "mouse") { hovering = false; updateHold(); }
+  });
+  // Touch and pen: a tap anywhere in the hero holds the current slide until the reader
+  // taps outside it, so slides don't change mid-read on phones. Play/pause still works.
+  root.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "mouse" && !toggle.contains(event.target)) { hovering = true; updateHold(); }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "mouse" && !root.contains(event.target)) { hovering = false; updateHold(); }
+  });
   // Keyboard focus inside the hero holds the slide, except on the play/pause button itself,
   // so pressing Play there visibly starts the slideshow.
   root.addEventListener("focusin", (event) => { focused = event.target !== toggle; updateHold(); });

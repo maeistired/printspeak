@@ -1,7 +1,7 @@
 // EDIT TEAM HERE: add, remove, or reorder members and groups.
 // Editing map: team members, roles, bios, and groups: js/team-data.js.
 // Team layout and appearance: styles.css /* === TEAM === */.
-// Team photos: img/team/firstname-lastname.webp.
+// Team photos: img/team_imgs/ind_<group>/GCM375-Firstname.webp (ind_pm, ind_Research, ind_Creative).
 
 const TEAM_GROUPS = [
   {

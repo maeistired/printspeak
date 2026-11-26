@@ -817,7 +817,7 @@ textarea:focus-visible {
 .site-nav-link {
   color: var(--brand-primary);
   font-family: var(--brand-font-body);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   text-underline-offset: 2px;
   transition: color 0.2s ease;
@@ -1433,7 +1433,7 @@ textarea:focus-visible {
 .contact-field label {
   color: var(--brand-primary);
   font-family: var(--brand-font-heading);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -2119,4 +2119,62 @@ main:focus {
   .btn {
     transition: none;
   }
+}
+
+/* Post ending: next post by date plus a route to Contact, under a hairline. */
+.post-next {
+  margin-top: 4rem;
+  border-top: 1px solid var(--brand-border);
+  padding-top: 2.5rem;
+}
+
+body .post-next h2 {
+  color: var(--brand-text-muted);
+  font-size: 1rem;
+}
+
+.post-next-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--brand-primary);
+  font-family: var(--brand-font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  text-wrap: balance;
+  transition: color 0.2s ease;
+}
+
+.post-next-link:hover {
+  color: var(--brand-accent-text);
+}
+
+.post-next p {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.post-next p a {
+  color: var(--brand-accent-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Team list shown only when JavaScript is off (team.html noscript). */
+.team-page noscript h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.team-page noscript ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+  font-size: 1.125rem;
+  line-height: 1.625;
 }
