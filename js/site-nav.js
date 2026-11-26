@@ -52,8 +52,8 @@ const FOOTER = {
 
   // Blog content
   latestPosts: [
-    { title: "From Grocery Shelves to Storefronts: Talking Labels Beyond Healthcare", href: "blog/talking-labels-beyond-healthcare.html", date: "" },
-    { title: "How talking labels help blind and visually impaired individuals access product information", href: "blog/talking-labels-access.html", date: "" }
+    { title: "NFC Labels Explained: How a Tap Turns Print Into Speech", href: "blog/nfc-labels-infographic.html", date: "" },
+    { title: "From Grocery Shelves to Storefronts: Talking Labels Beyond Healthcare", href: "blog/talking-labels-beyond-healthcare.html", date: "" }
   ],
 
   // Editing map: Social links (footer + contact panels): js/site-nav.js FOOTER.socials.
