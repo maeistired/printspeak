@@ -7,5 +7,6 @@ module.exports = [
   { path: "/blog/talking-labels.html" },
   { path: "/blog/accessibility-standard-practice.html" },
   { path: "/blog/talking-labels-access.html" },
-  { path: "/blog/talking-labels-beyond-healthcare.html" }
+  { path: "/blog/talking-labels-beyond-healthcare.html" },
+  { path: "/blog/nfc-labels-infographic.html" }
 ];

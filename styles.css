@@ -308,6 +308,53 @@ textarea:focus-visible {
   margin-bottom: 0;
 }
 
+/* Content lists inside a post (steps, bullet points): show markers at body size.
+   Reference lists keep their smaller default styling. */
+.post-body .post-list {
+  font-size: 1.125rem;
+  line-height: 1.625;
+}
+
+.post-body ol.post-list {
+  list-style-type: decimal;
+}
+
+.post-body ul.post-list {
+  list-style-type: disc;
+}
+
+.post-body .post-list li::marker {
+  color: var(--brand-accent-text);
+  font-weight: 700;
+}
+
+/* Side-by-side comparison lists (e.g. NFC vs. QR code); stacks on small screens. */
+.post-body .post-compare {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5em;
+}
+
+@media (min-width: 640px) {
+  .post-body .post-compare {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.post-body .post-compare section {
+  border-radius: 0.75rem;
+  background-color: var(--brand-highlight);
+  padding: 1.25rem 1.5rem;
+}
+
+.post-body .post-compare h3 {
+  margin-top: 0;
+}
+
+.post-body .post-compare ul {
+  margin-bottom: 0;
+}
+
 /* === FORM: edit form control appearance here; affects every form === */
 .form-input {
   width: 100%;
