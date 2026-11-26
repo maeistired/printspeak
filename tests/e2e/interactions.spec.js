@@ -86,11 +86,10 @@ test("blog #4 card links to its post", async ({ page }) => {
   await expect(page.locator("h1")).toContainText("Talking Labels Beyond Healthcare");
 });
 
-test("blog #5 card links to the infographic post", async ({ page }) => {
+test("blog #5 card links to the NFC labels post", async ({ page }) => {
   await page.goto("/blog.html");
   await page.getByRole("main").getByRole("link", { name: /NFC Labels Explained/ }).click();
   await expect(page.locator("h1")).toContainText("NFC Labels Explained");
-  await expect(page.locator(".post-infographic img")).toBeVisible();
 });
 
 test("focus indicator is visible on keyboard focus", async ({ page }) => {

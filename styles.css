@@ -330,23 +330,6 @@ textarea:focus-visible {
   font-weight: 700;
 }
 
-/* Infographic within a post: tall image kept narrow so the text version stays close by. */
-.post-body .post-infographic {
-  max-width: 26rem;
-  margin: 2.5rem auto;
-}
-
-.post-body .post-infographic a {
-  display: block;
-  border-radius: 0.75rem;
-}
-
-.post-body .post-infographic img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
-}
-
 /* Side-by-side comparison lists (e.g. NFC vs. QR code); stacks on small screens. */
 .post-body .post-compare {
   display: grid;
