@@ -80,6 +80,12 @@ test("blog cards link to their posts", async ({ page }) => {
   await expect(page.locator("h1")).toContainText("Talking Labels");
 });
 
+test("blog #4 card links to its post", async ({ page }) => {
+  await page.goto("/blog.html");
+  await page.getByRole("main").getByRole("link", { name: /Talking Labels Beyond Healthcare/ }).click();
+  await expect(page.locator("h1")).toContainText("Talking Labels Beyond Healthcare");
+});
+
 test("focus indicator is visible on keyboard focus", async ({ page }) => {
   await page.goto("/about.html");
   const link = page.getByRole("link", { name: "Read our blog" });

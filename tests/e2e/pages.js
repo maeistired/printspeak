@@ -6,5 +6,6 @@ module.exports = [
   { path: "/contact.html", nav: "Contact", title: "Contact PrintSpeak | Email, Instagram & LinkedIn" },
   { path: "/blog/talking-labels.html" },
   { path: "/blog/accessibility-standard-practice.html" },
-  { path: "/blog/talking-labels-access.html" }
+  { path: "/blog/talking-labels-access.html" },
+  { path: "/blog/talking-labels-beyond-healthcare.html" }
 ];

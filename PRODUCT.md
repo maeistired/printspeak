@@ -35,7 +35,7 @@ A student team treating accessible packaging as a project-management problem. Th
 
 - Stack: plain static HTML with Tailwind (`js/tailwind-config.js`), `styles.css`, and small vanilla JS. Node is used only for the Playwright and axe end-to-end tests, not for building.
 - Terminology: "talking labels", "NFC", "RFID", "print comes alive".
-- Some content is unfinished: a group photo and a medication-bottles photo are placeholders, and blog posts #3 and #4 are "coming soon".
+- Some content is unfinished: a group photo and a medication-bottles photo are placeholders.
 
 ## Brand Commitments
 
@@ -46,7 +46,7 @@ A student team treating accessible packaging as a project-management problem. Th
 
 ## Evidence on Hand
 
-- Two published blog posts: `blog/talking-labels.html` and `blog/accessibility-standard-practice.html`, with illustrations in `img/blog/`.
+- Four published blog posts: `blog/talking-labels.html`, `blog/accessibility-standard-practice.html`, `blog/talking-labels-access.html` and `blog/talking-labels-beyond-healthcare.html`, with images in `img/blog/`.
 - Team and individual photos in `img/team_imgs/`.
 - No survey results, field-study findings, statistics, partner quotes, or testimonials exist yet; the research is still in progress. Future work must not invent or imply results, numbers, partners, or endorsements. Existing copy that mentions "field studies, insider data, and extensive research" describes the approach, not results that can be cited.
 

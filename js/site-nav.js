@@ -52,8 +52,8 @@ const FOOTER = {
 
   // Blog content
   latestPosts: [
-    { title: "How talking labels help blind and visually impaired individuals access product information", href: "blog/talking-labels-access.html", date: "" },
-    { title: "Making Accessibility Standard Practice: Why Aren't Talking Labels on Every Product?", href: "blog/accessibility-standard-practice.html", date: "" }
+    { title: "From Grocery Shelves to Storefronts: Talking Labels Beyond Healthcare", href: "blog/talking-labels-beyond-healthcare.html", date: "" },
+    { title: "How talking labels help blind and visually impaired individuals access product information", href: "blog/talking-labels-access.html", date: "" }
   ],
 
   // Editing map: Social links (footer + contact panels): js/site-nav.js FOOTER.socials.
