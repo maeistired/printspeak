@@ -16,8 +16,6 @@
   --brand-secondary: #72B01D;
   --brand-white: #fff;
   --brand-border: #e5e5e5;
-  --brand-control-border: #cbd5e1;
-  --brand-muted: #64748b;
   --brand-text-muted: #52617a;
   /* Focus ring: Deep Lagoon passes 3:1 on every light ground; dark bands switch it to lime below. */
   --focus-ring: var(--brand-accent-text);
@@ -1870,34 +1868,10 @@ textarea:focus-visible {
   line-height: 1.15;
 }
 
-.about-section h2 + p,
-.split div > p + p {
+.about-section h2 + p {
   margin-top: 1.25rem;
 }
 
-.split {
-  display: grid;
-  align-items: center;
-  gap: 3rem;
-}
-
-.split > div:first-child {
-  order: 1;
-}
-
-.split > div:last-child {
-  order: 2;
-}
-
-.split-reverse > div:first-child {
-  order: 2;
-}
-
-.split-reverse > div:last-child {
-  order: 1;
-}
-
-.split p,
 .about-intro,
 .card-static p,
 .cta-band p {
@@ -2044,17 +2018,6 @@ textarea:focus-visible {
 
 #site-footer .site-footer-contact-line span {
   overflow-wrap: anywhere;
-}
-
-@media (min-width: 768px) {
-  .split {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .split > div:first-child,
-  .split > div:last-child {
-    order: initial;
-  }
 }
 
 @media (min-width: 768px) {

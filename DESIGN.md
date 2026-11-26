@@ -11,8 +11,6 @@ colors:
   neutral-bg: "#FAFAFA"
   white: "#FFFFFF"
   border: "#E5E5E5"
-  control-border: "#CBD5E1"
-  muted: "#64748B"
   text-muted: "#52617A"
 typography:
   display-xl:
@@ -175,9 +173,7 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 - **Cloud** (`neutral-bg`): the page ground, the nav bar and the footer.
 - **Pure White** (`white`): cards, dialogs, form fields on dark, and alternating content bands.
 - **Mist Line** (`border`): hairline dividers under the nav, above the contact section and in the footer bottom bar.
-- **Pebble** (`control-border`): 1px outline on boxed form controls.
 - **Dusk Slate** (`text-muted`): secondary text such as post meta, bylines, team roles and footer small print.
-- **Slate** (`muted`): reserved for de-emphasised supporting text.
 
 ### Named Rules
 **The Two Teals Rule.** Lagoon Teal fills and decorates; Deep Lagoon carries text, focus rings and white-on-teal labels. Small text never goes in Lagoon Teal, and white text never sits on it.
@@ -201,7 +197,7 @@ A cool water-and-leaf palette anchored by one deep navy. The navy does almost al
 - **Headline** (700, 2.25rem, 1.15): section H2s (about sections, values, team groups, CTA band, the compact "Get in touch" band).
 - **Article Heading** (700, 1.875rem, 1.25): in-article H2s at 768px and above; they use Title size below that. In-article H3s run 1.25–1.5rem.
 - **Title** (700, 1.5rem, 1.25): card titles, team names and values cards.
-- **Body Long** (400, 1.125rem, 1.625): blog post bodies (max 65ch), split-section copy, card summaries and hero sublines.
+- **Body Long** (400, 1.125rem, 1.625): blog post bodies (max 65ch), copy beside section headings, card summaries and hero sublines.
 - **Body** (400, 1rem, 1.5): UI text, meta lines, footer links.
 - **Label** (700, 0.875rem, 1.5): topic tags, form labels and button-adjacent UI text. Always sentence case, with no tracked capitals.
 
@@ -219,12 +215,13 @@ Body paragraphs and list items use `text-wrap: pretty` to avoid one-word last li
 Pages stack full-width bands. Each band contains a centred column of max 72rem (Tailwind `max-w-6xl`) with 1.5rem side gutters. Blog posts narrow to a 48rem column (`max-w-3xl`), and their body text caps at 65ch.
 
 - **Section rhythm:** standard bands use 4rem vertical padding, rising to 5rem at 640px and above. About-page sections use 4rem on phones and 6rem from 1024px. Compact bands such as the home contact block use 2rem. Page `main` areas open with 6rem top padding.
-- **Split sections:** one column on mobile; two equal columns with a 3rem gap at 768px and above, vertically centred. `.split-reverse` swaps the image to the other side on alternate rows.
+- **Heading-beside-copy sections:** one column on phones and tablets (1.5rem gap). From 1024px the heading and its copy sit side by side with a 4rem gap: 7fr / 5fr bottom-aligned for a short intro (`.who-intro`, as in "Who we are"), and 5fr / 7fr top-aligned when the copy runs longer or carries a button (`.who-intro.intro-pair`, as in the home About preview and the About problem section). This is the layout for any section without a real photograph.
 - **Card grids:** a 2rem gap. Blog cards: one column, two at 768px. Value cards: one, two (640px) and four (1024px) columns. Team: two columns from the smallest phones (1rem gap, compact 1.125rem names), 2rem gap and full-size names from 640px, three columns at 1024px, four at 1280px.
 - **Same-ground sections:** consecutive `.about-section` bands on the same ground share one interval (`--section-space-lg`: 4rem on phones, 6rem from 1024px) instead of stacking two.
 - **Ruled row:** "What we do" sits in an open four-up row, each item under a 2px Midnight Harbour rule with no card. It is intentionally different from the values cards above it, so the two lists don't read as one repeated grid.
 - **Bands share the column:** every band's content, including centred-box bands like the CTA, starts on the same 72rem / 1.5rem-gutter edge as the nav and footer.
 - **Home hero (carousel):** one rounded frame (1rem radius) in the content column, lined up with the nav logo and links, with the photo at 16:9 at every size. From 1024px the navy panel (max 38rem, 0.75rem radius) and the controls pill sit inside the photo's bottom corners, 1rem in, on a shared baseline. Nothing hangs outside the frame, and the whole hero fits the first screen at 1366×768. Below 1024px the frame becomes one card: photo on top, navy band joined underneath, filled to the tallest slide. On tablets the buttons sit at the band's foot level with the controls on the right; on phones the buttons follow the text and the controls sit at the foot. All slides share one grid cell, so the hero never jumps.
+- **Contact page:** the form column and the details column (email, location, socials) sit side by side from 640px with a 6rem gap. An image column joins on the left from 1024px only when `CONTACT.image` is set in `js/site-nav.js`; otherwise no slot is reserved.
 - **About hero:** Cloud ground. Headline and intro sit side by side from 1024px (7fr / 5fr, bottom-aligned), with the team photo underneath at 21:9 (4:3 on phones), 3.5rem below.
 - **Subteam rows (About, "who we are"):** one row per subteam, separated by Mist Line hairlines, photo and names at 7fr / 5fr from 900px, alternating sides. Names and roles are a two-column list that stacks below 480px.
 - **Breakpoints:** 640px (sm), 768px (md; the nav switches to a hamburger below 768px), 1024px (lg).
@@ -247,7 +244,7 @@ Depth comes from flat colour. Full-width bands in Midnight Harbour, Lagoon Teal 
 
 ## Shapes
 
-Gentle, consistent rounding that reads as friendly without becoming bubbly. Cards, images, dialogs and photo frames use 0.75rem. Buttons and inline imagery inside cards use 0.5rem. Boxed inputs use 0.375rem. The team dialog's close button is a 44px white circle. Topic tags and the contact "Send message" button are full pills. Underline-style form fields on the contact page are square, with only a 2px navy baseline that thickens to a 3px focus-ring line on focus. One deliberate asymmetry exists: the contact-page photo uses `0.5rem 2.5rem 0.5rem 0.5rem`, so one corner is larger, like a peeled label. Borders are rare: hairline Mist Line dividers, a 2px current-colour outline on outline buttons, and a 0.25rem Fern rule on blockquotes.
+Gentle, consistent rounding that reads as friendly without becoming bubbly. Cards, images, dialogs and photo frames use 0.75rem. Buttons and inline imagery inside cards use 0.5rem. Boxed inputs use 0.375rem. The team dialog's close button is a 44px white circle. Topic tags and the contact "Send message" button are full pills. Underline-style form fields on the contact page are square, with only a 2px navy baseline that thickens to a 3px focus-ring line on focus. One deliberate asymmetry is reserved: when a contact-page photo is configured, it uses `0.5rem 2.5rem 0.5rem 0.5rem`, so one corner is larger, like a peeled label. Borders are rare: hairline Mist Line dividers, a 2px current-colour outline on outline buttons, and a 0.25rem Fern rule on blockquotes.
 
 ## Components
 

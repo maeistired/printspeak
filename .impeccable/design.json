@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-13T16:52:06+00:00",
+  "generatedAt": "2026-11-26T23:22:23+00:00",
   "title": "Design System: PrintSpeak",
   "extensions": {
     "colorMeta": {
@@ -139,36 +139,6 @@
           "#EEEEEE"
         ]
       },
-      "control-border": {
-        "role": "neutral",
-        "displayName": "Pebble",
-        "canonical": "oklch(86.9% 0.020 252)",
-        "tonalRamp": [
-          "#090B0E",
-          "#23272C",
-          "#40464D",
-          "#5F6771",
-          "#828A94",
-          "#A8AFB6",
-          "#CCD1D8",
-          "#EBEFF3"
-        ]
-      },
-      "muted": {
-        "role": "neutral",
-        "displayName": "Slate",
-        "canonical": "oklch(55.4% 0.041 257)",
-        "tonalRamp": [
-          "#070B11",
-          "#202732",
-          "#3B4655",
-          "#58677C",
-          "#7C8A9F",
-          "#A3AFC0",
-          "#C9D2DF",
-          "#E8EFF9"
-        ]
-      },
       "text-muted": {
         "role": "neutral",
         "displayName": "Dusk Slate",
@@ -189,10 +159,6 @@
       "display": {
         "displayName": "Display",
         "purpose": "Page H1s and listing headers; 2.25rem below 768px."
-      },
-      "tagline": {
-        "displayName": "Tagline",
-        "purpose": "Hero 'Where Print Comes Alive' line only; the one regular-weight heading."
       },
       "headline": {
         "displayName": "Headline",
@@ -221,6 +187,14 @@
       "article-heading": {
         "displayName": "Article Heading",
         "purpose": "In-article H2s at 768px and above."
+      },
+      "display-xl": {
+        "displayName": "Display XL",
+        "purpose": "About page H1, the largest type on the site."
+      },
+      "display-hero": {
+        "displayName": "Display Hero",
+        "purpose": "Slide headings in the home hero carousel panel."
       }
     },
     "shadows": [
@@ -262,9 +236,14 @@
         "purpose": "Team dialog entrance."
       },
       {
-        "name": "scroll-bob",
-        "value": "2.5s ease-in-out infinite, 6px",
-        "purpose": "Hero scroll chevron; only when motion is allowed."
+        "name": "hero-crossfade",
+        "value": "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hero carousel slide cross-fade; off with reduced motion."
+      },
+      {
+        "name": "hero-progress",
+        "value": "width linear over var(--hero-interval) (7s)",
+        "purpose": "Current dot fills as the autoplay timer."
       }
     ],
     "breakpoints": [
@@ -277,8 +256,16 @@
         "value": "768px"
       },
       {
+        "name": "team-row",
+        "value": "900px"
+      },
+      {
         "name": "lg",
         "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
       }
     ]
   },
@@ -350,7 +337,7 @@
   ],
   "narrative": {
     "northStar": "The Living Label",
-    "overview": "PrintSpeak's site should read the way a good product label ought to: you can see straight away what it is, what matters, and where to go next. Its look is calm, trustworthy and plain-spoken. It has the honesty of careful course work, and its colour comes from the subject itself: water-and-leaf greens and blues on a deep harbour navy. Every page has one dominant message and keeps its content close to the reader, and colour blocks do the work of separating sections.\n\nLegibility is the identity. The two typefaces were chosen because they were designed for low-vision and dyslexic readers: Atkinson Hyperlegible for headings and Lexend for reading. The site argues for accessible labelling, so it has to pass its own test. That means high contrast, large tap targets, a visible focus state on everything interactive, and motion that stops when a visitor asks it to. Imagery is real or honestly marked as a placeholder. No stock-photo filler stands in for research that does not exist yet.\n\nPages are built from full-width bands of colour (Lagoon Teal hero, Midnight Harbour statements, Morning Sky calls to action) with plain white or Cloud bands of reading content between them. Inside those bands, white cards with gentle rounding hold discrete items such as posts, values and team members.",
+    "overview": "PrintSpeak's site should read the way a good product label ought to: you can see straight away what it is, what matters, and where to go next. Its look is calm, trustworthy and plain-spoken. It has the honesty of careful course work, and its colour comes from the subject itself: water-and-leaf greens and blues on a deep harbour navy. Every page has one dominant message and keeps its content close to the reader, and colour blocks do the work of separating sections.\n\nLegibility is the identity. The two typefaces were chosen because they were designed for low-vision and dyslexic readers: Atkinson Hyperlegible for headings and Lexend for reading. The site argues for accessible labelling, so it has to pass its own test. That means high contrast, large tap targets, a visible focus state on everything interactive, and motion that stops when a visitor asks it to. Imagery is real, or the section is laid out as text alone. No stock-photo filler stands in for research that does not exist yet.\n\nThe team leads: both openings put the real group photo first, the home page full-bleed under a navy message panel and the About page as a wide framed photo. Below the opening, pages are built from full-width bands of colour (Midnight Harbour statements, Morning Sky calls to action) with plain white or Cloud bands of reading content between them. Inside those bands, white cards with gentle rounding hold discrete items such as posts, values and team members.",
     "keyCharacteristics": [
       "Full-width colour bands set the rhythm; content sits in a 72rem column with 1.5rem gutters.",
       "Two legibility-first typefaces: Atkinson Hyperlegible for headings, Lexend for body and UI.",
@@ -376,7 +363,7 @@
       },
       {
         "name": "The Bold Heading Rule",
-        "body": "Every Atkinson heading is weight 700 with −0.01em tracking and `text-wrap: balance`. The single exception is the hero tagline, which is set regular with `font-normal`. The base heading rule in `styles.css` is written as `body :is(h1, h2, h3, h4)` so that Tailwind's CDN preflight, which loads after it, cannot reset the weight. Keep that selector.",
+        "body": "Every Atkinson heading is weight 700 with −0.01em tracking (−0.02em at the two hero display sizes) and `text-wrap: balance`. The base heading rule in `styles.css` is written as `body :is(h1, h2, h3, h4)` so that Tailwind's CDN preflight, which loads after it, cannot reset the weight. Keep that selector.",
         "section": "typography"
       },
       {
@@ -391,32 +378,33 @@
       },
       {
         "name": "The Lift Means Click Rule",
-        "body": "A card rises only if the whole card is a link or button. Static information cards (values, \"what we do\", \"coming soon\") stay flat at rest shadow.",
+        "body": "A card rises only if the whole card is a link or button. Static information cards (values, \"what we do\") stay flat at rest shadow.",
         "section": "elevation"
       },
       {
         "name": "The Flat Band Rule",
-        "body": "Coloured bands never carry shadows, gradients or overlays. A change of colour is the separation.",
+        "body": "Coloured bands never carry shadows, gradients or overlays. A change of colour is the separation. The home hero panel follows it too: a solid navy block inside the photo frame with no shadow, so text never sits on the photo directly.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do take every colour from the `--brand-*` custom properties in `styles.css` (exposed to Tailwind as `primary`, `accent`, `accent-text`, `highlight`, `surface`, `secondary`, `neutral-bg`, `ink`), never from hard-coded hex values.",
-      "Do use Deep Lagoon (#0A7C87) for any teal text or any teal fill behind white text; keep Lagoon Teal (#0FA3B1) for large fills, outlines and icons.",
-      "Do let headings inherit 700 from the shared `body :is(h1…h4)` rule; only the hero tagline opts out with `font-normal`.",
-      "Do draw every focus outline from `var(--focus-ring)` (3px, 3px offset), and reset that variable to Spring Shoot on any new navy band. Give every target at least 2.75rem (44px).",
-      "Do wrap every transform or animation in `prefers-reduced-motion` handling, as the existing nav, cards, hero chevron and dialog already do.",
-      "Do mark missing photography with the Morning Sky placeholder (icon plus \"… coming soon\", `role=\"img\"` with a label) until the real image exists.",
-      "Do build new sections as single-colour bands with one message, alternating with white or Cloud reading bands."
+      "**Do** take every colour from the `--brand-*` custom properties in `styles.css` (exposed to Tailwind as `primary`, `accent`, `accent-text`, `highlight`, `surface`, `secondary`, `neutral-bg`, `ink`), never from hard-coded hex values.",
+      "**Do** use Deep Lagoon (#0A7C87) for any teal text or any teal fill behind white text; keep Lagoon Teal (#0FA3B1) for large fills, outlines and icons.",
+      "**Do** let headings inherit 700 from the shared `body :is(h1…h4)` rule.",
+      "**Do** draw every focus outline from `var(--focus-ring)` (3px, 3px offset), and reset that variable to Spring Shoot on any new navy band. Give every target at least 2.75rem (44px).",
+      "**Do** wrap every transform or animation in `prefers-reduced-motion` handling, as the existing nav, cards and dialog already do.",
+      "**Do** use the web copies in `img/team_imgs/web/` (with `srcset`) for group photos, never the multi-megabyte originals.",
+      "**Do** lay a section out as text alone (heading beside copy, `.who-intro.intro-pair`) when it has no real photograph, rather than shipping an empty image slot.",
+      "**Do** build new sections as single-colour bands with one message, alternating with white or Cloud reading bands."
     ],
     "donts": [
-      "Don't put white or small text on Lagoon Teal, Lagoon Teal text on white, or a Lagoon Teal focus ring on light ground; all fail WCAG AA.",
-      "Don't introduce weights other than 400 and 700, or a third typeface.",
-      "Don't put a small uppercase \"eyebrow\" label above a heading.",
-      "Don't make static cards lift on hover; the rise means \"this is clickable\".",
-      "Don't add gradients, overlays or shadows to colour bands.",
-      "Don't use Fern (#72B01D) for text or fills; it is only for blockquote rules.",
-      "Don't replace placeholders with stock or AI imagery that implies field research, participants or partners that do not exist."
+      "**Don't** put white or small text on Lagoon Teal, Lagoon Teal text on white, or a Lagoon Teal focus ring on light ground; all fail WCAG AA.",
+      "**Don't** introduce weights other than 400 and 700, or a third typeface.",
+      "**Don't** put a small uppercase \"eyebrow\" label above a heading.",
+      "**Don't** make static cards lift on hover; the rise means \"this is clickable\".",
+      "**Don't** add gradients, overlays or shadows to colour bands.",
+      "**Don't** use Fern (#72B01D) for text or fills; it is only for blockquote rules.",
+      "**Don't** fill missing photography with stock or AI imagery that implies field research, participants or partners that do not exist."
     ]
   }
 }
