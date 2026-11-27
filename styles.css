@@ -314,6 +314,29 @@ textarea:focus-visible {
   color: var(--brand-text);
 }
 
+/* Two videos side by side (e.g. part 1 and part 2); stacks on small screens. */
+.post-body .post-video-pair {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .post-body .post-video-pair {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.post-body .post-video-pair figure {
+  margin: 0;
+}
+
+.post-body .post-video-pair + figcaption {
+  max-width: none;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
 /* Aside within a post (e.g. "Fun fact!"): flat Morning Sky panel. */
 .post-body .post-callout {
   margin: 2.5rem 0;

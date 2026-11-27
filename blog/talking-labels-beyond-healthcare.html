@@ -88,15 +88,28 @@
       <div class="post-body mt-10">
         <p>While talking labels are primarily used in the healthcare and pharmaceutical industries to help visually impaired individuals access medication, they are not commonly used in other sectors such as retail, food packaging and cosmetics. However, the adoption of smart labelling using NFC tags is increasing as many industries are finding innovative ways to implement it into their products.</p>
 
-        <!-- EDIT: video. Vertical 1080x1920 MP4 (H.264/AAC) with captions burned in. To replace it, swap
-             video/printspeak-intro.mp4 and its poster frame video/printspeak-intro-poster.jpg. No autoplay: it has sound.
-             If a replacement's captions are not burned in, add <track kind="captions" src="../video/NAME.vtt" srclang="en" label="English" default /> inside <video>. -->
+        <!-- EDIT: videos. Two vertical 1080x1920 MP4s (H.264/AAC) with captions burned in, shown side by side
+             (stacked on phones). To replace one, swap its MP4 and poster frame in video/, keeping the names.
+             No autoplay: they have sound. If a replacement's captions are not burned in, add
+             <track kind="captions" src="../video/NAME.vtt" srclang="en" label="English" default /> inside its <video>. -->
         <figure class="post-video">
-          <video controls playsinline preload="metadata" poster="../video/printspeak-intro-poster.jpg" width="1080" height="1920" aria-describedby="post-video-caption">
-            <source src="../video/printspeak-intro.mp4" type="video/mp4" />
-            <p>Your browser can't play this video. <a href="../video/printspeak-intro.mp4">Download the PrintSpeak video (MP4, 23 MB)</a>.</p>
-          </video>
-          <figcaption id="post-video-caption">A 30-second video from PrintSpeak. Captions are built into the video.</figcaption>
+          <div class="post-video-pair">
+            <figure>
+              <video controls playsinline preload="metadata" poster="../video/printspeak-intro-poster.jpg" width="1080" height="1920" aria-label="PrintSpeak video, part 1" aria-describedby="post-video-caption">
+                <source src="../video/printspeak-intro.mp4" type="video/mp4" />
+                <p>Your browser can't play this video. <a href="../video/printspeak-intro.mp4">Download part 1 (MP4, 23 MB)</a>.</p>
+              </video>
+              <figcaption><strong>Part 1</strong> · 30 seconds</figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="metadata" poster="../video/printspeak-part-2-poster.jpg" width="1080" height="1920" aria-label="PrintSpeak video, part 2" aria-describedby="post-video-caption">
+                <source src="../video/printspeak-part-2.mp4" type="video/mp4" />
+                <p>Your browser can't play this video. <a href="../video/printspeak-part-2.mp4">Download part 2 (MP4, 44 MB)</a>.</p>
+              </video>
+              <figcaption><strong>Part 2</strong> · 51 seconds</figcaption>
+            </figure>
+          </div>
+          <figcaption id="post-video-caption">A two-part video series from PrintSpeak. Captions are built into both videos.</figcaption>
         </figure>
 
         <h2>Retail Industry</h2>
