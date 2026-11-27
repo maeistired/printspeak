@@ -291,6 +291,29 @@ textarea:focus-visible {
   outline-offset: 0.1875rem;
 }
 
+/* Video within a post: a vertical video centred at phone size on a flat Morning Sky panel. */
+.post-body .post-video {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--brand-highlight);
+}
+
+.post-video video {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  background: var(--brand-primary);
+}
+
+.post-body .post-video figcaption {
+  max-width: 20rem;
+  margin: 0.75rem auto 0;
+  color: var(--brand-text);
+}
+
 /* Aside within a post (e.g. "Fun fact!"): flat Morning Sky panel. */
 .post-body .post-callout {
   margin: 2.5rem 0;
