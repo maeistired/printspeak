@@ -109,6 +109,21 @@ test("home page infographic feature links to the infographic", async ({ page }) 
   await expect(page.locator("h1")).toContainText("NFC Talking Labels");
 });
 
+test("blog #4 shows video parts 1 and 2 side by side", async ({ page, isMobile }) => {
+  await page.goto("/blog/talking-labels-beyond-healthcare.html");
+  const part1 = page.getByLabel("PrintSpeak video, part 1");
+  const part2 = page.getByLabel("PrintSpeak video, part 2");
+  await expect(part1).toBeVisible();
+  await expect(part2).toBeVisible();
+  for (const src of ["/video/printspeak-intro.mp4", "/video/printspeak-part-2.mp4", "/video/printspeak-part-2-poster.jpg"]) {
+    const res = await page.request.head(src);
+    expect(res.ok()).toBe(true);
+  }
+  const [a, b] = [await part1.boundingBox(), await part2.boundingBox()];
+  if (isMobile) expect(b.y).toBeGreaterThan(a.y + a.height - 1);
+  else expect(Math.abs(a.y - b.y)).toBeLessThan(2);
+});
+
 test("focus indicator is visible on keyboard focus", async ({ page }) => {
   await page.goto("/about.html");
   const link = page.getByRole("link", { name: "Read our blog" });
