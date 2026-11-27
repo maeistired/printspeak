@@ -88,10 +88,10 @@ test("blog #4 card links to its post", async ({ page }) => {
 
 test("infographic has its own page in the nav, and the old blog URL forwards there", async ({ page, isMobile }) => {
   await page.goto("/blog.html");
-  await expect(page.getByRole("main").getByRole("link", { name: /NFC Labels Explained/ })).toHaveCount(0);
+  await expect(page.getByRole("main").getByRole("link", { name: /NFC Talking Labels|NFC Labels Explained/ })).toHaveCount(0);
   if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
   await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Infographic" }).click();
-  await expect(page.locator("h1")).toContainText("NFC Labels Explained");
+  await expect(page.locator("h1")).toContainText("NFC Talking Labels");
   await expect(page.locator('#site-nav [aria-current="page"]')).toHaveText("Infographic");
   await expect(page.locator("#infographic img")).toBeVisible();
   await expect(page.getByRole("link", { name: /Download the PDF/ })).toHaveAttribute("href", "img/blog/nfc-labels-infographic.pdf");
@@ -102,11 +102,11 @@ test("infographic has its own page in the nav, and the old blog URL forwards the
 test("home page infographic feature links to the infographic", async ({ page }) => {
   await page.goto("/index.html");
   const feature = page.locator("#infographic");
-  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("NFC labels, in one page");
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("NFC talking labels, in one page");
   const pdf = await page.request.get("/img/blog/nfc-labels-infographic.pdf");
   expect(pdf.ok()).toBe(true);
   await feature.getByRole("link", { name: "View the infographic" }).click();
-  await expect(page.locator("h1")).toContainText("NFC Labels Explained");
+  await expect(page.locator("h1")).toContainText("NFC Talking Labels");
 });
 
 test("focus indicator is visible on keyboard focus", async ({ page }) => {
