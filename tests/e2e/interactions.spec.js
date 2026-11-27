@@ -90,6 +90,18 @@ test("blog #5 card links to the NFC labels post", async ({ page }) => {
   await page.goto("/blog.html");
   await page.getByRole("main").getByRole("link", { name: /NFC Labels Explained/ }).click();
   await expect(page.locator("h1")).toContainText("NFC Labels Explained");
+  await expect(page.locator(".post-infographic img")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Download the PDF/ })).toHaveAttribute("href", "../img/blog/nfc-labels-infographic.pdf");
+});
+
+test("home page infographic feature links to the infographic", async ({ page }) => {
+  await page.goto("/index.html");
+  const feature = page.locator("#infographic");
+  await expect(feature.getByRole("heading", { level: 2 })).toHaveText("NFC labels, in one page");
+  const pdf = await page.request.get("/img/blog/nfc-labels-infographic.pdf");
+  expect(pdf.ok()).toBe(true);
+  await feature.getByRole("link", { name: "View the infographic" }).click();
+  await expect(page.locator("h1")).toContainText("NFC Labels Explained");
 });
 
 test("focus indicator is visible on keyboard focus", async ({ page }) => {
