@@ -357,6 +357,18 @@ if (nav) {
 const footer = document.getElementById("site-footer");
 if (footer) {
   footer.innerHTML = createFooterMarkup(pathPrefix);
+
+  // Back to top: the #top target is the sticky nav, which is always on screen, so the browser
+  // would not scroll for the plain link. Scroll the page itself, then put keyboard focus on the logo.
+  const backToTop = footer.querySelector(".site-footer-back-to-top");
+  if (backToTop) {
+    backToTop.addEventListener("click", (event) => {
+      event.preventDefault();
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      document.querySelector(".site-nav-logo")?.focus({ preventScroll: true });
+    });
+  }
 }
 
 document.querySelectorAll("[data-site-contact]").forEach((contactElement) => {

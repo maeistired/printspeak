@@ -125,3 +125,13 @@ test("hover motion is disabled for reduced-motion users", async ({ page }) => {
   const transform = await card.evaluate((el) => getComputedStyle(el).transform);
   expect(transform).toBe("none");
 });
+
+test("back to top button returns to the top of the page", async ({ page }) => {
+  await page.goto("/infographic.html");
+  const button = page.locator(".site-footer-back-to-top");
+  await button.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(500);
+  await button.click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await expect(page.locator(".site-nav-logo")).toBeFocused();
+});
