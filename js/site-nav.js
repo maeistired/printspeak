@@ -5,6 +5,7 @@ const navLinks = [
   { page: "home", label: "Home", file: "index.html" },
   { page: "about", label: "About", file: "about.html" },
   { page: "team", label: "Team", file: "team.html" },
+  { page: "infographic", label: "Infographic", file: "infographic.html" },
   { page: "blog", label: "Blog", file: "blog.html" },
   { page: "contact", label: "Contact", file: "contact.html" }
 ];
@@ -52,8 +53,8 @@ const FOOTER = {
 
   // Blog content
   latestPosts: [
-    { title: "NFC Labels Explained: How a Tap Turns Print Into Speech", href: "blog/nfc-labels-infographic.html", date: "" },
-    { title: "From Grocery Shelves to Storefronts: Talking Labels Beyond Healthcare", href: "blog/talking-labels-beyond-healthcare.html", date: "" }
+    { title: "From Grocery Shelves to Storefronts: Talking Labels Beyond Healthcare", href: "blog/talking-labels-beyond-healthcare.html", date: "" },
+    { title: "How talking labels help blind and visually impaired individuals access product information", href: "blog/talking-labels-access.html", date: "" }
   ],
 
   // Editing map: Social links (footer + contact panels): js/site-nav.js FOOTER.socials.

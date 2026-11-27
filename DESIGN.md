@@ -299,7 +299,10 @@ Script: `js/hero-carousel.js`. Markup: `index.html #hero`. Tests: `tests/e2e/her
 - **Accessibility:** `aria-roledescription` carousel/slide, slides labelled "N of 5", inactive slides `inert`, the slide region announces politely only while stopped. Without JavaScript the first slide shows and the controls stay hidden.
 
 ### Post Ending
-Every post closes, after its references, with a Mist Line hairline (4rem above, 2.5rem below), a small Dusk Slate "Keep reading" heading, the next post's title as a large underlined Atkinson link (1.5rem, Midnight Harbour, hover Deep Lagoon) and one Body Long line inviting the reader to get in touch. Posts link forward by date; the newest links back to the first.
+Every post closes, after its references, with a Mist Line hairline (4rem above, 2.5rem below), a small Dusk Slate "Keep reading" heading, the next post's title as a large underlined Atkinson link (1.5rem, Midnight Harbour, hover Deep Lagoon) and one Body Long line inviting the reader to get in touch. Posts link forward by date; the newest links back to the first. The Infographic page reuses it with a "Learn more" heading pointing at the first post.
+
+### Infographic Page
+`infographic.html` has its own nav tab, between Team and Blog. It opens with the H1, an intro paragraph, the Creative team credit, and two buttons: Download the PDF (solid) and Open full size (outline). Below that, the tall 1000×2500 infographic sits in a 28rem column with a soft shadow. It links to the full-size image and is captioned in Dusk Slate. Its text version sits beside it in a `.post-body` column, reusing the post lists and the Morning Sky NFC vs. QR comparison panels. Below 1024px the two stack, image first.
 
 ### Team Card & Dialog
 White card with a square photo frame (0.75rem radius) whose backdrop rotates through Spring Shoot, Morning Sky and Cloud. If the photo is missing, the frame shows the member's initials in large Atkinson 3rem bold. Clicking opens a 40rem dialog with a navy scrim, scaling in from 96% over 0.2s, with the photo and bio side by side from 640px. Deep links pulse a 4px Lagoon Teal ring on arrival.

@@ -26,7 +26,7 @@ A student team treating accessible packaging as a project-management problem. Th
 
 ## Operating Context
 
-- A static multi-page site at printspeak.ca, hosted on GitHub Pages: Home, About, Team, Blog (Journal), Contact.
+- A static multi-page site at printspeak.ca, hosted on GitHub Pages: Home, About, Team, Infographic, Blog (Journal), Contact.
 - The blog is the main content channel. New posts are made by copying `blog/talking-labels.html` and editing its EDIT regions. New posts get a card at the top of the blog index grid.
 - Team: a PM group, a Creative team, and a Research team. Their photos are in `img/team_imgs/`, and their data is in `js/team-data.js`.
 - Contact goes through email (official.printspeak@gmail.com), Instagram, and LinkedIn, plus a contact form that relays to that inbox through FormSubmit (formsubmit.co). There's no backend of our own.
@@ -47,6 +47,7 @@ A student team treating accessible packaging as a project-management problem. Th
 ## Evidence on Hand
 
 - Four published blog posts: `blog/talking-labels.html`, `blog/accessibility-standard-practice.html`, `blog/talking-labels-access.html` and `blog/talking-labels-beyond-healthcare.html`, with images in `img/blog/`.
+- The NFC labels infographic on its own page, `infographic.html` (in the main nav), with its PDF and web images in `img/blog/nfc-labels-infographic*`. The old blog URL `blog/nfc-labels-infographic.html` only redirects there.
 - Team and individual photos in `img/team_imgs/`.
 - No survey results, field-study findings, statistics, partner quotes, or testimonials exist yet; the research is still in progress. Future work must not invent or imply results, numbers, partners, or endorsements. Existing copy that mentions "field studies, insider data, and extensive research" describes the approach, not results that can be cited.
 

@@ -22,7 +22,7 @@ test("mobile menu opens, closes with Escape, and returns focus", async ({ page, 
 
 test("navigation links reach every page", async ({ page, isMobile }) => {
   await page.goto("/index.html");
-  for (const name of ["About", "Team", "Blog", "Contact"]) {
+  for (const name of ["About", "Team", "Infographic", "Blog", "Contact"]) {
     if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
     await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name }).click();
     await expect(page).toHaveTitle(pages.find((p) => p.nav === name).title);
@@ -86,12 +86,17 @@ test("blog #4 card links to its post", async ({ page }) => {
   await expect(page.locator("h1")).toContainText("Talking Labels Beyond Healthcare");
 });
 
-test("blog #5 card links to the NFC labels post", async ({ page }) => {
+test("infographic has its own page in the nav, and the old blog URL forwards there", async ({ page, isMobile }) => {
   await page.goto("/blog.html");
-  await page.getByRole("main").getByRole("link", { name: /NFC Labels Explained/ }).click();
+  await expect(page.getByRole("main").getByRole("link", { name: /NFC Labels Explained/ })).toHaveCount(0);
+  if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
+  await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Infographic" }).click();
   await expect(page.locator("h1")).toContainText("NFC Labels Explained");
-  await expect(page.locator(".post-infographic img")).toBeVisible();
-  await expect(page.getByRole("link", { name: /Download the PDF/ })).toHaveAttribute("href", "../img/blog/nfc-labels-infographic.pdf");
+  await expect(page.locator('#site-nav [aria-current="page"]')).toHaveText("Infographic");
+  await expect(page.locator("#infographic img")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Download the PDF/ })).toHaveAttribute("href", "img/blog/nfc-labels-infographic.pdf");
+  await page.goto("/blog/nfc-labels-infographic.html");
+  await expect(page).toHaveURL(/\/infographic\.html$/);
 });
 
 test("home page infographic feature links to the infographic", async ({ page }) => {
