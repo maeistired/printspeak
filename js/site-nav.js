@@ -160,12 +160,12 @@ const createFooterSocialsMarkup = () => FOOTER.socials.length ? `
 const createContactFormMarkup = (variant) => {
   const fields = variant === "compact"
     ? [
-      { id: "email", label: "Email", type: "email" },
+      { id: "email", label: "Email", type: "email", autocomplete: "email" },
       { id: "message", label: "Message", type: "textarea", rows: 3 }
     ]
     : [
-      { id: "name", label: "Name", type: "text" },
-      { id: "email", label: "Email", type: "email" },
+      { id: "name", label: "Name", type: "text", autocomplete: "name" },
+      { id: "email", label: "Email", type: "email", autocomplete: "email" },
       { id: "message", label: "Message", type: "textarea", rows: 4 }
     ];
 
@@ -179,12 +179,12 @@ const createContactFormMarkup = (variant) => {
       <label for="${variant}-honey">Leave this field empty</label>
       <input id="${variant}-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
     </div>
-    ${fields.map(({ id, label, type, rows }) => `
+    ${fields.map(({ id, label, type, rows, autocomplete }) => `
       <div class="contact-field">
         <label for="${variant}-${id}">${label} <span>(required)</span></label>
         ${type === "textarea"
           ? `<textarea id="${variant}-${id}" name="${id}" rows="${rows}" class="form-input" required></textarea>`
-          : `<input id="${variant}-${id}" name="${id}" type="${type}" class="form-input" required />`}
+          : `<input id="${variant}-${id}" name="${id}" type="${type}"${autocomplete ? ` autocomplete="${autocomplete}"` : ""} class="form-input" required />`}
       </div>
     `).join("")}
     <button type="submit" class="btn btn-pill">Send message</button>

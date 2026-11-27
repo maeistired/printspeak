@@ -2295,3 +2295,8 @@ body .post-next h2 {
   margin-top: auto;
   padding-top: 1.25rem;
 }
+
+/* Wide banner images in blog cards (e.g. the NFC infographic title) show whole, on the banner's navy, instead of being cropped. */
+.card-banner {
+  background: var(--brand-primary);
+}
