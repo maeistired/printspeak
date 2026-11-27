@@ -30,7 +30,7 @@ const createCardMarkup = (member, index) => {
 const createGroupMarkup = (group, groupIndex) => `
   <section class="team-group" aria-labelledby="team-group-${groupIndex}">
     <h2 id="team-group-${groupIndex}" class="team-group__title">${group.title}</h2>
-    <div class="team-grid">
+    <div class="team-grid" data-count="${group.members.length}">
       ${group.members.map((member, memberIndex) => createCardMarkup(member, `${groupIndex}-${memberIndex}`)).join("")}
     </div>
   </section>

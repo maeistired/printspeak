@@ -73,7 +73,7 @@ test.describe("home hero carousel", () => {
     });
   }
 
-  test("controls move between slides and pause the slideshow", async ({ page }) => {
+  test("controls move between slides and pause the slideshow", async ({ page, isMobile }) => {
     await page.goto("/index.html");
     const hero = page.locator("#hero");
     const active = hero.locator(".hero-slide.is-active");
@@ -91,6 +91,12 @@ test.describe("home hero carousel", () => {
     await expect(active).toHaveAttribute("aria-label", "5 of 5");
     await expect(active.getByRole("link", { name: "Meet the team" })).toHaveAttribute("href", "team.html#team-group-2");
 
+    // Phones show only the current dot (the timer bar); the others are hidden to keep three controls.
+    if (isMobile) {
+      await expect(page.getByRole("button", { name: /^Slide 4 of 5/ })).toBeHidden();
+      await expect(hero.locator('.hero-dot[aria-current="true"]')).toBeVisible();
+      return;
+    }
     await page.getByRole("button", { name: /^Slide 4 of 5/ }).click();
     await expect(active).toHaveAttribute("aria-label", "4 of 5");
     await expect(page.getByRole("button", { name: /^Slide 4 of 5/ })).toHaveAttribute("aria-current", "true");

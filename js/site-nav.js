@@ -386,16 +386,28 @@ document.querySelectorAll("[data-site-form]").forEach((form) => {
 
   // Pending state: stops double submits while the browser hands off to FormSubmit.
   const submitButton = form.querySelector('[type="submit"]');
+  // The status line above each form (role="status") also announces the pending state to screen readers.
+  const status = form.parentElement.querySelector("[data-form-status]");
+  const sent = new URLSearchParams(window.location.search).get("sent") === "1";
+  const sentMessage = status ? status.textContent : "";
   if (submitButton) {
     const idleLabel = submitButton.textContent;
     form.addEventListener("submit", () => {
       submitButton.disabled = true;
       submitButton.textContent = "Sending…";
+      if (status) {
+        status.textContent = "Sending your message…";
+        status.hidden = false;
+      }
     });
     // Reset if the visitor comes back via the browser's back button (bfcache).
     window.addEventListener("pageshow", () => {
       submitButton.disabled = false;
       submitButton.textContent = idleLabel;
+      if (status) {
+        status.textContent = sentMessage;
+        status.hidden = !sent;
+      }
     });
   }
 });
